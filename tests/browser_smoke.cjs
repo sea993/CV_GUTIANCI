@@ -28,13 +28,25 @@ const routes = {about:'index.html',education:'education.html',publications:'publ
     check((await page.locator('[data-email]').innerText()) === 'gutc@mail.bnu.edu.cn', 'Email is incorrect');
     check((await page.locator('[data-email]').getAttribute('href')) === 'mailto:gutc@mail.bnu.edu.cn', 'Email link is incorrect');
     check((await page.locator('#scholar-link').getAttribute('href')).includes('gLpuU54AAAAJ'), 'Scholar profile link is incorrect');
+    check(await page.locator('.contact-icon').count() === 5, 'Contact icons were removed during rendering');
+    check(await page.locator('#home-featured .research-figure').count() === 1, 'The selected research figure is missing');
+    check(await page.locator('#home-featured figcaption').innerText().then(value=>value.includes('Gu et al., 2025') && value.includes('CC BY-NC-ND 4.0')), 'Figure credit or license is missing');
+    const imagePopup = page.waitForEvent('popup');
+    await page.locator('#home-featured .research-image-link').click();
+    const figurePage = await imagePopup;
+    await figurePage.waitForLoadState('load');
+    check((await figurePage.locator('img').evaluate(image=>image.naturalWidth)) === 685, 'The research figure cannot be opened at its source resolution');
+    await figurePage.close();
     await page.locator('[data-language="en"]').click();
+    check(await page.locator('.contact-icon').count() === 5, 'Language switching removed contact icons');
+    check(await page.locator('#home-featured img').getAttribute('alt').then(value=>value.includes('Chinese cities')), 'The research image lacks English alternative text');
     await page.locator('#site-nav [data-page-link="projects"]').click();
     check(new URL(page.url()).pathname.endsWith('/projects.html') && new URL(page.url()).searchParams.get('lang')==='en', 'Navigation did not retain language');
     check((await page.locator('#project-list').innerText()).includes('Projects led'), 'Projects led was changed');
     check(!(await page.locator('#project-list').innerText()).includes('Responsibilities:'), 'Verbose project responsibilities remain on the project page');
 
     await go('publications','en');
+    check(await page.locator('#paper-1 .research-figure').count() === 1, 'The paper figure is missing on the publication page');
     check((await page.locator('#publication-list').innerText()).includes('64(03), 528-537'), 'Journal pagination is missing');
     await page.locator('#publication-search').fill('Metros for Meadows');
     check(await page.locator('.publication').count() === 1, 'English title search failed');
@@ -55,6 +67,7 @@ const routes = {about:'index.html',education:'education.html',publications:'publ
     check(await page.locator('.publication').count() === 0 && await page.locator('#publication-empty').isVisible(), 'Empty search message failed');
 
     await go('cv');
+    check(await page.locator('#publication-list .research-figure').count() === 0, 'Research thumbnails were included in the printable CV');
     check(await page.locator('.education-scores').count() === 3, 'Education scores were lost from the CV');
     check(await page.locator('#skill-list dt').count() === 5, 'Concise skills are missing from the CV');
     check((await page.locator('#metrics').innerText()).includes('1,169') && (await page.locator('#metrics').innerText()).includes('1,165'), 'Citation counts are incorrect');

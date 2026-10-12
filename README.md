@@ -49,10 +49,14 @@
 ## 设计参考
 
 - [Academic Pages](https://github.com/academicpages/academicpages.github.io)：参考内容与版式分离、学术栏目和论文条目的组织方式。
-- [Zhen Zhang的学术主页](https://gis-zhangzhen.github.io/)：参考个人信息侧栏、简短介绍和近期动态的组织方式，全部个人内容依据谷天赐的材料重新编写。
+- [Zhen Zhang的学术主页](https://gis-zhangzhen.github.io/)：参考个人信息侧栏、简短介绍、近期动态及研究图像与论文配对的组织方式，全部个人内容依据谷天赐的材料重新编写。
 - [al-folio](https://github.com/alshedivat/al-folio)：参考出版记录分类和论文检索交互。
 - [Nature](https://www.nature.com/)：参考编辑式标题层级、简洁版面与细分隔线。
 
 字体分为三种用途：Georgia用于主要英文标题，Microsoft YaHei用于中文，Segoe UI用于英文正文、导航、控件和数字。强调色`#004DA3`取自用户提供的北京师范大学校徽图片主色。页面不设置重复的个人信息页脚。
 
-本项目采用独立HTML、CSS和JavaScript实现；未使用上述项目的模板文件或Nature品牌资产。
+本项目采用独立HTML、CSS和JavaScript实现；未使用上述项目的模板文件或Nature商标。
+
+新增的视觉元素包括用户提供的北京师范大学校徽、项目内编写的语义图标，以及谷天赐第一作者论文的原图。首页研究选读及学术成果页使用[Gu et al. (2025), npj Urban Sustainability, Fig. 1](https://www.nature.com/articles/s42949-025-00251-7#Fig1)，文件为`assets/research/urbanization-fig1.png`，取自出版社提供的685像素版本，完整保留原图，不裁剪或改色。原文采用[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)，页面标注作者、来源和许可。图像用于非商业学术展示，与代码的许可分开处理。没有复制参考主页作者的论文图。
+
+图片可以点击放大查看，论文标题及全文链接指向原文。新增图片配有中英文替代文本，手机上采用纵向排布。完整简历及打印版本保留紧凑的论文条目，不插入研究缩略图。

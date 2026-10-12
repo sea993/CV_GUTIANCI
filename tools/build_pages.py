@@ -14,25 +14,28 @@ PAGES = {
     'cv': ('cv.html', '完整简历'),
 }
 def contacts(include_cv=False):
-    cv_link = '  <a href="cv.html" data-page-link="cv" data-i18n="cv">完整简历</a>\n' if include_cv else ''
+    def icon(name):
+        return f'<svg class="contact-icon" aria-hidden="true"><use href="assets/icons.svg#{name}"></use></svg>'
+    cv_link = f'  <a href="cv.html" data-page-link="cv">{icon("document")}<span data-i18n="cv">完整简历</span></a>\n' if include_cv else ''
     return f'''<div class="contact-links">
-  <a href="mailto:gutc@mail.bnu.edu.cn" data-email>gutc@mail.bnu.edu.cn</a>
-  <a id="scholar-link" href="https://scholar.google.com/citations?user=gLpuU54AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-  <a id="orcid-link" href="https://orcid.org/0000-0001-9466-5545" target="_blank" rel="noopener">ORCID</a>
-  <a id="researchgate-link" href="https://www.researchgate.net/profile/Tianci-Gu-2" target="_blank" rel="noopener">ResearchGate</a>
+  <a href="mailto:gutc@mail.bnu.edu.cn" data-email>{icon("mail")}<span>gutc@mail.bnu.edu.cn</span></a>
+  <a id="scholar-link" href="https://scholar.google.com/citations?user=gLpuU54AAAAJ" target="_blank" rel="noopener">{icon("scholar")}<span>Google Scholar</span></a>
+  <a id="orcid-link" href="https://orcid.org/0000-0001-9466-5545" target="_blank" rel="noopener">{icon("identity")}<span>ORCID</span></a>
+  <a id="researchgate-link" href="https://www.researchgate.net/profile/Tianci-Gu-2" target="_blank" rel="noopener">{icon("network")}<span>ResearchGate</span></a>
 {cv_link}</div>'''
 
 HOME = f'''<section id="about" class="about-layout" aria-labelledby="home-title">
   <aside class="profile-sidebar">
     <figure class="portrait-block"><img src="assets/portrait.jpeg" width="150" height="191" alt="谷天赐 Tianci Gu" fetchpriority="high"></figure>
     <h2 id="profile-name">谷天赐 <span>Tianci Gu</span></h2>
-    <p id="profile-position" class="profile-position">北京师范大学地理科学学部<br>自然资源专业博士生</p>
+    <div class="profile-institution"><img class="institution-seal" src="assets/bnu-seal.png" width="40" height="40" alt="北京师范大学 Beijing Normal University"><p id="profile-position" class="profile-position">北京师范大学地理科学学部<br>自然资源专业博士生</p></div>
     {contacts(include_cv=True)}
   </aside>
   <div class="about-main">
     <h1 id="home-title" class="about-title" data-i18n="about">个人简介</h1>
     <div id="home-biography" class="home-biography"></div>
-    <h2 data-i18n="researchInterests">研究兴趣</h2><ul id="home-research" class="plain-list"></ul>
+    <h2 data-i18n="researchInterests">研究兴趣</h2><ul id="home-research" class="research-interests"></ul>
+    <h2 data-i18n="selectedResearch">研究选读</h2><div id="home-featured" class="featured-research"></div>
     <h2 data-i18n="recentNews">近期动态</h2><ul id="home-news" class="news-list"></ul>
   </div>
 </section>'''

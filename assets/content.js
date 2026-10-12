@@ -214,7 +214,25 @@ window.CV_CONTENT = {
         17,
         18
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1038/s42949-025-00251-7",
+      "featured": true,
+      "featuredSummary": {
+        "zh": "比较2005—2020年中国城市以人为本、人口与土地城镇化的进程及协调性。",
+        "en": "Comparing people-oriented, population and land urbanization across Chinese cities from 2005 to 2020."
+      },
+      "figure": {
+        "src": "assets/research/urbanization-fig1.png",
+        "width": 685,
+        "height": 398,
+        "number": 1,
+        "alt": {
+          "zh": "论文图1：2005至2020年中国城市18项城镇化指标的时空分布。",
+          "en": "Figure 1 from the paper: spatial and temporal patterns of 18 urbanization indicators in Chinese cities between 2005 and 2020."
+        },
+        "sourceUrl": "https://www.nature.com/articles/s42949-025-00251-7#Fig1",
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+      }
     },
     {
       "id": "paper-2",

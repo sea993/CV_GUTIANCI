@@ -32,6 +32,11 @@
   const localized = (value) => typeof value === 'object' && value !== null ? value[language] : value;
   const text = (key) => strings[language][key];
   const colon = () => language === 'zh' ? '：' : ': ';
+  strings.zh.selectedResearch = '研究选读';
+  strings.en.selectedResearch = 'Selected research';
+  strings.zh.fullArticle = '论文全文';
+  strings.en.fullArticle = 'Read article';
+  const icon = (name, className) => '<svg class="' + className + '" aria-hidden="true"><use href="assets/icons.svg#' + name + '"></use></svg>';
   const setText = (id, value) => { if (byId(id)) byId(id).textContent = value; };
   const setHTML = (id, value) => { if (byId(id)) byId(id).innerHTML = value; };
 
@@ -43,6 +48,20 @@
       group.items.push(item);
     }
     return result;
+  }
+
+  function researchFigure(paper) {
+    const figure = paper.figure;
+    const label = language === 'zh' ? '图' + figure.number : 'Fig. ' + figure.number;
+    return '<figure class="research-figure"><a class="research-image-link" href="' + escape(figure.src) + '" target="_blank" rel="noopener"><img src="' + escape(figure.src) + '" width="' + figure.width + '" height="' + figure.height + '" alt="' + escape(localized(figure.alt)) + '" loading="lazy" decoding="async"></a>' +
+      '<figcaption>Gu et al., ' + escape(paper.year) + '. <a href="' + escape(figure.sourceUrl) + '" target="_blank" rel="noopener">' + label + '</a><br><a href="' + escape(figure.licenseUrl) + '" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a></figcaption></figure>';
+  }
+
+  function renderFeaturedResearch() {
+    if (!byId('home-featured')) return;
+    setHTML('home-featured', content.publications.filter((paper) => paper.featured).map((paper) =>
+      '<article class="featured-study">' + researchFigure(paper) + '<div class="featured-copy"><h3><a href="' + escape(paper.doi) + '" target="_blank" rel="noopener">' + escape(localized(paper.title)) + '</a></h3><p class="featured-venue"><em>' + escape(localized(paper.venue)) + '</em>, ' + escape(paper.year) + '</p><p>' + escape(localized(paper.featuredSummary)) + '</p><a class="article-link" href="' + escape(paper.doi) + '" target="_blank" rel="noopener">' + text('fullArticle') + '</a></div></article>'
+    ).join(''));
   }
 
   function renderRecords(id, items) {
@@ -90,11 +109,13 @@
       const role = ['second','accepted'].includes(paper.category) ? (language === 'zh' ? '第二作者' : 'Second author') : paper.category === 'collaborative' ? '' : localized(paper.role);
       const status = paper.status === 'published' ? '' : '<span class="status">' + escape(text(paper.status)) + '</span>';
       const citation = [paper.year,paper.reference].filter(Boolean).map(escape).join(', ');
-      return '<article class="publication" id="' + escape(paper.id) + '" data-status="' + escape(paper.status) + '">' +
+      const illustrated = currentPage === 'publications' && paper.figure;
+      return '<article class="publication' + (illustrated ? ' publication-illustrated' : '') + '" id="' + escape(paper.id) + '" data-status="' + escape(paper.status) + '">' +
+        (illustrated ? researchFigure(paper) : '') + '<div class="publication-copy">' +
         '<' + heading + ' class="publication-title" lang="' + (paper.originalLanguage === 'zh' ? 'zh-CN' : 'en') + '">' + escape(title) + '</' + heading + '>' + translation +
         '<p class="authors">' + authors + '</p>' +
         '<p class="venue"><em>' + escape(localized(paper.venue)) + '</em>' + (citation ? ', ' + citation : '') + '</p>' +
-        (role || status ? '<p class="publication-notes">' + (role ? '<span>' + escape(role) + '</span>' : '') + status + '</p>' : '') + '</article>';
+        (role || status || paper.doi ? '<p class="publication-notes">' + (role ? '<span>' + escape(role) + '</span>' : '') + status + (paper.doi ? '<a href="' + escape(paper.doi) + '" target="_blank" rel="noopener">' + text('fullArticle') + '</a>' : '') + '</p>' : '') + '</div></article>';
     }).join(''));
   }
 
@@ -127,10 +148,12 @@
   function renderProfile() {
     if (!byId('profile-name')) return;
     setHTML('profile-name', escape(localized(content.profile.name)) + '<span>' + escape(content.profile.name[language === 'zh' ? 'en' : 'zh']) + '</span>');
-    setHTML('profile-position', escape(localized(content.profile.affiliation)) + '<br>' + escape(localized(content.profile.position)));
+    const affiliation = currentPage === 'about' && language === 'en' ? 'Beijing Normal University' : localized(content.profile.affiliation);
+    setHTML('profile-position', escape(affiliation) + '<br>' + escape(localized(content.profile.position)));
     setText('profile-bio', localized(content.profile.bio));
     setHTML('home-biography', content.profile.homeBio.map((paragraph) => '<p>' + escape(localized(paragraph)) + '</p>').join(''));
-    setHTML('home-research', content.homeResearch.map((item) => '<li>' + escape(localized(item)) + '</li>').join(''));
+    setHTML('home-research', content.homeResearch.map((item, index) => '<li>' + icon(['city','leaf','map'][index], 'interest-icon') + '<span>' + escape(localized(item)) + '</span></li>').join(''));
+    renderFeaturedResearch();
     setHTML('home-news', content.news.map((item) => '<li><span class="news-date">' + escape(item.date) + '</span><span>' + escape(localized(item.text)) + '</span></li>').join(''));
     setHTML('biography', content.biography.map((paragraph) => '<p>' + escape(localized(paragraph)) + '</p>').join(''));
     setHTML('research-statement', content.researchStatement.map((paragraph) => '<p>' + escape(localized(paragraph)) + '</p>').join(''));
@@ -149,7 +172,7 @@
     document.querySelectorAll('[data-profile-name]').forEach((element) => { element.textContent = localized(content.profile.name); });
     document.querySelectorAll('[data-language]').forEach((button) => { button.setAttribute('aria-pressed', String(button.dataset.language === language)); });
     document.querySelectorAll('[data-page-link]').forEach((link) => { link.href = routes[link.dataset.pageLink] + '?lang=' + language; });
-    document.querySelectorAll('[data-email]').forEach((link) => { link.href = 'mailto:' + content.profile.email; link.textContent = content.profile.email; });
+    document.querySelectorAll('[data-email]').forEach((link) => { link.href = 'mailto:' + content.profile.email; link.querySelector('span').textContent = content.profile.email; });
     byId('site-nav').setAttribute('aria-label', language === 'zh' ? '主要导航' : 'Main navigation');
     renderProfile();
     renderEducation();
