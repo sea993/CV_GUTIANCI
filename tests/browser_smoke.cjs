@@ -32,6 +32,7 @@ fs.mkdirSync(screenshots, {recursive:true});
     check(await page.locator('html').getAttribute('lang') === 'en', 'English language not applied');
     check((await page.locator('#project-list').innerText()).includes('RMB 600,000'), 'English project funding is missing');
     check((await page.locator('#publication-list').innerText()).includes('64(03), 528-537'), 'Chinese journal pagination is missing');
+    check((await page.locator('#skill-list').innerText()).includes('Data collection and organization: experienced'), 'Skill labels run into their descriptions');
     await noOverflow();
     await page.screenshot({path:path.join(screenshots, 'desktop-en.png')});
     await page.locator('#publication-search').fill('Metros for Meadows');

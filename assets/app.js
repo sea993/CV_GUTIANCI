@@ -106,7 +106,7 @@
       const value = localized(skill.text);
       const separator = language === 'zh' ? '：' : ':';
       const position = value.indexOf(separator);
-      return `<p class="skill"><strong>${escape(value.slice(0,position))}</strong>${escape(value.slice(position + 1).trim())}</p>`;
+      return `<p class="skill"><strong>${escape(value.slice(0,position))}${escape(separator)}</strong> ${escape(value.slice(position + 1).trim())}</p>`;
     }).join('');
     renderService();
     byId('updated-label').textContent = text('updated');
