@@ -6,20 +6,20 @@ window.CV_CONTENT = {
       "en": "Tianci Gu"
     },
     "affiliation": {
-      "zh": "北京师范大学 · 地理科学学部",
-      "en": "Faculty of Geographical Science · Beijing Normal University"
+      "zh": "北京师范大学地理科学学部",
+      "en": "Faculty of Geographical Science, Beijing Normal University"
     },
     "position": {
       "zh": "自然资源专业博士生",
       "en": "PhD student in Natural Resources"
     },
     "research": {
-      "zh": "城市化与生物多样性",
-      "en": "Urbanization & biodiversity"
+      "zh": "城市化生态效应与生物多样性保护",
+      "en": "Ecological effects of urbanization and biodiversity conservation"
     },
     "bio": {
-      "zh": "我是谷天赐，北京师范大学地理科学学部自然资源专业博士生。我的研究兴趣包括城市化及其效应，以及城市化与生物多样性的关系。博士导师为黄庆旭教授和何春阳教授。",
-      "en": "I am Tianci Gu, a PhD student in Natural Resources at the Faculty of Geographical Science, Beijing Normal University. My research interests include urbanization and its effects, and the relationship between urbanization and biodiversity. I am supervised by Prof. Qingxu Huang and Prof. Chunyang He."
+      "zh": "我是谷天赐，中共党员，北京师范大学自然资源专业博士生，研究城市化的近远程生态效应与生物多样性保护。博士导师为黄庆旭教授和何春阳教授。",
+      "en": "I am Tianci Gu, a PhD student in Natural Resources at Beijing Normal University and a member of the Communist Party of China. I study the local and distant ecological effects of urbanization and biodiversity conservation, supervised by Prof. Qingxu Huang and Prof. Chunyang He."
     },
     "email": "gutc@cug.edu.cn",
     "phone": "18366013097",
@@ -40,28 +40,32 @@ window.CV_CONTENT = {
       1,
       2,
       3
-    ]
+    ],
+    "scholar": "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
   },
   "metrics": [
     {
-      "value": "45",
+      "value": "1,169",
+      "since2021": "1,165",
       "label": {
-        "zh": "Google Scholar收录成果",
-        "en": "Google Scholar records"
-      }
-    },
-    {
-      "value": "1,158",
-      "label": {
-        "zh": "总被引次数",
+        "zh": "引用次数",
         "en": "Citations"
       }
     },
     {
       "value": "20",
+      "since2021": "20",
       "label": {
         "zh": "h指数",
         "en": "h-index"
+      }
+    },
+    {
+      "value": "26",
+      "since2021": "26",
+      "label": {
+        "zh": "i10指数",
+        "en": "i10-index"
       }
     }
   ],
@@ -70,8 +74,8 @@ window.CV_CONTENT = {
     "en": "I have published four first- or co-first-authored papers, eight corresponding- or co-corresponding-authored papers, and four papers with my supervisor as first author and myself as second author. Four papers are ESI highly cited papers. My work has appeared in npj Urban Sustainability, Earth’s Future and Environmental Impact Assessment Review."
   },
   "metricsNote": {
-    "zh": "截至2026年10月，Google Scholar收录成果45项，总被引1158次，h指数20。",
-    "en": "As of October 2026, Google Scholar listed 45 records, 1,158 citations and an h-index of 20."
+    "zh": "Google Scholar，2026年10月12日更新。",
+    "en": "Google Scholar, updated 12 October 2026."
   },
   "education": [
     {
@@ -2216,6 +2220,26 @@ window.CV_CONTENT = {
         160
       ],
       "kind": "detail"
+    }
+  ],
+  "biography": [
+    {
+      "zh": "已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文8篇，另有导师第一作者、本人第二作者论文4篇。4篇成果入选ESI高被引论文，成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
+      "en": "I have published four first- or co-first-authored papers, eight corresponding- or co-corresponding-authored papers, and four papers with my supervisor as first author and myself as second author. Four papers are ESI highly cited papers. My work has appeared in npj Urban Sustainability, Earth’s Future and other journals."
+    },
+    {
+      "zh": "我主持3项校级课题和1项横向项目，参与国家重点研发计划及国家自然科学基金国际合作、面上等项目，获得国家级及校院级奖励。两项政策建议被九三学社中央采用，并获湖北省委批示。",
+      "en": "I have led three university research projects and one commissioned project, and participated in National Key R&D Program tasks and NSFC international cooperation and general projects. I have received national, university and faculty awards. Two policy proposals were adopted by the Central Committee of the Jiusan Society and received directives from the Hubei Provincial Party Committee."
+    }
+  ],
+  "researchStatement": [
+    {
+      "zh": "我的研究围绕城市化过程、生境影响路径和生物多样性响应展开，重点关注城市化如何通过不同路径改变生境质量。城市建设会直接改变生境；道路和污染向周边扩散，产生近程间接影响；消费与贸易则通过供应链，将远程间接影响传导到生产地。",
+      "en": "My research examines how urbanization changes habitats and how biodiversity responds. I distinguish the direct effects of urban construction, nearby indirect effects from roads and pollution, and distant indirect effects transmitted through consumption, trade and supply chains to production regions."
+    },
+    {
+      "zh": "接下来的研究将从城市建设的直接影响入手，在同等人口、不同空间形态的反事实情景下，评估紧凑城市的节地与生态保护潜力。我也将把近远程影响纳入统一框架，量化三类路径的贡献和叠加效应，识别关键区域，探索城内、周边与远端生产地的协同治理。希望通过学会开展学术交流与政策咨询，服务新型城镇化、生物多样性保护与美丽中国建设。",
+      "en": "My next step is to compare counterfactual scenarios with the same population but different spatial forms, beginning with the direct effects of urban construction, to assess the land-sparing and conservation potential of compact cities. I will bring nearby and distant effects into a common framework, quantify the contributions and combined effects of these three pathways, identify key regions, and examine coordinated governance within cities, their surroundings and distant production regions. Through professional societies, I hope to contribute academic exchange and policy advice supporting new-type urbanization, biodiversity conservation and the Beautiful China initiative."
     }
   ]
 };
