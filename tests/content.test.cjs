@@ -42,6 +42,7 @@ test('the latest academic and project values have been preserved', () => {
   assert.deepEqual(content.metrics.map((x) => x.value), ['1,169','20','26']);
   assert.deepEqual(content.metrics.map((x) => x.since2021), ['1,165','20','26']);
   assert.equal(content.profile.scholar, 'https://scholar.google.com/citations?user=gLpuU54AAAAJ');
+  assert.equal(content.profile.email, 'gutc@mail.bnu.edu.cn');
   assert(content.projects.some((p) => p.text.zh.includes('2024YFF1306104')));
   assert(content.awards.some((p) => p.text.zh.includes('优秀报告一等奖')));
   assert(content.services.some((p) => p.text.zh.includes('九三学社中央')));
@@ -52,6 +53,16 @@ test('Chinese journal volume and page information is retained', () => {
   const paper = content.publications.find((p) => p.venue.en === 'Journal of Xiamen University (Natural Science)');
   assert.equal(paper.year, '2025');
   assert.equal(paper.reference, '64(03), 528-537');
+});
+
+test('concise presentation retains the source facts and correct author roles', () => {
+  assert(content.publications.every((paper) => !paper.role.zh.includes('唯一')));
+  assert.equal(content.publications[2].role.zh, '共同第一作者');
+  assert(content.projects.every((item) => item.displayTitle.zh && item.program.en && item.dates && item.text.zh));
+  for (const index of [1,2,4,5,6,7,8,9]) assert(content.awards[index].displayTitle.zh.startsWith('北京师范大学'));
+  assert(content.awards[5].displayTitle.zh.includes('第九届研究生学术能力竞赛二等奖'));
+  assert(content.skills.every((item) => item.shortText.zh && item.shortText.en));
+  assert(!content.services.find((item) => item.kind === 'policy').text.zh.includes('政策建议成果：'));
 });
 
 test('browser data is synchronized with the editable content file', () => {
@@ -69,6 +80,8 @@ test('independent pages and their assets work under a GitHub project path', () =
   for (const match of html.matchAll(/href="#([^"]+)"/g)) assert(html.includes(`id="${match[1]}"`));
   for (const match of html.matchAll(/href="([a-z]+\.html)(?:[?#][^"]*)?"/g)) assert(fs.existsSync(path.join(root,match[1])));
   assert(!html.includes('section-number'));
+  assert(!html.includes('<footer'));
+  assert(!html.includes('gutc@cug.edu.cn'));
   }
   assert(fs.statSync(path.join(root, 'assets/tianci-gu-cv.docx')).size > 50000);
 });

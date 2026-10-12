@@ -21,7 +21,7 @@ window.CV_CONTENT = {
       "zh": "谷天赐，中共党员，北京师范大学自然资源专业博士生，研究城市化的近远程生态效应与生物多样性保护。博士导师为黄庆旭教授和何春阳教授。",
       "en": "Tianci Gu is a PhD student in Natural Resources at Beijing Normal University and a member of the Communist Party of China. His research focuses on the local and distant ecological effects of urbanization and biodiversity conservation. His doctoral supervisors are Prof. Qingxu Huang and Prof. Chunyang He."
     },
-    "email": "gutc@cug.edu.cn",
+    "email": "gutc@mail.bnu.edu.cn",
     "phone": "18366013097",
     "birth": {
       "zh": "1999年11月",
@@ -41,7 +41,17 @@ window.CV_CONTENT = {
       2,
       3
     ],
-    "scholar": "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
+    "scholar": "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+    "homeBio": [
+      {
+        "zh": "谷天赐是北京师范大学地理科学学部自然资源专业博士生，博士导师为黄庆旭教授和何春阳教授。",
+        "en": "Tianci Gu is a PhD student in Natural Resources at the Faculty of Geographical Science, Beijing Normal University. His doctoral supervisors are Prof. Qingxu Huang and Prof. Chunyang He."
+      },
+      {
+        "zh": "其研究关注城市化的近远程生态效应与生物多样性保护。后续将通过同等人口、不同空间形态的反事实比较，评估紧凑城市的节地与生态保护潜力。",
+        "en": "His research focuses on the local and distant ecological effects of urbanization and biodiversity conservation. His next step is to compare urban forms under the same population to assess the land-sparing and conservation potential of compact cities."
+      }
+    ]
   },
   "metrics": [
     {
@@ -191,8 +201,8 @@ window.CV_CONTENT = {
         "en": "SSCI/Nature Portfolio journal/CAS Q1, Top/IF 8.8"
       },
       "role": {
-        "zh": "唯一第一作者",
-        "en": "Sole first author"
+        "zh": "第一作者",
+        "en": "First author"
       },
       "contribution": {
         "zh": "研究设计、方法构建、数据处理与分析、论文撰写及返修。",
@@ -201,7 +211,8 @@ window.CV_CONTENT = {
       "sourceIndices": [
         17,
         18
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-2",
@@ -226,8 +237,8 @@ window.CV_CONTENT = {
         "en": "SSCI/CAS Q1, Top/IF 9.8"
       },
       "role": {
-        "zh": "唯一第一作者",
-        "en": "Sole first author"
+        "zh": "第一作者",
+        "en": "First author"
       },
       "contribution": {
         "zh": "研究设计、方法构建、数据处理与分析、论文撰写及返修。",
@@ -236,7 +247,8 @@ window.CV_CONTENT = {
       "sourceIndices": [
         19,
         20
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-3",
@@ -271,7 +283,8 @@ window.CV_CONTENT = {
       "sourceIndices": [
         21,
         22
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-4",
@@ -302,7 +315,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         23
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-5",
@@ -337,7 +351,8 @@ window.CV_CONTENT = {
       "sourceIndices": [
         25,
         26
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-6",
@@ -372,7 +387,8 @@ window.CV_CONTENT = {
       "sourceIndices": [
         27,
         28
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-7",
@@ -407,7 +423,8 @@ window.CV_CONTENT = {
       "sourceIndices": [
         29,
         30
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-8",
@@ -438,7 +455,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         32
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-9",
@@ -473,7 +491,8 @@ window.CV_CONTENT = {
       "sourceIndices": [
         33,
         34
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-10",
@@ -508,7 +527,8 @@ window.CV_CONTENT = {
       "sourceIndices": [
         35,
         36
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-11",
@@ -539,7 +559,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         37
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-12",
@@ -570,7 +591,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         38
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-13",
@@ -601,7 +623,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         39
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-14",
@@ -632,7 +655,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         40
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-15",
@@ -663,7 +687,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         41
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-16",
@@ -698,7 +723,8 @@ window.CV_CONTENT = {
       "sourceIndices": [
         43,
         44
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-17",
@@ -733,7 +759,8 @@ window.CV_CONTENT = {
       "sourceIndices": [
         45,
         46
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-18",
@@ -764,7 +791,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         47
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-19",
@@ -799,7 +827,8 @@ window.CV_CONTENT = {
       "sourceIndices": [
         48,
         49
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-20",
@@ -834,7 +863,8 @@ window.CV_CONTENT = {
       "sourceIndices": [
         51,
         52
-      ]
+      ],
+      "originalLanguage": "zh"
     },
     {
       "id": "paper-21",
@@ -865,7 +895,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         54
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-22",
@@ -896,7 +927,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         55
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-23",
@@ -927,7 +959,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         56
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-24",
@@ -958,7 +991,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         57
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-25",
@@ -989,7 +1023,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         58
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-26",
@@ -1020,7 +1055,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         59
-      ]
+      ],
+      "originalLanguage": "zh"
     },
     {
       "id": "paper-27",
@@ -1051,7 +1087,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         60
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-28",
@@ -1082,7 +1119,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         61
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-29",
@@ -1113,7 +1151,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         62
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-30",
@@ -1144,7 +1183,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         63
-      ]
+      ],
+      "originalLanguage": "en"
     },
     {
       "id": "paper-31",
@@ -1175,7 +1215,8 @@ window.CV_CONTENT = {
       "contribution": null,
       "sourceIndices": [
         64
-      ]
+      ],
+      "originalLanguage": "en"
     }
   ],
   "projects": [
@@ -1190,7 +1231,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         68
-      ]
+      ],
+      "displayTitle": {
+        "zh": "中国新型城镇化背景下生物多样性保护路径研究",
+        "en": "Biodiversity conservation pathways under new-type urbanization in China"
+      },
+      "program": {
+        "zh": "北京师范大学博一学科交叉基金 BNUXKJC2406",
+        "en": "BNU First-year Doctoral Interdisciplinary Fund, BNUXKJC2406"
+      },
+      "dates": "2024.09—2026.02"
     },
     {
       "text": {
@@ -1203,7 +1253,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         69
-      ]
+      ],
+      "displayTitle": {
+        "zh": "城市化背景下中国城乡饮食差异经粮食贸易与虚拟耕地转移影响全球生物多样性机制研究",
+        "en": "Mechanisms by which urban–rural dietary differences in China affect global biodiversity through food trade and virtual cropland transfers under urbanization"
+      },
+      "program": {
+        "zh": "北京师范大学地理科学学部自然资源学院“英才计划”",
+        "en": "Talent Program, School of Natural Resources, Beijing Normal University"
+      },
+      "dates": "2026.05—2027.05"
     },
     {
       "text": {
@@ -1216,7 +1275,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         70
-      ]
+      ],
+      "displayTitle": {
+        "zh": "全球耕地海拔爬升规律与生态效应测度",
+        "en": "Global patterns of cropland expansion into higher elevations and their ecological effects"
+      },
+      "program": {
+        "zh": "中国地质大学（武汉）教学实验室开放基金（研究生专项）",
+        "en": "Graduate Research Program, Teaching Laboratory Open Fund, China University of Geosciences (Wuhan)"
+      },
+      "dates": "2021.11—2023.05"
     },
     {
       "text": {
@@ -1229,7 +1297,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         71
-      ]
+      ],
+      "displayTitle": {
+        "zh": "武汉市湖泊湿地生产总值核算体系构建",
+        "en": "Gross Ecosystem Product accounting for lakes and wetlands in Wuhan"
+      },
+      "program": {
+        "zh": "横向项目",
+        "en": "Commissioned project"
+      },
+      "dates": "2022—2023"
     },
     {
       "text": {
@@ -1242,7 +1319,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         73
-      ]
+      ],
+      "displayTitle": {
+        "zh": "气候变化和人类活动对生态状况影响的阈值识别技术",
+        "en": "Ecological thresholds in the impacts of climate change and human activities"
+      },
+      "program": {
+        "zh": "国家重点研发计划课题 2024YFF1306104",
+        "en": "National Key R&D Program task, 2024YFF1306104"
+      },
+      "dates": "2024.12—2027.11"
     },
     {
       "text": {
@@ -1255,7 +1341,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         74
-      ]
+      ],
+      "displayTitle": {
+        "zh": "全球南方城市扩展背景下生物多样性保护路径研究",
+        "en": "Biodiversity conservation pathways under urban expansion in the Global South"
+      },
+      "program": {
+        "zh": "国家自然科学基金国际（地区）合作与交流项目 42361144859",
+        "en": "NSFC International Cooperation and Exchange Project, 42361144859"
+      },
+      "dates": "2024.01—2026.12"
     },
     {
       "text": {
@@ -1268,7 +1363,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         75
-      ]
+      ],
+      "displayTitle": {
+        "zh": "城乡融合发展",
+        "en": "Urban–rural integrated development"
+      },
+      "program": {
+        "zh": "国家自然科学基金创新研究群体项目 42121001",
+        "en": "NSFC Innovative Research Group Project, 42121001"
+      },
+      "dates": "2021.01—2026.12"
     },
     {
       "text": {
@@ -1281,7 +1385,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         76
-      ]
+      ],
+      "displayTitle": {
+        "zh": "基于生态系统服务供需的官厅水库流域城市扩展模拟研究",
+        "en": "Urban expansion simulation in the Guanting Reservoir Basin based on ecosystem service supply and demand"
+      },
+      "program": {
+        "zh": "国家自然科学基金面上项目 41971225",
+        "en": "NSFC General Program, 41971225"
+      },
+      "dates": "2020.01—2023.12"
     },
     {
       "text": {
@@ -1294,7 +1407,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         77
-      ]
+      ],
+      "displayTitle": {
+        "zh": "长江中游城市群城镇化对生态系统健康驱动机制差异性研究",
+        "en": "Urbanization and ecosystem health in the middle reaches of the Yangtze River"
+      },
+      "program": {
+        "zh": "国家自然科学基金青年科学基金项目 42001187",
+        "en": "NSFC Young Scientists Fund, 42001187"
+      },
+      "dates": "2021.01—2023.12"
     },
     {
       "text": {
@@ -1307,7 +1429,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         79
-      ]
+      ],
+      "displayTitle": {
+        "zh": "京津冀城市群产业结构转型和PM2.5污染相关死亡变化",
+        "en": "Industrial restructuring and PM2.5-related mortality in the Beijing–Tianjin–Hebei region"
+      },
+      "program": {
+        "zh": "北京市科技新星交叉合作课题 20220484163",
+        "en": "Beijing Science and Technology Rising Star Collaboration Project, 20220484163"
+      },
+      "dates": "2022.11—2024.10"
     },
     {
       "text": {
@@ -1320,7 +1451,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         80
-      ]
+      ],
+      "displayTitle": {
+        "zh": "长江黄河流域城镇化对生态系统健康影响差异性研究",
+        "en": "Urbanization and ecosystem health in the Yangtze and Yellow River basins"
+      },
+      "program": {
+        "zh": "黄河中下游数字地理技术教育部重点实验室开放基金 GTYR202205",
+        "en": "Open Fund, Key Laboratory of Digital Geography Technology for the Middle and Lower Yellow River, GTYR202205"
+      },
+      "dates": "2022.09—2024.09"
     },
     {
       "text": {
@@ -1333,7 +1473,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         81
-      ]
+      ],
+      "displayTitle": {
+        "zh": "中国城市群城镇化对生态系统服务驱动机制差异性研究",
+        "en": "Urbanization and ecosystem services in Chinese urban agglomerations"
+      },
+      "program": {
+        "zh": "北京师范大学地表过程与资源生态国家重点实验室开放课题 2021-KF-03",
+        "en": "Open Research Project, State Key Laboratory of Earth Surface Processes and Resource Ecology, BNU, 2021-KF-03"
+      },
+      "dates": "2021.06—2022.12"
     },
     {
       "text": {
@@ -1346,7 +1495,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         83
-      ]
+      ],
+      "displayTitle": {
+        "zh": "湖北省大冶市文化产业赋能乡村振兴试点申报",
+        "en": "Cultural industries and rural revitalization in Daye, Hubei"
+      },
+      "program": {
+        "zh": "地方政府委托项目",
+        "en": "Government-commissioned project"
+      },
+      "dates": "2023"
     },
     {
       "text": {
@@ -1359,7 +1517,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         84
-      ]
+      ],
+      "displayTitle": {
+        "zh": "河南省淮滨县地下水开发利用与保护规划编制",
+        "en": "Groundwater development and protection planning in Huaibin County, Henan"
+      },
+      "program": {
+        "zh": "地方政府委托项目",
+        "en": "Government-commissioned project"
+      },
+      "dates": "2022"
     },
     {
       "text": {
@@ -1372,7 +1539,16 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         85
-      ]
+      ],
+      "displayTitle": {
+        "zh": "湖北省第一次全国自然灾害综合风险普查：城镇房屋建筑调查",
+        "en": "Urban building survey for the first comprehensive natural disaster risk survey in Hubei"
+      },
+      "program": {
+        "zh": "地方政府委托项目",
+        "en": "Government-commissioned project"
+      },
+      "dates": "2021—2022"
     }
   ],
   "projectSummary": {
@@ -1395,7 +1571,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         90
-      ]
+      ],
+      "displayTitle": {
+        "zh": "国家留学基金委国家公派留学资助",
+        "en": "China Scholarship Council government-funded overseas study support"
+      },
+      "dates": "2026"
     },
     {
       "text": {
@@ -1408,7 +1589,13 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         91
-      ]
+      ],
+      "displayTitle": {
+        "zh": "北京师范大学“京师先锋党员”",
+        "en": "Jingshi Pioneer Party Member, Beijing Normal University"
+      },
+      "dates": "2025",
+      "sourceUrl": "https://geo.bnu.edu.cn/tzgg/5480204dbde34811ad1b1cc280ff4a01.html"
     },
     {
       "text": {
@@ -1421,7 +1608,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         92
-      ]
+      ],
+      "displayTitle": {
+        "zh": "北京师范大学博士研究生学业一等奖学金",
+        "en": "First-class doctoral academic scholarship, Beijing Normal University"
+      },
+      "dates": "2025"
     },
     {
       "text": {
@@ -1434,7 +1626,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         93
-      ]
+      ],
+      "displayTitle": {
+        "zh": "中国自然资源科学大会论文报告精选",
+        "en": "Selected paper presentation, China Natural Resources Science Conference"
+      },
+      "dates": "2026"
     },
     {
       "text": {
@@ -1447,7 +1644,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         94
-      ]
+      ],
+      "displayTitle": {
+        "zh": "北京师范大学地理科学学部“光影里的春分”摄影比赛一等奖",
+        "en": "First prize, “Vernal Equinox in Light and Shadow” photography competition, Faculty of Geographical Science, Beijing Normal University"
+      },
+      "dates": "2026"
     },
     {
       "text": {
@@ -1460,7 +1662,13 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         95
-      ]
+      ],
+      "displayTitle": {
+        "zh": "北京师范大学地理科学学部自然资源学院第九届研究生学术能力竞赛二等奖",
+        "en": "Second prize, 9th Graduate Academic Ability Competition, School of Natural Resources, Beijing Normal University"
+      },
+      "dates": "2025",
+      "sourceUrl": "https://geo.bnu.edu.cn/xwzx/5c952ac9b7264176ba3bf575afb67eea.html"
     },
     {
       "text": {
@@ -1473,7 +1681,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         96
-      ]
+      ],
+      "displayTitle": {
+        "zh": "北京师范大学地理科学学部学术年会优秀摘要一等奖",
+        "en": "First prize for an outstanding abstract, annual academic conference, Faculty of Geographical Science, Beijing Normal University"
+      },
+      "dates": "2025"
     },
     {
       "text": {
@@ -1486,7 +1699,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         97
-      ]
+      ],
+      "displayTitle": {
+        "zh": "北京师范大学地理科学学部学术年会优秀报告一等奖",
+        "en": "First prize for an outstanding presentation, annual academic conference, Faculty of Geographical Science, Beijing Normal University"
+      },
+      "dates": "2025"
     },
     {
       "text": {
@@ -1499,7 +1717,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         98
-      ]
+      ],
+      "displayTitle": {
+        "zh": "北京师范大学地理科学学部第五届微党课大赛一等奖",
+        "en": "First prize, 5th Micro Party Lecture Competition, Faculty of Geographical Science, Beijing Normal University"
+      },
+      "dates": "2025"
     },
     {
       "text": {
@@ -1512,7 +1735,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         99
-      ]
+      ],
+      "displayTitle": {
+        "zh": "北京师范大学地理科学学部学术年会优秀报告二等奖",
+        "en": "Second prize for an outstanding presentation, annual academic conference, Faculty of Geographical Science, Beijing Normal University"
+      },
+      "dates": "2024"
     },
     {
       "text": {
@@ -1525,7 +1753,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         101
-      ]
+      ],
+      "displayTitle": {
+        "zh": "中国地质大学（武汉）优秀团员",
+        "en": "Outstanding Youth League Member, China University of Geosciences (Wuhan)"
+      },
+      "dates": ""
     },
     {
       "text": {
@@ -1538,7 +1771,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         102
-      ]
+      ],
+      "displayTitle": {
+        "zh": "中国地质大学（武汉）优秀毕业生",
+        "en": "Outstanding Graduate, China University of Geosciences (Wuhan)"
+      },
+      "dates": "2024"
     },
     {
       "text": {
@@ -1551,7 +1789,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         103
-      ]
+      ],
+      "displayTitle": {
+        "zh": "中国地质大学（武汉）校友奖学金",
+        "en": "Alumni Scholarship, China University of Geosciences (Wuhan)"
+      },
+      "dates": "2023"
     },
     {
       "text": {
@@ -1564,7 +1807,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         104
-      ]
+      ],
+      "displayTitle": {
+        "zh": "长江保护与发展论坛优秀研究生汇报",
+        "en": "Outstanding graduate presentation, Yangtze River Protection and Development Forum"
+      },
+      "dates": "2023"
     },
     {
       "text": {
@@ -1577,7 +1825,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         105
-      ]
+      ],
+      "displayTitle": {
+        "zh": "第二届全国大学生生态环境管理科研创新大赛全国一等奖",
+        "en": "National first prize, 2nd National University Student Research and Innovation Competition in Ecological and Environmental Management"
+      },
+      "dates": "2023"
     },
     {
       "text": {
@@ -1590,7 +1843,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         106
-      ]
+      ],
+      "displayTitle": {
+        "zh": "中国地理学会地研联论坛最佳汇报人",
+        "en": "Best presenter, Geography Research Alliance Forum, Geographical Society of China"
+      },
+      "dates": "2022"
     },
     {
       "text": {
@@ -1603,7 +1861,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         107
-      ]
+      ],
+      "displayTitle": {
+        "zh": "中国地质大学（武汉）校级科报会一等奖",
+        "en": "First prize, student research presentation conference, China University of Geosciences (Wuhan)"
+      },
+      "dates": "2023"
     },
     {
       "text": {
@@ -1616,7 +1879,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         108
-      ]
+      ],
+      "displayTitle": {
+        "zh": "中国地质大学（武汉）硕士研究生学业一等奖学金（2次）",
+        "en": "First-class master’s academic scholarship, China University of Geosciences (Wuhan), awarded twice"
+      },
+      "dates": "2022—2023"
     },
     {
       "text": {
@@ -1629,7 +1897,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         110
-      ]
+      ],
+      "displayTitle": {
+        "zh": "国家励志奖学金（2次）",
+        "en": "National Encouragement Scholarship, awarded twice"
+      },
+      "dates": "2018—2020"
     },
     {
       "text": {
@@ -1642,7 +1915,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         111
-      ]
+      ],
+      "displayTitle": {
+        "zh": "美国大学生数学建模竞赛二等奖",
+        "en": "Second prize, Mathematical Contest in Modeling"
+      },
+      "dates": "2020"
     },
     {
       "text": {
@@ -1655,7 +1933,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         112
-      ]
+      ],
+      "displayTitle": {
+        "zh": "全国高校计算机能力挑战赛全国二等奖",
+        "en": "National second prize, National University Computer Ability Challenge"
+      },
+      "dates": "2019"
     },
     {
       "text": {
@@ -1668,7 +1951,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         113
-      ]
+      ],
+      "displayTitle": {
+        "zh": "石河子大学优秀毕业生",
+        "en": "Outstanding Graduate, Shihezi University"
+      },
+      "dates": "2021"
     },
     {
       "text": {
@@ -1681,7 +1969,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         114
-      ]
+      ],
+      "displayTitle": {
+        "zh": "石河子大学三好学生",
+        "en": "Outstanding Student, Shihezi University"
+      },
+      "dates": "2018"
     },
     {
       "text": {
@@ -1694,7 +1987,12 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         115
-      ]
+      ],
+      "displayTitle": {
+        "zh": "石河子大学专业优秀奖学金",
+        "en": "Academic Excellence Scholarship, Shihezi University"
+      },
+      "dates": "2017"
     }
   ],
   "skills": [
@@ -1705,7 +2003,11 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         117
-      ]
+      ],
+      "shortText": {
+        "zh": "数据获取：青藏高原科学数据中心、RESDC、ESA、Earthdata。",
+        "en": "Research data: National Tibetan Plateau Data Center, RESDC, ESA and Earthdata."
+      }
     },
     {
       "text": {
@@ -1714,7 +2016,11 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         118
-      ]
+      ],
+      "shortText": {
+        "zh": "生态建模：InVEST、Fragstats、PLUS、SWAT。",
+        "en": "Ecological modelling: InVEST, Fragstats, PLUS and SWAT."
+      }
     },
     {
       "text": {
@@ -1723,7 +2029,11 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         119
-      ]
+      ],
+      "shortText": {
+        "zh": "统计与空间分析：Python、R、Stata、SPSS、ArcGIS Pro、QGIS、GeoDa；DID及空间计量方法。",
+        "en": "Statistical and spatial analysis: Python, R, Stata, SPSS, ArcGIS Pro, QGIS and GeoDa; DID and spatial econometrics."
+      }
     },
     {
       "text": {
@@ -1732,7 +2042,11 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         120
-      ]
+      ],
+      "shortText": {
+        "zh": "科研绘图：Python、Origin、ArcGIS、Visio、Photoshop。",
+        "en": "Scientific visualization: Python, Origin, ArcGIS, Visio and Photoshop."
+      }
     },
     {
       "text": {
@@ -1741,7 +2055,11 @@ window.CV_CONTENT = {
       },
       "sourceIndices": [
         121
-      ]
+      ],
+      "shortText": {
+        "zh": "学术英语：CET-6；Cities、Environmental Impact Assessment Review等期刊审稿。",
+        "en": "Academic English: CET-6; reviewer for Cities, Environmental Impact Assessment Review and other journals."
+      }
     }
   ],
   "services": [
@@ -2125,8 +2443,8 @@ window.CV_CONTENT = {
     },
     {
       "text": {
-        "zh": "政策建议成果：两项政策建议被九三学社中央采用，并获湖北省委批示。",
-        "en": "Policy contributions: two policy proposals were adopted by the Central Committee of the Jiusan Society and received directives from the Hubei Provincial Party Committee."
+        "zh": "两项政策建议被九三学社中央采用，并获湖北省委批示。",
+        "en": "Two policy proposals were adopted by the Central Committee of the Jiusan Society and received directives from the Hubei Provincial Party Committee."
       },
       "group": {
         "zh": "政策建议",
@@ -2240,6 +2558,46 @@ window.CV_CONTENT = {
     {
       "zh": "后续研究将从城市建设的直接影响入手，在同等人口、不同空间形态的反事实情景下，评估紧凑城市的节地与生态保护潜力。谷天赐将把近远程影响纳入统一框架，量化三类路径的贡献和叠加效应，识别关键区域，探索城内、周边与远端生产地的协同治理，并依托学会开展学术交流与政策咨询，服务新型城镇化、生物多样性保护与美丽中国建设。",
       "en": "Gu plans to compare counterfactual scenarios with the same population but different spatial forms, beginning with the direct effects of urban construction, to assess the land-sparing and conservation potential of compact cities. He will bring nearby and distant effects into a common framework, quantify the contributions and combined effects of these three pathways, identify key regions, and examine coordinated governance within cities, their surroundings and distant production regions. Through professional societies, he hopes to contribute academic exchange and policy advice supporting new-type urbanization, biodiversity conservation and the Beautiful China initiative."
+    }
+  ],
+  "homeResearch": [
+    {
+      "zh": "城市化与生物多样性保护",
+      "en": "Urbanization and biodiversity conservation"
+    },
+    {
+      "zh": "土地利用变化与生态系统服务",
+      "en": "Land-use change and ecosystem services"
+    },
+    {
+      "zh": "城市空间形态与反事实情景比较",
+      "en": "Urban form and counterfactual comparisons"
+    }
+  ],
+  "news": [
+    {
+      "date": "2026",
+      "text": {
+        "zh": "获国家留学基金委国家公派留学资助。",
+        "en": "Awarded government-funded overseas study support from the China Scholarship Council."
+      },
+      "page": "awards"
+    },
+    {
+      "date": "2026.05",
+      "text": {
+        "zh": "主持北京师范大学自然资源学院“英才计划”课题，研究粮食贸易与生物多样性的关系。",
+        "en": "Began leading a Talent Program project at BNU’s School of Natural Resources on food trade and biodiversity."
+      },
+      "page": "projects"
+    },
+    {
+      "date": "2025",
+      "text": {
+        "zh": "第一作者论文发表于 npj Urban Sustainability。",
+        "en": "A first-authored paper was published in npj Urban Sustainability."
+      },
+      "page": "publications"
     }
   ]
 };

@@ -5,8 +5,8 @@
   const currentPage = document.body.dataset.page || 'about';
   const routes = {about:'index.html',education:'education.html',publications:'publications.html',projects:'projects.html',awards:'awards.html',skills:'skills.html',service:'service.html',cv:'cv.html'};
   const strings = {
-    zh: {skip:'跳到正文',menu:'菜单',about:'个人简介',education:'教育经历',publications:'学术成果',projects:'科研项目',awards:'奖励荣誉',skills:'研究技能',service:'经历与服务',cv:'完整简历',downloadCv:'下载原始简历',print:'打印或保存PDF',personal:'个人信息',search:'检索论文',searchPlaceholder:'检索题名、作者或期刊',empty:'没有符合条件的论文。请尝试其他关键词或分类。',footerAffiliation:'北京师范大学地理科学学部',birth:'出生年月',hometown:'籍贯',membership:'政治面貌',phone:'手机号',rank:'成绩排名',gpa:'平均绩点',advisors:'导师',contribution:'谷天赐的贡献',patents:'专利',published:'已发表',accepted:'已录用',review:'在审',all:'全部',first:'第一及共同第一作者',corresponding:'通讯及共同通讯作者',second:'导师一作、谷天赐二作',collaborative:'其他合作论文',updated:'2026年10月更新',academicMetrics:'学术指标',metric:'指标',total:'总计',since2021:'2021年至今',researchDirection:'研究方向'},
-    en: {skip:'Skip to content',menu:'Menu',about:'About',education:'Education',publications:'Publications',projects:'Projects',awards:'Honors',skills:'Skills',service:'Experience',cv:'Full CV',downloadCv:'Download original CV',print:'Print or save PDF',personal:'Personal information',search:'Search publications',searchPlaceholder:'Search title, author or journal',empty:'No matching publications. Try another keyword or category.',footerAffiliation:'Faculty of Geographical Science, Beijing Normal University',birth:'Date of birth',hometown:'Hometown',membership:'Political membership',phone:'Phone',rank:'Class rank',gpa:'GPA',advisors:'Supervisors',contribution:'Contribution',patents:'Patents',published:'Published',accepted:'Accepted',review:'Under review',all:'All',first:'First and co-first author',corresponding:'Corresponding author',second:'Second author with supervisor',collaborative:'Other collaborations',updated:'Updated October 2026',academicMetrics:'Academic metrics',metric:'Metric',total:'All',since2021:'Since 2021',researchDirection:'Research direction'}
+    zh: {skip:'跳到正文',menu:'菜单',about:'个人简介',education:'教育经历',publications:'学术成果',projects:'科研项目',awards:'奖励荣誉',skills:'研究技能',service:'经历与服务',cv:'完整简历',downloadCv:'下载Word简历',print:'打印或保存PDF',personal:'个人信息',search:'检索论文',searchPlaceholder:'检索题名、作者或期刊',empty:'没有符合条件的论文。请尝试其他关键词或分类。',footerAffiliation:'北京师范大学地理科学学部',birth:'出生年月',hometown:'籍贯',membership:'政治面貌',phone:'手机号',rank:'成绩排名',gpa:'平均绩点',advisors:'导师',contribution:'谷天赐的贡献',patents:'专利',published:'已发表',accepted:'已录用',review:'在审',all:'全部',first:'第一及共同第一作者',corresponding:'通讯及共同通讯作者',second:'导师一作、谷天赐二作',collaborative:'其他合作论文',updated:'2026年10月更新',academicMetrics:'学术指标',metric:'指标',total:'总计',since2021:'2021年至今',researchDirection:'研究方向',researchInterests:'研究兴趣',recentNews:'近期动态'},
+    en: {skip:'Skip to content',menu:'Menu',about:'About',education:'Education',publications:'Publications',projects:'Projects',awards:'Honors',skills:'Skills',service:'Experience',cv:'Full CV',downloadCv:'Download Word CV',print:'Print or save PDF',personal:'Personal information',search:'Search publications',searchPlaceholder:'Search title, author or journal',empty:'No matching publications. Try another keyword or category.',footerAffiliation:'Faculty of Geographical Science, Beijing Normal University',birth:'Date of birth',hometown:'Hometown',membership:'Political membership',phone:'Phone',rank:'Class rank',gpa:'GPA',advisors:'Supervisors',contribution:'Contribution',patents:'Patents',published:'Published',accepted:'Accepted',review:'Under review',all:'All',first:'First and co-first author',corresponding:'Corresponding author',second:'Second author with supervisor',collaborative:'Other collaborations',updated:'Updated October 2026',academicMetrics:'Academic metrics',metric:'Metric',total:'All',since2021:'Since 2021',researchDirection:'Research direction',researchInterests:'Research interests',recentNews:'News'}
   };
   let language = 'zh';
   const requestedLanguage = new URLSearchParams(window.location.search).get('lang');
@@ -15,6 +15,10 @@
     try { if (localStorage.getItem('cv-language') === 'en') language = 'en'; } catch (_) { /* Storage is optional. */ }
   }
   try { localStorage.setItem('cv-language', language); } catch (_) { /* Storage is optional. */ }
+  if (currentPage === 'skills') {
+    window.location.replace('cv.html?lang=' + language + '#skills');
+    return;
+  }
   const legacySection = window.location.hash.slice(1);
   if (currentPage === 'about' && Object.hasOwn(routes, legacySection) && legacySection !== 'about') {
     window.location.replace(routes[legacySection] + '?lang=' + language);
@@ -41,9 +45,20 @@
     return result;
   }
 
-  function renderGroupedList(id, items) {
+  function renderRecords(id, items) {
     if (!byId(id)) return;
-    setHTML(id, groups(items).map((group) => '<div class="group-block"><h2>' + escape(localized(group.name)) + '</h2><ol>' + group.items.map((item) => '<li>' + escape(localized(item.text)) + '</li>').join('') + '</ol></div>').join(''));
+    const isProject = id === 'project-list';
+    const heading = currentPage === 'cv' ? 'h3' : 'h2';
+    setHTML(id, groups(items).map((group) => {
+      const ordered = [...group.items].sort((a,b) => b.dates.localeCompare(a.dates));
+      return '<div class="group-block"><' + heading + ' class="group-title">' + escape(localized(group.name)) + '</' + heading + '><ul class="record-list">' + ordered.map((item) => {
+        const detail = isProject ? '<p class="record-program">' + escape(localized(item.program)) + '</p>' : '';
+        const body = isProject && currentPage === 'cv'
+          ? '<p class="record-full">' + escape(localized(item.text)) + '</p>'
+          : '<p class="record-title">' + escape(localized(item.displayTitle)) + '</p>' + detail;
+        return '<li class="record-item"><p class="record-date">' + escape(item.dates) + '</p><div>' + body + '</div></li>';
+      }).join('') + '</ul></div>';
+    }).join(''));
   }
 
   function matchesFilter(paper) {
@@ -65,19 +80,21 @@
     const keyword = query.trim().toLocaleLowerCase();
     const papers = content.publications.filter((paper) => matchesFilter(paper) && (!keyword || [paper.title.zh,paper.title.en,paper.authors.zh,paper.authors.en,paper.venue.zh,paper.venue.en,paper.year,paper.metadata.zh,paper.metadata.en].join(' ').toLocaleLowerCase().includes(keyword)));
     setText('publication-count', language === 'zh' ? '共' + content.publications.length + '条记录，当前显示' + papers.length + '条' : 'Showing ' + papers.length + ' of ' + content.publications.length + ' records');
+    byId('publication-count').hidden = filter === 'all' && !keyword;
     byId('publication-empty').hidden = papers.length > 0;
     setHTML('publication-list', papers.map((paper) => {
       const authors = escape(localized(paper.authors)).replace(/Gu,\s*T\.\*?|谷天赐/g, '<strong>$&</strong>');
-      const originalTitle = language === 'zh' && paper.title.en !== paper.title.zh ? '<p class="original-title" lang="en">' + escape(paper.title.en) + '</p>' : '';
-      const metadata = localized(paper.metadata).replace(/\s*\/\s*/g, language === 'zh' ? '；' : '; ');
+      const title = paper.title[paper.originalLanguage];
+      const translation = paper.originalLanguage === 'zh' && language === 'en' ? '<p class="original-title" lang="en">' + escape(paper.title.en) + '</p>' : '';
+      const heading = currentPage === 'cv' ? 'h3' : 'h2';
+      const role = ['second','accepted'].includes(paper.category) ? (language === 'zh' ? '第二作者' : 'Second author') : paper.category === 'collaborative' ? '' : localized(paper.role);
+      const status = paper.status === 'published' ? '' : '<span class="status">' + escape(text(paper.status)) + '</span>';
+      const citation = [paper.year,paper.reference].filter(Boolean).map(escape).join(', ');
       return '<article class="publication" id="' + escape(paper.id) + '" data-status="' + escape(paper.status) + '">' +
-        '<div class="publication-year">' + escape(paper.year) + '<span class="status">' + escape(text(paper.status)) + '</span></div>' +
-        '<div><h2>' + escape(localized(paper.title)) + '</h2>' + originalTitle +
+        '<' + heading + ' class="publication-title" lang="' + (paper.originalLanguage === 'zh' ? 'zh-CN' : 'en') + '">' + escape(title) + '</' + heading + '>' + translation +
         '<p class="authors">' + authors + '</p>' +
-        '<p class="venue"><em>' + escape(localized(paper.venue)) + '</em>' + (paper.reference ? ', ' + escape(paper.reference) : '') + '</p>' +
-        '<div class="paper-meta"><span class="author-role">' + escape(localized(paper.role)) + '</span>' + (metadata ? '<span>' + escape(metadata) + '</span>' : '') + '</div>' +
-        (paper.contribution ? '<p class="contribution">' + escape(text('contribution')) + colon() + escape(localized(paper.contribution)) + '</p>' : '') +
-        '</div></article>';
+        '<p class="venue"><em>' + escape(localized(paper.venue)) + '</em>' + (citation ? ', ' + citation : '') + '</p>' +
+        (role || status ? '<p class="publication-notes">' + (role ? '<span>' + escape(role) + '</span>' : '') + status + '</p>' : '') + '</article>';
     }).join(''));
   }
 
@@ -87,7 +104,9 @@
       const rank = item.rank.split('/');
       const rankText = language === 'zh' ? '第' + rank[0] + '名，共' + rank[1] + '人' : rank[0] + ' of ' + rank[1];
       const separator = language === 'zh' ? '，' : ', ';
-      return '<article class="education-item"><p class="dates">' + escape(localized(item.dates)) + '</p><div><h2>' + escape(localized(item.school)) + '</h2><p>' + escape(localized(item.degree)) + separator + escape(localized(item.major)) + '</p><p class="advisors">' + escape(text('advisors')) + colon() + escape(localized(item.advisors)) + '</p><p class="education-scores"><span>' + escape(text('rank')) + colon() + escape(rankText) + '</span><span>' + escape(text('gpa')) + colon() + escape(item.gpa) + '</span></p></div></article>';
+      const scores = currentPage === 'cv' ? '<p class="education-scores"><span>' + escape(text('rank')) + colon() + escape(rankText) + '</span><span>' + escape(text('gpa')) + colon() + escape(item.gpa) + '</span></p>' : '';
+      const heading = currentPage === 'cv' ? 'h3' : 'h2';
+      return '<article class="education-item"><p class="dates">' + escape(localized(item.dates)) + '</p><div><' + heading + ' class="school-name">' + escape(localized(item.school)) + '</' + heading + '><p>' + escape(localized(item.degree)) + separator + escape(localized(item.major)) + '</p><p class="advisors">' + escape(text('advisors')) + colon() + escape(localized(item.advisors)) + '</p>' + scores + '</div></article>';
     }).join(''));
   }
 
@@ -99,7 +118,9 @@
         if (item.kind === 'title' || item.kind === 'policy') entries.push({title:item.text,details:[],kind:item.kind});
         else if (entries.length) entries[entries.length - 1].details.push(item.text);
       }
-      return '<div class="service-group"><h2>' + escape(localized(group.name)) + '</h2>' + entries.map((entry) => entry.kind === 'policy' ? '<p class="service-policy">' + escape(localized(entry.title)) + '</p>' : '<article class="service-entry"><h3>' + escape(localized(entry.title)) + '</h3><ul>' + entry.details.map((detail) => '<li>' + escape(localized(detail)) + '</li>').join('') + '</ul></article>').join('') + '</div>';
+      const heading = currentPage === 'cv' ? 'h3' : 'h2';
+      const entryHeading = currentPage === 'cv' ? 'h4' : 'h3';
+      return '<div class="service-group"><' + heading + ' class="group-title">' + escape(localized(group.name)) + '</' + heading + '>' + entries.map((entry) => entry.kind === 'policy' ? '<ul class="policy-list"><li><span aria-hidden="true">· </span>' + escape(localized(entry.title)) + '</li></ul>' : '<article class="service-entry"><' + entryHeading + ' class="service-title">' + escape(localized(entry.title)) + '</' + entryHeading + '><ul>' + entry.details.map((detail) => '<li>' + escape(localized(detail)) + '</li>').join('') + '</ul></article>').join('') + '</div>';
     }).join(''));
   }
 
@@ -108,6 +129,9 @@
     setHTML('profile-name', escape(localized(content.profile.name)) + '<span>' + escape(content.profile.name[language === 'zh' ? 'en' : 'zh']) + '</span>');
     setHTML('profile-position', escape(localized(content.profile.affiliation)) + '<br>' + escape(localized(content.profile.position)));
     setText('profile-bio', localized(content.profile.bio));
+    setHTML('home-biography', content.profile.homeBio.map((paragraph) => '<p>' + escape(localized(paragraph)) + '</p>').join(''));
+    setHTML('home-research', content.homeResearch.map((item) => '<li>' + escape(localized(item)) + '</li>').join(''));
+    setHTML('home-news', content.news.map((item) => '<li><span class="news-date">' + escape(item.date) + '</span><span>' + escape(localized(item.text)) + '</span></li>').join(''));
     setHTML('biography', content.biography.map((paragraph) => '<p>' + escape(localized(paragraph)) + '</p>').join(''));
     setHTML('research-statement', content.researchStatement.map((paragraph) => '<p>' + escape(localized(paragraph)) + '</p>').join(''));
     setHTML('metrics', content.metrics.map((metric) => '<tr><th scope="row">' + escape(localized(metric.label)) + '</th><td>' + escape(metric.value) + '</td><td>' + escape(metric.since2021) + '</td></tr>').join(''));
@@ -123,6 +147,7 @@
     document.querySelectorAll('[data-profile-name]').forEach((element) => { element.textContent = localized(content.profile.name); });
     document.querySelectorAll('[data-language]').forEach((button) => { button.setAttribute('aria-pressed', String(button.dataset.language === language)); });
     document.querySelectorAll('[data-page-link]').forEach((link) => { link.href = routes[link.dataset.pageLink] + '?lang=' + language; });
+    document.querySelectorAll('[data-email]').forEach((link) => { link.href = 'mailto:' + content.profile.email; link.textContent = content.profile.email; });
     byId('site-nav').setAttribute('aria-label', language === 'zh' ? '主要导航' : 'Main navigation');
     renderProfile();
     renderEducation();
@@ -136,14 +161,14 @@
       setText('patents-line', text('patents') + colon() + localized(content.patents));
     }
     setText('project-summary', localized(content.projectSummary));
-    renderGroupedList('project-list', content.projects);
-    renderGroupedList('award-list', content.awards);
+    renderRecords('project-list', content.projects);
+    renderRecords('award-list', content.awards);
     if (byId('skill-list')) {
       setHTML('skill-list', content.skills.map((skill) => {
-        const value = localized(skill.text);
+        const value = localized(skill.shortText);
         const separator = language === 'zh' ? '：' : ':';
         const position = value.indexOf(separator);
-        return '<article class="skill"><h2>' + escape(value.slice(0,position)) + '</h2><p>' + escape(value.slice(position + 1).trim()) + '</p></article>';
+        return '<dt>' + escape(value.slice(0,position)) + '</dt><dd>' + escape(value.slice(position + 1).trim()) + '</dd>';
       }).join(''));
     }
     renderService();
