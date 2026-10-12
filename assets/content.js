@@ -42,6 +42,8 @@ window.CV_CONTENT = {
       3
     ],
     "scholar": "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+    "orcid": "https://orcid.org/0000-0001-9466-5545",
+    "researchgate": "https://www.researchgate.net/profile/Tianci-Gu-2",
     "homeBio": [
       {
         "zh": "谷天赐是北京师范大学地理科学学部自然资源专业博士生，博士导师为黄庆旭教授和何春阳教授。",

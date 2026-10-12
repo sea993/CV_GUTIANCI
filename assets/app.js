@@ -137,6 +137,8 @@
     setHTML('metrics', content.metrics.map((metric) => '<tr><th scope="row">' + escape(localized(metric.label)) + '</th><td>' + escape(metric.value) + '</td><td>' + escape(metric.since2021) + '</td></tr>').join(''));
     setText('metrics-note', localized(content.metricsNote));
     byId('scholar-link').href = content.profile.scholar + '&hl=' + (language === 'zh' ? 'zh-CN' : 'en');
+    byId('orcid-link').href = content.profile.orcid;
+    byId('researchgate-link').href = content.profile.researchgate;
     setHTML('personal-information', ['birth','hometown','membership','phone'].map((key) => '<dt>' + escape(text(key)) + '</dt><dd>' + (key === 'phone' ? '<a href="tel:+86' + escape(content.profile.phone) + '">+86 ' + escape(content.profile.phone) + '</a>' : escape(localized(content.profile[key]))) + '</dd>').join(''));
   }
 
