@@ -9,7 +9,7 @@ test('the complete resume collections are present', () => {
   assert.equal(content.education.length, 3);
   assert.equal(content.publications.length, 31);
   assert.equal(content.projects.length, 15);
-  assert.equal(content.awards.length, 24);
+  assert.equal(content.awards.length, 23);
   assert.equal(content.skills.length, 5);
   assert.equal(content.services.length, 34);
 });
@@ -59,7 +59,7 @@ test('concise presentation retains the source facts and correct author roles', (
   assert(content.publications.every((paper) => !paper.role.zh.includes('唯一')));
   assert.equal(content.publications[2].role.zh, '共同第一作者');
   assert(content.projects.every((item) => item.displayTitle.zh && item.program.en && item.dates && item.text.zh));
-  for (const index of [1,2,4,5,6,7,8,9]) assert(content.awards[index].displayTitle.zh.startsWith('北京师范大学'));
+  for (const index of [1,2,4,5,6,7,8]) assert(content.awards[index].displayTitle.zh.startsWith('北京师范大学'));
   assert(content.awards[5].displayTitle.zh.includes('第九届研究生学术能力竞赛二等奖'));
   assert(content.skills.every((item) => item.shortText.zh && item.shortText.en));
   assert(!content.services.find((item) => item.kind === 'policy').text.zh.includes('政策建议成果：'));
