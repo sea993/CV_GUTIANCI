@@ -23,6 +23,11 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
   };
   try {
     await go('about');
+    check(!await page.locator('.full-biography').getAttribute('open'), 'The full biography should initially be collapsed');
+    check(await page.locator('#home-short-bio').innerText().then(value=>value.includes('生物多样性')), 'The short research introduction is missing');
+    check(await page.locator('.home-metrics a').count() === 4, 'The homepage evidence strip is incomplete');
+    check(await page.locator('[data-selected-count]').allTextContents().then(values=>values.every(value=>value.includes('11'))), 'Selected publication links have a stale count');
+    await page.locator('.full-biography summary').click();
     check(await page.locator('#home-biography p').count() === 5, 'The homepage introduction is incomplete');
     check(await page.locator('.home-education .education-item').count() === 3, 'Education is missing below the homepage introduction');
     check(await page.locator('.home-education .education-scores').count() === 0, 'Education scores should remain in the full CV');
@@ -35,29 +40,68 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     check((await page.locator('#main [data-email]').getAttribute('href')) === 'mailto:gutc@mail.bnu.edu.cn', 'Email link is incorrect');
     check((await page.locator('#scholar-link').getAttribute('href')).includes('gLpuU54AAAAJ'), 'Scholar profile link is incorrect');
     check(await page.locator('.contact-icon').count() === 5, 'Contact icons were removed during rendering');
-    check(await page.locator('#home-featured .research-figure').count() === 1, 'The selected research figure is missing');
-    check(await page.locator('#home-featured figcaption').innerText().then(value=>value.includes('图形摘要')), 'The graphical abstract caption is missing');
+    check(await page.locator('#home-featured .research-figure').count() === 3, 'The supplied selected research figures are missing');
+    check(await page.locator('#home-featured figcaption').first().innerText().then(value=>value.includes('图形摘要')), 'The graphical abstract caption is missing');
     const imagePopup = page.waitForEvent('popup');
-    await page.locator('#home-featured .research-image-link').click();
+    await page.locator('#home-featured .research-image-link').first().click();
     const figurePage = await imagePopup;
     await figurePage.waitForLoadState('load');
     check((await figurePage.locator('img').evaluate(image=>image.naturalWidth)) === 3358, 'The graphical abstract cannot be opened at its source resolution');
     await figurePage.close();
     await page.locator('[data-language="en"]').click();
     check(await page.locator('.contact-icon').count() === 5, 'Language switching removed contact icons');
-    check(await page.locator('#home-featured img').getAttribute('alt').then(value=>value.includes('Graphical abstract')), 'The research image lacks English alternative text');
+    check(await page.locator('#home-featured img').first().getAttribute('alt').then(value=>value.includes('Graphical abstract')), 'The research image lacks English alternative text');
+    check(await page.locator('#home-title').innerText() === 'Personal Profile', 'The approved English profile label was not applied');
+    await page.locator('#research-map-panel summary').click();
+    check(await page.locator('.map-node').count() === 12, 'The compact research map is incomplete');
+    await page.locator('.map-node[data-node="paper-2"]').focus();
+    check(await page.locator('.map-edge.is-active').count() === 2, 'Keyboard focus does not reveal the paper topic and verified method');
+    check(await page.locator('.map-node[data-node="paper-2"]').getAttribute('href') === 'https://doi.org/10.1016/j.eiar.2026.108631', 'Map paper does not link to its article');
+    await page.locator('.map-node[data-node="urban-form"]').click();
+    check(new URL(page.url()).searchParams.get('topic') === 'urban-form', 'Map topic does not open a filtered publication collection');
+    check(await page.locator('.publication').count() === 11, 'The urban form collection is incomplete');
+    await page.locator('[data-language="zh"]').click();
+    check(new URL(page.url()).searchParams.get('topic') === 'urban-form', 'Language switching lost the topic');
+    await page.locator('#publication-search').fill('bird');
+    check(await page.locator('.publication').count() === 1, 'Topic and title search did not combine');
+    await page.locator('[data-filter="selected"]').click();
+    check(await page.locator('.publication').count() === 11 && await page.locator('#publication-search').inputValue() === '' && !new URL(page.url()).searchParams.has('topic'), 'Selected publications did not reset stale topic or query');
+    await page.goBack();
+    check(await page.locator('#publication-search').inputValue() === 'bird' && await page.locator('.publication').count() === 1, 'Browser Back did not restore the topic search');
+    await page.locator('[data-language="en"]').click();
     await page.locator('#site-nav [data-page-link="projects"]').click();
     check(new URL(page.url()).pathname.endsWith('/projects.html') && new URL(page.url()).searchParams.get('lang')==='en', 'Navigation did not retain language');
     check(new URL(page.url()).searchParams.has('v'), 'Navigation can reuse a stale cached page');
     check((await page.locator('#project-list').innerText()).includes('Projects led'), 'Projects led was changed');
     check(!(await page.locator('#project-list').innerText()).includes('Responsibilities:'), 'Verbose project responsibilities remain on the project page');
+    check(await page.locator('#project-totals strong').allTextContents().then(values=>values.join(',')==='15,4,11'), 'Project total and roles are incorrect');
+    check(await page.locator('#project-bars strong').allTextContents().then(values=>values.join(',')==='4,1,3,3,4'), 'Project sources were counted incorrectly');
+    await page.locator('#project-bars [data-project-filter="nsfc"]').click();
+    check(await page.locator('#project-list li').count() === 4, 'NSFC project filtering failed');
+    await page.locator('[data-language="zh"]').click();
+    check(await page.locator('#project-list li').count() === 4, 'Language switching lost the project filter');
+    await page.locator('#project-totals [data-project-filter="led"]').click();
+    check(await page.locator('#project-list li').count() === 4, 'Led project filtering failed');
+    await page.locator('#project-filter [data-project-filter="all"]').click();
+    check(await page.locator('#project-list li').count() === 15, 'All projects were not restored');
 
     await go('publications','en');
+    check(await page.locator('#publication-totals strong').allTextContents().then(values=>values.join(',')==='45,1,2'), 'Publication types were counted incorrectly');
+    check(await page.locator('#publication-bars strong').allTextContents().then(values=>values.join(',')==='4,8,4,29'), 'Published-journal author roles were counted incorrectly');
+    await page.locator('#publication-bars [data-overview-filter="second"]').click();
+    check(await page.locator('.publication').count() === 4 && await page.locator('#paper-20').count() === 0, 'Overview bars include accepted articles in published-journal totals');
+    check(new URL(page.url()).searchParams.get('scope') === 'published', 'Published-journal scope is missing from the shareable URL');
+    await page.reload();
+    check(await page.locator('.publication').count() === 4, 'Reload lost publication scope');
+    await page.locator('[data-clear-scope]').click();
+    check(await page.locator('.publication').count() === 5, 'Clearing journal scope did not restore the accepted second-author article');
+    await page.locator('[data-filter="selected"]').click();
     check(await page.locator('[data-filter="selected"]').getAttribute('aria-pressed') === 'true', 'Selected publications is not the initial view');
     check(await page.locator('.publication').evaluateAll(papers=>papers.map(paper=>paper.id).join(',')) === 'paper-1,paper-2,paper-3,paper-9,paper-10,paper-12,paper-16,paper-19,paper-17,paper-18,paper-20', 'The selected publication set or its role and journal order is incorrect');
     check(await page.locator('.publication-number').allTextContents().then(numbers=>numbers.length===11&&numbers.every((number,index)=>number===`${index+1}.`)), 'Selected publications are not numbered consecutively');
     check(await page.locator('#paper-1 .research-figure').count() === 1, 'The paper figure is missing on the publication page');
     check(await page.locator('.publication .research-figure').count() === 3, 'The supplied graphical abstracts are missing');
+    check(await page.locator('.publication-title a').count() === 11, 'Publication titles do not link to their article pages');
     check(await page.locator('[data-filter="review"],.publication[data-status="review"],#paper-4,#paper-5,#paper-6').count() === 0, 'Under-review papers remain public');
     await page.locator('#publication-search').fill('What Factors Drove');
     check(await page.locator('.publication').count() === 1 && await page.locator('#paper-9').count() === 1, 'Search within selected publications failed');
@@ -104,7 +148,10 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     check(await page.locator('.publication').count() === 1 && await page.locator('#paper-51').count() === 1, 'The Chinese ecosystem health paper is missing');
     await page.locator('#publication-search').fill('<img src=x onerror=alert(1)>');
     check(await page.locator('.publication').count() === 0 && await page.locator('#publication-empty').isVisible(), 'Empty search message failed');
-    check(await page.evaluate(()=>Math.abs(document.querySelector('.site-footer').getBoundingClientRect().bottom-innerHeight)<2), 'The footer does not reach the bottom of a short page');
+    check(await page.evaluate(()=>{
+      const bottom=document.querySelector('.site-footer').getBoundingClientRect().bottom+scrollY;
+      return bottom>=innerHeight-2&&Math.abs(bottom-document.documentElement.scrollHeight)<2;
+    }), 'The footer does not reach the end of the page');
 
     await go('cv');
     check(await page.locator('#publication-list .research-figure').count() === 0, 'Research thumbnails were included in the printable CV');
@@ -146,7 +193,7 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
         for (const key of Object.keys(routes)) {
           await go(key,language);
           if (key==='about' || key==='publications') {
-            await page.locator('img').evaluateAll(images=>Promise.all(images.map(image=>image.decode())));
+            await page.locator('img').evaluateAll(images=>{images.forEach(image=>{image.loading='eager';});return Promise.all(images.map(image=>image.decode()));});
             check(await page.locator('img').evaluateAll(images=>images.every(image=>image.complete&&image.naturalWidth>0)), 'Research image failed to load: '+key);
           }
           const body = await page.locator('#main').innerText();
@@ -201,6 +248,11 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
       }
     }
     await go('about','en');
+    check(await page.locator('.quick-nav').isVisible(), 'Persistent mobile shortcuts are missing');
+    check(await page.locator('.profile-contact').getAttribute('open') === null, 'Mobile contact information consumes the first screen');
+    await page.locator('.menu-button').click();
+    await page.keyboard.press('Escape');
+    check(await page.locator('.menu-button').getAttribute('aria-expanded')==='false', 'Escape does not close the mobile menu');
     await page.locator('.menu-button').click();
     check(await page.locator('#site-nav').isVisible(),'Mobile menu did not open');
     await page.locator('#site-nav [data-page-link="cv"]').click();

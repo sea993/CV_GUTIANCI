@@ -27,8 +27,17 @@
     window.location.replace((inCV ? routes.cv : routes[legacySection]) + '?lang=' + language + '&v=' + assetVersion + (inCV ? '#' + legacySection : ''));
     return;
   }
-  let filter = currentPage === 'publications' ? 'selected' : 'all';
-  let query = '';
+  const filterOptions = ['selected','all','first','corresponding','second','collaborative','conference','accepted'];
+  let filter, query, topic, publishedOnly, projectFilter;
+  function readLocation() {
+    const params = new URLSearchParams(location.search);
+    filter = filterOptions.includes(params.get('filter')) ? params.get('filter') : currentPage === 'publications' ? 'selected' : 'all';
+    query = params.get('q') || '';
+    topic = content.researchThemes.some((item) => item.id === params.get('topic')) ? params.get('topic') : '';
+    publishedOnly = params.get('scope') === 'published';
+    projectFilter = ['led','participant','nsfc','key-rd','provincial','university','commissioned'].includes(params.get('project')) ? params.get('project') : 'all';
+  }
+  readLocation();
   let printState = null;
   const byId = (id) => document.getElementById(id);
   const escape = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -36,22 +45,45 @@
   const text = (key) => strings[language][key];
   const colon = () => language === 'zh' ? '：' : ': ';
   strings.zh.selectedResearch = '研究选读';
-  strings.en.selectedResearch = 'Selected research';
+  strings.en.selectedResearch = 'Research Highlights';
   strings.zh.fullArticle = '论文全文';
   strings.en.fullArticle = 'Read article';
   strings.zh.selected = '精选成果';
-  strings.en.selected = 'Selected publications';
+  strings.en.selected = 'Selected Publications';
   strings.zh.conference = '会议摘要';
   strings.en.conference = 'Conference abstracts';
-  strings.zh.journalPage = '期刊页面';
-  strings.en.journalPage = 'Journal page';
+  strings.zh.journalPage = '出版方文章页';
+  strings.en.journalPage = 'Publisher Article Page';
   strings.zh.findPaper = '检索论文';
   strings.en.findPaper = 'Find article';
   Object.assign(strings.zh, {footerContact:'联系与交流',footerAcademic:'学术主页',footerExplore:'站点导航',footerHosted:'托管于',backToTop:'返回顶部'});
   Object.assign(strings.en, {footerContact:'Contact',footerAcademic:'Academic profiles',footerExplore:'Explore',footerHosted:'Hosted on',backToTop:'Back to top'});
+  Object.assign(strings.zh, {menu:'导航',skills:'方法与工具',second:'第二作者，导师第一作者',researchInterests:'研究方向',profileShort:'简介',projectsShort:'项目',contactDetails:'联系方式与学术主页',fullBiography:'完整个人介绍',viewSelected:'查看精选成果',viewCv:'查看完整简历',exploreMap:'探索研究图谱',mapExplanation:'主题连接论文，虚线表示论文采用的方法。点击主题查看相关成果，点击论文打开出版方文章；悬停或键盘聚焦可查看关联。',mapTopics:'研究主题',mapPapers:'论文',mapMethods:'研究方法',publicationOverview:'成果概览',projectOverview:'项目概览',journalArticles:'已发表期刊论文',acceptedArticles:'已录用文章',publishedScope:'仅显示已发表期刊论文',allTopics:'全部主题',clearScope:'查看所有类型',led:'主持项目',participant:'参与项目',nsfc:'国家自然科学基金', 'key-rd':'国家重点研发计划课题',provincial:'省部级项目',university:'校级课题',commissioned:'横向与地方政府委托项目',projectOverviewNote:'按项目来源统计，共15项，其中主持4项、参与11项。国家公派留学资助不计入科研项目。',metricsSnapshot:'谷歌学术数据截至',firstMetric:'第一及共同第一作者',correspondingMetric:'通讯及共同通讯作者',citationMetric:'总引用',hMetric:'h指数'});
+  Object.assign(strings.en, {menu:'Navigation',about:'Personal Profile',projects:'Research Projects',awards:'Honors and Awards',skills:'Methods and Tools',service:'Academic Service and Experience',cv:'CV',personal:'Personal Details',birth:'Month and Year of Birth',hometown:'Place of Origin',membership:'Political Affiliation',profileShort:'Profile',projectsShort:'Projects',contactDetails:'Contact and Academic Profiles',fullBiography:'Full Personal Profile',viewSelected:'View Selected Publications',viewCv:'View Full CV',exploreMap:'Explore Research Map',researchInterests:'Research Themes',mapExplanation:'Topics connect to papers; dashed lines indicate methods used in a paper. Select a topic to browse related publications or a paper to open its article page. Hover or focus with the keyboard to explore connections.',mapTopics:'Research Themes',mapPapers:'Publications',mapMethods:'Methods',publicationOverview:'Publication Overview',projectOverview:'Research Project Overview',journalArticles:'Published Journal Articles',acceptedArticles:'Accepted Article',publishedScope:'Published journal articles only',allTopics:'All Topics',clearScope:'Include All Record Types',first:'First or Co-first Author',corresponding:'Corresponding or Co-corresponding Author',second:'Second Author with Supervisor as First Author',collaborative:'Other Collaborative Papers',conference:'Conference Abstracts',led:'Projects led',participant:'Projects Participated In',nsfc:'NSFC','key-rd':'National Key R&D Program Research Task',provincial:'Provincial or Ministerial Projects',university:'University-funded Projects',commissioned:'Commissioned Projects',projectOverviewNote:'15 projects classified by source: four led and 11 participated in. CSC funding for overseas study is excluded from research project counts.',metricsSnapshot:'Google Scholar snapshot',firstMetric:'First or Co-first Author',correspondingMetric:'Corresponding or Co-corresponding Author',citationMetric:'Citations',hMetric:'h-index'});
   const icon = (name, className) => '<svg class="' + className + '" aria-hidden="true"><use href="assets/icons.svg#' + name + '"></use></svg>';
   const setText = (id, value) => { if (byId(id)) byId(id).textContent = value; };
   const setHTML = (id, value) => { if (byId(id)) byId(id).innerHTML = value; };
+  const isPublishedJournal = (paper) => paper.status === 'published' && paper.kind !== 'conference';
+  function pageURL(page, params = {}, hash = '') {
+    const search = new URLSearchParams({lang:language,v:assetVersion,...params});
+    return routes[page] + '?' + search + hash;
+  }
+  function saveLocation(replace = false) {
+    const url = new URL(location.href);
+    for (const key of ['filter','q','topic','scope','project']) url.searchParams.delete(key);
+    if (byId('publication-list')) {
+      url.searchParams.set('filter',filter);
+      if (query) url.searchParams.set('q',query);
+      if (topic) url.searchParams.set('topic',topic);
+      if (publishedOnly) url.searchParams.set('scope','published');
+    }
+    if (currentPage === 'projects' && projectFilter !== 'all') url.searchParams.set('project',projectFilter);
+    try { history[replace ? 'replaceState' : 'pushState'](null,'',url); } catch (_) { /* Local previews may reject history changes. */ }
+  }
+  function selectedCountLabel() {
+    const count = content.publications.filter((paper) => paper.selected).length;
+    return language === 'zh' ? '查看全部精选成果（' + count + '篇）' : 'View All ' + count + ' Selected Publications';
+  }
 
   function groups(items) {
     const result = [];
@@ -67,6 +99,90 @@
     const figure = paper.figure;
     return '<figure class="research-figure"><a class="research-image-link" href="' + escape(figure.src) + '" target="_blank" rel="noopener"><img src="' + escape(figure.src) + '" width="' + figure.width + '" height="' + figure.height + '" alt="' + escape(localized(figure.alt)) + '" loading="lazy" decoding="async"></a>' +
       '<figcaption><a href="' + escape(figure.src) + '" target="_blank" rel="noopener">' + escape(localized(figure.caption)) + '</a></figcaption></figure>';
+  }
+
+  function renderHomeOverview() {
+    if (!byId('home-metrics')) return;
+    const scholar = content.profile.scholar + '&hl=' + (language === 'zh' ? 'zh-CN' : 'en');
+    const published = content.publications.filter(isPublishedJournal);
+    const entries = [
+      {value:published.filter((paper) => paper.category === 'first').length,label:text('firstMetric'),href:pageURL('publications',{filter:'first',scope:'published'},'#publication-browser')},
+      {value:published.filter((paper) => paper.category === 'corresponding').length,label:text('correspondingMetric'),href:pageURL('publications',{filter:'corresponding',scope:'published'},'#publication-browser')},
+      {value:content.metrics[0].value,label:text('citationMetric'),href:scholar},
+      {value:content.metrics[1].value,label:text('hMetric'),href:scholar}
+    ];
+    setHTML('home-metrics', entries.map((entry) => '<a href="' + escape(entry.href) + '"' + (entry.href.startsWith('https:') ? ' target="_blank" rel="noopener"' : '') + '><strong>' + escape(entry.value) + '</strong><span>' + escape(entry.label) + '</span></a>').join('') + '<p class="snapshot-note">' + escape(text('metricsSnapshot')) + ' ' + content.metricsSnapshot + '</p>');
+    setText('home-short-bio', localized(content.profile.shortBio));
+    setHTML('home-research', content.researchThemes.map((item,index) => '<li>' + icon(['city','leaf','map'][index],'interest-icon') + '<div><a href="' + escape(pageURL('publications',{filter:'all',topic:item.id},'#publication-browser')) + '">' + escape(localized(item.label)) + '<span aria-hidden="true"> →</span></a><p>' + escape(localized(item.description)) + '</p></div></li>').join(''));
+    setHTML('home-methods',content.methodsAndTools.map((item) => '<dt>' + escape(localized(item.label)) + '</dt><dd>' + escape(localized(item.tools)) + '</dd>').join(''));
+    renderResearchMap();
+  }
+
+  function renderResearchMap() {
+    if (!byId('research-map')) return;
+    const nodes = [], edges = [];
+    content.researchThemes.forEach((item,index) => nodes.push({id:item.id,label:localized(item.label),kind:'topic',x:140,y:140+index*150,href:pageURL('publications',{filter:'all',topic:item.id},'#publication-browser')}));
+    content.researchMapPapers.forEach((item,index) => {
+      const paper = content.publications.find((entry) => entry.id === item.id);
+      nodes.push({id:item.id,label:localized(item.label),title:paper.title[paper.originalLanguage],kind:'paper',x:470,y:65+index*70,href:paper.doi || paper.articleUrl || paper.searchUrl});
+      paper.topics.forEach((id) => edges.push({from:id,to:paper.id,kind:'topic'}));
+    });
+    content.researchMethods.forEach((item,index) => {
+      const paper = content.publications.find((entry) => entry.id === item.papers[0]);
+      nodes.push({id:item.id,label:localized(item.label),kind:'method',x:800,y:140+index*280,href:paper.doi || paper.articleUrl});
+      item.papers.forEach((id) => edges.push({from:id,to:item.id,kind:'method'}));
+    });
+    const lines = edges.map((edge) => {
+      const from = nodes.find((node) => node.id === edge.from), to = nodes.find((node) => node.id === edge.to);
+      if (!from || !to) return '';
+      return '<path class="map-edge map-edge-' + edge.kind + '" data-from="' + edge.from + '" data-to="' + edge.to + '" d="M ' + (from.x+104) + ' ' + from.y + ' C ' + (from.x+166) + ' ' + from.y + ', ' + (to.x-166) + ' ' + to.y + ', ' + (to.x-104) + ' ' + to.y + '"/>';
+    }).join('');
+    const nodeHTML = nodes.map((node) => {
+      const words = language === 'zh' ? node.label.match(/.{1,12}/g) : node.label.split(' ');
+      const rows = [];
+      let row = '';
+      words.forEach((word) => {
+        if (row && (language === 'zh' || (row+' '+word).length > 27)) {rows.push(row); row=word;}
+        else row += (row ? ' ' : '') + word;
+      });
+      rows.push(row);
+      const label = rows.map((line,index) => '<tspan x="' + node.x + '" y="' + (node.y+(index-(rows.length-1)/2)*18+5) + '">' + escape(line) + '</tspan>').join('');
+      return '<a class="map-node map-node-' + node.kind + '" data-node="' + node.id + '" href="' + escape(node.href) + '" aria-label="' + escape(node.title || node.label) + '"' + (node.href.startsWith('https:') ? ' target="_blank" rel="noopener"' : '') + '><title>' + escape(node.title || node.label) + '</title><rect x="' + (node.x-104) + '" y="' + (node.y-25) + '" width="208" height="50" rx="4"/><text text-anchor="middle">' + label + '</text></a>';
+    }).join('');
+    setHTML('research-map','<svg class="research-map-svg" viewBox="0 0 940 555" role="group" aria-label="' + escape(text('exploreMap')) + '"><text class="map-column-label" x="140" y="17" text-anchor="middle">' + escape(text('mapTopics')) + '</text><text class="map-column-label" x="470" y="17" text-anchor="middle">' + escape(text('mapPapers')) + '</text><text class="map-column-label" x="800" y="17" text-anchor="middle">' + escape(text('mapMethods')) + '</text>' + lines + nodeHTML + '</svg>');
+    setHTML('map-paper-links','<p>' + escape(text('mapPapers')) + '</p><ul>' + content.researchMapPapers.map((item) => {
+      const paper = content.publications.find((entry) => entry.id === item.id);
+      return '<li><a href="' + escape(paper.doi || paper.articleUrl || paper.searchUrl) + '" target="_blank" rel="noopener">' + escape(localized(item.label)) + '</a></li>';
+    }).join('') + '</ul>');
+  }
+
+  function overviewBar(label,count,maximum,attribute,value) {
+    return '<button type="button" class="overview-bar" ' + attribute + '="' + value + '" aria-label="' + escape(label + ': ' + count) + '"><span class="bar-label">' + escape(label) + '</span><span class="bar-track" aria-hidden="true"><span style="width:' + (100*count/maximum) + '%"></span></span><strong>' + count + '</strong></button>';
+  }
+
+  function renderPublicationOverview() {
+    if (!byId('publication-overview')) return;
+    const published = content.publications.filter(isPublishedJournal);
+    const accepted = content.publications.filter((paper) => paper.status === 'accepted');
+    const conferences = content.publications.filter((paper) => paper.kind === 'conference');
+    setHTML('publication-totals',[{value:published.length,label:text('journalArticles'),filter:'all'},{value:accepted.length,label:text('acceptedArticles'),filter:'accepted'},{value:conferences.length,label:text('conference'),filter:'conference'}].map((item) => '<button type="button" data-overview-filter="' + item.filter + '"><strong>' + item.value + '</strong><span>' + escape(item.label) + '</span></button>').join(''));
+    const categories = ['first','corresponding','second','collaborative'];
+    const maximum = Math.max(...categories.map((category) => published.filter((paper) => paper.category === category).length));
+    setHTML('publication-bars',categories.map((category) => overviewBar(text(category),published.filter((paper) => paper.category === category).length,maximum,'data-overview-filter',category)).join(''));
+    const secondAccepted = accepted.filter((paper) => ['second','accepted'].includes(paper.category)).length;
+    setText('publication-overview-note',language === 'zh' ? '条形图统计' + published.length + '篇已发表期刊论文，按页面作者角色分组，每篇仅计一次。第二作者另有' + secondAccepted + '篇已录用文章。点击数字或条形图查看对应成果。' : 'Bars cover ' + published.length + ' published journal articles, grouped by the author role used on this page; each article is counted once. The second-author list also includes ' + secondAccepted + ' accepted article. Select a count or bar to browse the corresponding publications.');
+  }
+
+  function renderProjectOverview() {
+    if (!byId('project-overview')) return;
+    setHTML('project-totals',['all','led','participant'].map((role) => '<button type="button" data-project-filter="' + role + '"><strong>' + content.projects.filter((item) => role === 'all' || item.role === role).length + '</strong><span>' + escape(role === 'all' ? (language === 'zh' ? '科研项目总计' : 'Research Projects') : text(role)) + '</span></button>').join(''));
+    const sources = ['nsfc','key-rd','provincial','university','commissioned'];
+    const maximum = Math.max(...sources.map((source) => content.projects.filter((item) => item.source === source).length));
+    setHTML('project-bars',sources.map((source) => overviewBar(text(source),content.projects.filter((item) => item.source === source).length,maximum,'data-project-filter',source)).join(''));
+    setHTML('project-filter','<button type="button" class="filter-button" data-project-filter="all" aria-pressed="' + (projectFilter === 'all') + '">' + escape(language === 'zh' ? '全部项目' : 'All Projects') + '</button>' + (projectFilter === 'all' ? '' : '<span>' + escape(text(projectFilter)) + '</span>'));
+    const ledCount = content.projects.filter((item) => item.role === 'led').length;
+    setText('project-overview-note',language === 'zh' ? '按项目来源统计，共' + content.projects.length + '项，其中主持' + ledCount + '项、参与' + (content.projects.length-ledCount) + '项。国家公派留学资助不计入科研项目。' : content.projects.length + ' projects classified by source: ' + ledCount + ' led and ' + (content.projects.length-ledCount) + ' participated in. CSC funding for overseas study is excluded from research project counts.');
+    document.querySelectorAll('[data-project-filter]').forEach((button) => button.setAttribute('aria-pressed',String(button.dataset.projectFilter === projectFilter)));
   }
 
   function renderFeaturedResearch() {
@@ -93,6 +209,8 @@
   }
 
   function matchesFilter(paper) {
+    if (publishedOnly && !isPublishedJournal(paper)) return false;
+    if (topic && !paper.topics.includes(topic)) return false;
     if (filter === 'all') return true;
     if (filter === 'selected') return paper.selected === true;
     if (filter === 'conference') return paper.kind === 'conference';
@@ -105,8 +223,10 @@
 
   function renderFilters() {
     if (!byId('publication-filters')) return;
-    const options = ['selected','all','first','corresponding','second','collaborative','conference','accepted'];
-    setHTML('publication-filters', options.map((option) => '<button type="button" class="filter-button" data-filter="' + option + '" aria-pressed="' + (filter === option) + '">' + escape(text(option)) + '</button>').join(''));
+    setHTML('publication-filters', filterOptions.map((option) => '<button type="button" class="filter-button" data-filter="' + option + '" aria-pressed="' + (filter === option) + '">' + escape(text(option)) + '</button>').join(''));
+    if (currentPage === 'publications') setHTML('publication-topics','<button type="button" data-topic="" aria-pressed="' + !topic + '">' + escape(text('allTopics')) + '</button>' + content.researchThemes.map((item) => '<button type="button" data-topic="' + item.id + '" aria-pressed="' + (topic === item.id) + '">' + escape(localized(item.label)) + '</button>').join(''));
+    byId('publication-scope').hidden = !publishedOnly;
+    setHTML('publication-scope',escape(text('publishedScope')) + ' <button type="button" data-clear-scope>' + escape(text('clearScope')) + '</button>');
   }
 
   function publicationLink(paper) {
@@ -119,9 +239,9 @@
   function renderPublications() {
     if (!byId('publication-list')) return;
     const keyword = query.trim().toLocaleLowerCase();
-    const papers = content.publications.filter((paper) => matchesFilter(paper) && (!keyword || [paper.title.zh,paper.title.en,paper.authors.zh,paper.authors.en,paper.venue.zh,paper.venue.en,paper.year,paper.metadata.zh,paper.metadata.en].join(' ').toLocaleLowerCase().includes(keyword)));
+    const papers = content.publications.filter((paper) => matchesFilter(paper) && (!keyword || [paper.title.zh,paper.title.en,paper.authors.zh,paper.authors.en,paper.venue.zh,paper.venue.en,paper.year].join(' ').toLocaleLowerCase().includes(keyword)));
     setText('publication-count', language === 'zh' ? '共' + content.publications.length + '条记录，当前显示' + papers.length + '条' : 'Showing ' + papers.length + ' of ' + content.publications.length + ' records');
-    byId('publication-count').hidden = filter === 'all' && !keyword;
+    byId('publication-count').hidden = currentPage === 'cv' && filter === 'all' && !keyword && !topic && !publishedOnly;
     byId('publication-empty').hidden = papers.length > 0;
     setHTML('publication-list', papers.map((paper, index) => {
       const authors = escape(localized(paper.authors)).replace(/Gu,\s*T\.\*?|谷天赐/g, '<strong>$&</strong>');
@@ -134,7 +254,7 @@
       const illustrated = currentPage === 'publications' && paper.figure;
       return '<article class="publication' + (illustrated ? ' publication-illustrated' : '') + '" id="' + escape(paper.id) + '" data-status="' + escape(paper.status) + '" data-kind="' + escape(paper.kind || 'journal') + '">' +
         (illustrated ? researchFigure(paper) : '') + '<div class="publication-copy">' +
-        '<' + heading + ' class="publication-title" lang="' + (paper.originalLanguage === 'zh' ? 'zh-CN' : 'en') + '"><span class="publication-number">' + (index + 1) + '.</span>' + escape(title) + '</' + heading + '>' + translation +
+        '<' + heading + ' class="publication-title" lang="' + (paper.originalLanguage === 'zh' ? 'zh-CN' : 'en') + '"><span class="publication-number">' + (index + 1) + '.</span><a href="' + escape(paper.doi || paper.articleUrl || paper.searchUrl) + '" target="_blank" rel="noopener">' + escape(title) + '</a></' + heading + '>' + translation +
         '<p class="authors">' + authors + '</p>' +
         '<p class="venue"><em>' + escape(localized(paper.venue)) + '</em>' + (citation ? ', ' + citation : '') + '</p>' +
         '<p class="publication-notes">' + (role ? '<span>' + escape(role) + '</span>' : '') + status + publicationLink(paper) + '</p></div></article>';
@@ -174,7 +294,7 @@
     setHTML('profile-position', escape(affiliation) + '<br>' + escape(localized(content.profile.position)));
     setText('profile-bio', localized(content.profile.bio));
     setHTML('home-biography', content.profile.homeBio.map((paragraph) => '<p>' + escape(localized(paragraph)) + '</p>').join(''));
-    setHTML('home-research', content.homeResearch.map((item, index) => '<li>' + icon(['city','leaf','map'][index], 'interest-icon') + '<span>' + escape(localized(item)) + '</span></li>').join(''));
+    renderHomeOverview();
     renderFeaturedResearch();
     setHTML('home-news', content.news.map((item) => '<li><span class="news-date">' + escape(item.date) + '</span><span>' + escape(localized(item.text)) + '</span></li>').join(''));
     setHTML('biography', content.biography.map((paragraph) => '<p>' + escape(localized(paragraph)) + '</p>').join(''));
@@ -202,7 +322,9 @@
     document.querySelectorAll('[data-page-summary]').forEach((element) => { element.textContent = localized(content.pageSummaries[element.dataset.pageSummary]); });
     document.querySelectorAll('[data-profile-name]').forEach((element) => { element.textContent = content.profile.name[element.dataset.profileName]; });
     document.querySelectorAll('[data-language]').forEach((button) => { button.setAttribute('aria-pressed', String(button.dataset.language === language)); });
-    document.querySelectorAll('[data-page-link]').forEach((link) => { link.href = routes[link.dataset.pageLink] + '?lang=' + language + '&v=' + assetVersion; });
+    document.querySelectorAll('[data-page-link]').forEach((link) => { link.href = pageURL(link.dataset.pageLink); });
+    document.querySelectorAll('[data-selected-link]').forEach((link) => { link.href = pageURL('publications',{filter:'selected'},'#publication-browser'); });
+    document.querySelectorAll('[data-selected-count]').forEach((link) => { link.textContent = selectedCountLabel(); });
     document.querySelectorAll('[data-email]').forEach((link) => { link.href = 'mailto:' + content.profile.email; link.querySelector('span').textContent = content.profile.email; });
     byId('site-nav').setAttribute('aria-label', language === 'zh' ? '主要导航' : 'Main navigation');
     renderProfile();
@@ -214,9 +336,11 @@
       byId('publication-filters').setAttribute('aria-label', language === 'zh' ? '论文分类筛选' : 'Publication filters');
       renderFilters();
       renderPublications();
+      renderPublicationOverview();
       setText('patents-line', text('patents') + colon() + localized(content.patents));
     }
-    renderRecords('project-list', content.projects);
+    renderProjectOverview();
+    renderRecords('project-list',content.projects.filter((item) => currentPage !== 'projects' || projectFilter === 'all' || item.role === projectFilter || item.source === projectFilter));
     renderRecords('award-list', content.awards);
     if (byId('skill-list')) {
       setHTML('skill-list', content.skills.map((skill) => {
@@ -242,10 +366,67 @@
     const button = event.target.closest('[data-filter]');
     if (!button) return;
     filter = button.dataset.filter;
-    byId('publication-filters').querySelectorAll('button').forEach((element) => element.setAttribute('aria-pressed', String(element === button)));
+    publishedOnly = false;
+    if (filter === 'selected') { query = ''; topic = ''; byId('publication-search').value = ''; }
+    saveLocation();
+    renderFilters();
     renderPublications();
+    byId('publication-filters').querySelector('[aria-pressed="true"]').focus({preventScroll:true});
   });
-  byId('publication-search')?.addEventListener('input', (event) => { query = event.target.value; renderPublications(); });
+  byId('publication-search')?.addEventListener('input', (event) => { query = event.target.value; saveLocation(true); renderPublications(); });
+  byId('publication-topics')?.addEventListener('click',(event) => {
+    const button = event.target.closest('[data-topic]');
+    if (!button) return;
+    topic = button.dataset.topic; filter = 'all'; publishedOnly = false;
+    saveLocation(); renderFilters(); renderPublications();
+    byId('publication-topics').querySelector('[aria-pressed="true"]').focus({preventScroll:true});
+  });
+  byId('publication-scope')?.addEventListener('click',(event) => {
+    if (!event.target.closest('[data-clear-scope]')) return;
+    publishedOnly = false; saveLocation(); renderFilters(); renderPublications();
+    byId('publication-filters').querySelector('[aria-pressed="true"]').focus({preventScroll:true});
+  });
+  byId('publication-overview')?.addEventListener('click',(event) => {
+    const button = event.target.closest('[data-overview-filter]');
+    if (!button) return;
+    filter = button.dataset.overviewFilter; query = ''; topic = '';
+    publishedOnly = !['accepted','conference'].includes(filter);
+    byId('publication-search').value = '';
+    saveLocation(); renderFilters(); renderPublications();
+    byId('publication-browser').scrollIntoView({block:'start'});
+    byId('publication-filters').querySelector('[aria-pressed="true"]').focus({preventScroll:true});
+  });
+  function projectFilterClick(event) {
+    const button = event.target.closest('[data-project-filter]');
+    if (!button) return;
+    projectFilter = button.dataset.projectFilter;
+    saveLocation(); renderProjectOverview();
+    renderRecords('project-list',content.projects.filter((item) => projectFilter === 'all' || item.role === projectFilter || item.source === projectFilter));
+    byId('project-filter').scrollIntoView({block:'start'});
+    byId('project-filter').querySelector('button').focus({preventScroll:true});
+  }
+  byId('project-overview')?.addEventListener('click',projectFilterClick);
+  byId('project-filter')?.addEventListener('click',projectFilterClick);
+  function highlightMap(id) {
+    const map = byId('research-map');
+    const connected = new Set([id]);
+    map.querySelectorAll('.map-edge').forEach((edge) => {
+      const match = Boolean(id && [edge.dataset.from,edge.dataset.to].includes(id));
+      edge.classList.toggle('is-active',match);
+      if (match) {connected.add(edge.dataset.from); connected.add(edge.dataset.to);}
+    });
+    map.classList.toggle('has-focus',Boolean(id));
+    map.querySelectorAll('.map-node').forEach((node) => node.classList.toggle('is-connected',connected.has(node.dataset.node)));
+  }
+  byId('research-map')?.addEventListener('pointerover',(event) => highlightMap(event.target.closest('[data-node]')?.dataset.node || ''));
+  byId('research-map')?.addEventListener('pointerleave',() => highlightMap(document.activeElement.closest('[data-node]')?.dataset.node || ''));
+  byId('research-map')?.addEventListener('focusin',(event) => highlightMap(event.target.closest('[data-node]')?.dataset.node || ''));
+  byId('research-map')?.addEventListener('focusout',(event) => highlightMap(event.relatedTarget?.closest('[data-node]')?.dataset.node || ''));
+  window.addEventListener('popstate',() => {
+    const lang = new URLSearchParams(location.search).get('lang');
+    if (['zh','en'].includes(lang)) language = lang;
+    readLocation(); render();
+  });
   document.querySelector('.menu-button').addEventListener('click', (event) => {
     const open = event.currentTarget.getAttribute('aria-expanded') !== 'true';
     event.currentTarget.setAttribute('aria-expanded', String(open));
@@ -256,19 +437,32 @@
     document.querySelector('.menu-button').setAttribute('aria-expanded', 'false');
     byId('site-nav').classList.remove('is-open');
   });
+  document.addEventListener('keydown',(event) => {
+    if (event.key !== 'Escape' || !byId('site-nav').classList.contains('is-open')) return;
+    document.querySelector('.menu-button').setAttribute('aria-expanded','false');
+    byId('site-nav').classList.remove('is-open');
+    document.querySelector('.menu-button').focus();
+  });
+  const contactMedia = window.matchMedia('(min-width:701px)');
+  const updateContact = () => { const details = document.querySelector('.profile-contact'); if (details) details.open = contactMedia.matches; };
+  contactMedia.addEventListener('change',updateContact);
+  updateContact();
   byId('print-cv')?.addEventListener('click', () => window.print());
   window.addEventListener('beforeprint', () => {
     const personal = document.querySelector('.personal-details');
-    printState = {filter,query,personalOpen:personal?.open};
-    filter = 'all'; query = '';
+    const details = [...document.querySelectorAll('.full-biography,.profile-contact')];
+    printState = {filter,query,topic,publishedOnly,personalOpen:personal?.open,details:details.map((item) => ({item,open:item.open}))};
+    filter = 'all'; query = ''; topic = ''; publishedOnly = false;
+    details.forEach((item) => {item.open = true;});
     if (personal) personal.open = true;
     renderPublications();
   });
   window.addEventListener('afterprint', () => {
     if (!printState) return;
-    filter = printState.filter; query = printState.query;
+    filter = printState.filter; query = printState.query; topic = printState.topic; publishedOnly = printState.publishedOnly;
     const personal = document.querySelector('.personal-details');
     if (personal) personal.open = printState.personalOpen;
+    printState.details.forEach((entry) => {entry.item.open = entry.open;});
     printState = null;
     renderPublications();
   });

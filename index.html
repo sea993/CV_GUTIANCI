@@ -10,12 +10,12 @@
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://sea993.github.io/CV_GUTIANCI/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css?v=1791885804924460900">
+  <link rel="stylesheet" href="assets/style.css?v=1791891684807166000">
   <title>谷天赐 个人简介</title>
-  <script src="assets/content.js?v=1791885804924460900" defer></script>
-  <script src="assets/app.js?v=1791885804924460900" defer></script>
+  <script src="assets/content.js?v=1791891684807166000" defer></script>
+  <script src="assets/app.js?v=1791891684807166000" defer></script>
 </head>
-<body id="top" data-page="about" data-asset-version="1791885804924460900">
+<body id="top" data-page="about" data-asset-version="1791891684807166000">
   <a class="skip-link" href="#main" data-i18n="skip">跳到正文</a>
   <header class="site-header">
     <div class="header-inner">
@@ -25,37 +25,44 @@
           <button type="button" data-language="zh" aria-pressed="true">中文</button>
           <button type="button" data-language="en" aria-pressed="false">English</button>
         </div>
-        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n="menu">菜单</button>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-icon" aria-hidden="true">☰</span><span data-i18n="menu">导航</span></button>
       </div>
     </div>
     <nav class="site-nav" id="site-nav" aria-label="主要导航"><a href="index.html" data-page-link="about" data-i18n="about" aria-current="page">个人简介</a><a href="publications.html" data-page-link="publications" data-i18n="publications">学术成果</a><a href="projects.html" data-page-link="projects" data-i18n="projects">科研项目</a><a href="awards.html" data-page-link="awards" data-i18n="awards">奖励荣誉</a><a href="service.html" data-page-link="service" data-i18n="service">经历与服务</a><a href="cv.html" data-page-link="cv" data-i18n="cv">完整简历</a></nav>
+    <nav class="quick-nav" aria-label="快捷导航"><a href="index.html" data-page-link="about" data-i18n="profileShort" aria-current="page">简介</a><a href="publications.html" data-page-link="publications" data-i18n="publications">学术成果</a><a href="projects.html" data-page-link="projects" data-i18n="projectsShort">科研项目</a></nav>
   </header>
   <main id="main" class="page-shell"><section id="about" class="about-layout" aria-labelledby="home-title">
   <aside class="profile-sidebar">
     <figure class="portrait-block"><img src="assets/portrait.jpeg" width="150" height="191" alt="谷天赐 Tianci Gu" fetchpriority="high"></figure>
     <h2 id="profile-name">谷天赐 <span>Tianci Gu</span></h2>
     <div class="profile-institution"><img class="institution-seal" src="assets/bnu-seal.png" width="40" height="40" alt="北京师范大学 Beijing Normal University"><p id="profile-position" class="profile-position">北京师范大学地理科学学部<br>自然资源专业博士生</p></div>
-    <div class="contact-links">
+    <details class="profile-contact"><summary data-i18n="contactDetails">联系方式与学术主页</summary><div class="contact-links">
   <a href="mailto:gutc@mail.bnu.edu.cn" data-email><svg class="contact-icon" aria-hidden="true"><use href="assets/icons.svg#mail"></use></svg><span>gutc@mail.bnu.edu.cn</span></a>
   <a id="scholar-link" href="https://scholar.google.com/citations?user=gLpuU54AAAAJ" target="_blank" rel="noopener"><svg class="contact-icon" aria-hidden="true"><use href="assets/icons.svg#scholar"></use></svg><span>Google Scholar</span></a>
   <a id="orcid-link" href="https://orcid.org/0000-0001-9466-5545" target="_blank" rel="noopener"><svg class="contact-icon" aria-hidden="true"><use href="assets/icons.svg#identity"></use></svg><span>ORCID</span></a>
   <a id="researchgate-link" href="https://www.researchgate.net/profile/Tianci-Gu-2" target="_blank" rel="noopener"><svg class="contact-icon" aria-hidden="true"><use href="assets/icons.svg#network"></use></svg><span>ResearchGate</span></a>
   <a href="cv.html" data-page-link="cv"><svg class="contact-icon" aria-hidden="true"><use href="assets/icons.svg#document"></use></svg><span data-i18n="cv">完整简历</span></a>
-</div>
+</div></details>
   </aside>
   <div class="about-main">
     <h1 id="home-title" class="about-title" data-i18n="about">个人简介</h1>
-    <div id="home-biography" class="home-biography"></div>
+    <p id="home-short-bio" class="home-short-bio"></p>
+    <div id="home-metrics" class="home-metrics" aria-label="学术成果概览"></div>
+    <div class="home-actions"><a class="primary-link" href="publications.html" data-selected-link data-i18n="viewSelected">查看精选成果</a><a href="cv.html" data-page-link="cv" data-i18n="viewCv">查看完整简历</a></div>
+    <details class="full-biography"><summary data-i18n="fullBiography">完整个人介绍</summary><div id="home-biography" class="home-biography"></div></details>
     <section id="education" class="home-education" aria-labelledby="education-title">
       <h2 id="education-title" data-i18n="education">教育经历</h2>
       <p class="page-lead" data-page-summary="education"></p>
       <div id="education-list" class="education-list"></div>
     </section>
-    <h2 data-i18n="researchInterests">研究兴趣</h2><ul id="home-research" class="research-interests"></ul>
-    <h2 data-i18n="selectedResearch">研究选读</h2><div id="home-featured" class="featured-research"></div>
+    <h2 data-i18n="researchInterests">研究方向</h2><ul id="home-research" class="research-interests"></ul>
+    <details id="research-map-panel" class="research-map-panel"><summary data-i18n="exploreMap">探索研究图谱</summary><p class="map-explanation" data-i18n="mapExplanation"></p><div id="research-map"></div><div id="map-paper-links" class="map-paper-links"></div></details>
+    <div class="section-heading"><h2 data-i18n="selectedResearch">研究选读</h2><a href="publications.html" data-selected-link data-selected-count></a></div><div id="home-featured" class="featured-research"></div>
+    <p class="more-selected"><a href="publications.html" data-selected-link data-selected-count></a></p>
+    <h2 data-i18n="skills">方法与工具</h2><dl id="home-methods" class="home-methods"></dl>
     <h2 data-i18n="recentNews">近期动态</h2><ul id="home-news" class="news-list"></ul>
   </div>
-</section><noscript><p>请开启JavaScript浏览网站内容，或<a href="assets/tianci-gu-cv.docx?v=1791885804924460900">下载Word简历</a>。 Enable JavaScript to browse this site, or download the CV.</p></noscript></main>
+</section><noscript><p>请开启JavaScript浏览网站内容，或<a href="assets/tianci-gu-cv.docx?v=1791891684807166000">下载Word简历</a>。 Enable JavaScript to browse this site, or download the CV.</p></noscript></main>
   <footer class="site-footer" id="site-footer">
     <div class="footer-inner">
       <div class="footer-main">

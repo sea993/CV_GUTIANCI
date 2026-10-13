@@ -117,6 +117,27 @@ test('browser data is synchronized with the editable content file', () => {
   assert.deepEqual(JSON.parse(script.slice('window.CV_CONTENT = '.length).trim().replace(/;$/, '')), content);
 });
 
+test('overview counts separate publication status and project sources', () => {
+  const published = content.publications.filter(p=>p.status==='published'&&p.kind!=='conference');
+  assert.equal(published.length,45);
+  assert.deepEqual(['first','corresponding','second','collaborative'].map(role=>published.filter(p=>p.category===role).length),[4,8,4,29]);
+  assert.deepEqual(['nsfc','key-rd','provincial','university','commissioned'].map(source=>content.projects.filter(p=>p.source===source).length),[4,1,3,3,4]);
+  assert.equal(content.projects.filter(p=>p.role==='led').length,4);
+  assert.equal(new Set(content.projects.map(p=>p.id)).size,15);
+});
+
+test('research map and topic links use public records and verified method associations', () => {
+  const ids = new Set(content.publications.map(p=>p.id));
+  const topics = new Set(content.researchThemes.map(t=>t.id));
+  for (const paper of content.publications) assert(paper.topics.every(id=>topics.has(id)));
+  for (const topic of topics) assert(content.publications.some(p=>p.topics.includes(topic)),'A research theme has no publications');
+  assert(content.researchMapPapers.every(p=>ids.has(p.id)));
+  for (const method of content.researchMethods) assert(method.papers.every(id=>ids.has(id)));
+  assert.deepEqual(content.researchMethods.map(m=>m.papers),[['paper-2'],['paper-11']]);
+  assert.equal(content.publications.filter(p=>p.featured).length,3);
+  assert(content.publications.filter(p=>p.featured).every(p=>p.figure&&p.selected&&p.doi));
+});
+
 test('independent pages and their assets work under a GitHub project path', () => {
   for (const name of ['index','education','publications','projects','awards','skills','service','cv']) {
   const html = fs.readFileSync(path.join(root, name + '.html'), 'utf8');

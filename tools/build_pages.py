@@ -1,6 +1,7 @@
 """Generate static section pages sharing a bilingual navigation."""
 from html import escape
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 # GitHub Pages caches shared resources. Change their URLs when an asset changes.
@@ -31,18 +32,24 @@ HOME = f'''<section id="about" class="about-layout" aria-labelledby="home-title"
     <figure class="portrait-block"><img src="assets/portrait.jpeg" width="150" height="191" alt="谷天赐 Tianci Gu" fetchpriority="high"></figure>
     <h2 id="profile-name">谷天赐 <span>Tianci Gu</span></h2>
     <div class="profile-institution"><img class="institution-seal" src="assets/bnu-seal.png" width="40" height="40" alt="北京师范大学 Beijing Normal University"><p id="profile-position" class="profile-position">北京师范大学地理科学学部<br>自然资源专业博士生</p></div>
-    {contacts(include_cv=True)}
+    <details class="profile-contact"><summary data-i18n="contactDetails">联系方式与学术主页</summary>{contacts(include_cv=True)}</details>
   </aside>
   <div class="about-main">
     <h1 id="home-title" class="about-title" data-i18n="about">个人简介</h1>
-    <div id="home-biography" class="home-biography"></div>
+    <p id="home-short-bio" class="home-short-bio"></p>
+    <div id="home-metrics" class="home-metrics" aria-label="学术成果概览"></div>
+    <div class="home-actions"><a class="primary-link" href="publications.html" data-selected-link data-i18n="viewSelected">查看精选成果</a><a href="cv.html" data-page-link="cv" data-i18n="viewCv">查看完整简历</a></div>
+    <details class="full-biography"><summary data-i18n="fullBiography">完整个人介绍</summary><div id="home-biography" class="home-biography"></div></details>
     <section id="education" class="home-education" aria-labelledby="education-title">
       <h2 id="education-title" data-i18n="education">教育经历</h2>
       <p class="page-lead" data-page-summary="education"></p>
       <div id="education-list" class="education-list"></div>
     </section>
-    <h2 data-i18n="researchInterests">研究兴趣</h2><ul id="home-research" class="research-interests"></ul>
-    <h2 data-i18n="selectedResearch">研究选读</h2><div id="home-featured" class="featured-research"></div>
+    <h2 data-i18n="researchInterests">研究方向</h2><ul id="home-research" class="research-interests"></ul>
+    <details id="research-map-panel" class="research-map-panel"><summary data-i18n="exploreMap">探索研究图谱</summary><p class="map-explanation" data-i18n="mapExplanation"></p><div id="research-map"></div><div id="map-paper-links" class="map-paper-links"></div></details>
+    <div class="section-heading"><h2 data-i18n="selectedResearch">研究选读</h2><a href="publications.html" data-selected-link data-selected-count></a></div><div id="home-featured" class="featured-research"></div>
+    <p class="more-selected"><a href="publications.html" data-selected-link data-selected-count></a></p>
+    <h2 data-i18n="skills">方法与工具</h2><dl id="home-methods" class="home-methods"></dl>
     <h2 data-i18n="recentNews">近期动态</h2><ul id="home-news" class="news-list"></ul>
   </div>
 </section>'''
@@ -73,11 +80,12 @@ def section(key, body):
 
 SECTIONS = {
     'education': section('education', '<div class="education-list" id="education-list"></div>'),
-    'publications': section('publications', '''<div class="publication-tools"><div class="publication-filters" id="publication-filters" role="group" aria-label="论文分类筛选"></div>
+    'publications': section('publications', '''<section id="publication-overview" class="data-overview" aria-labelledby="publication-overview-title"><h2 id="publication-overview-title" data-i18n="publicationOverview">成果概览</h2><div id="publication-totals" class="overview-totals"></div><div id="publication-bars" class="overview-bars"></div><p id="publication-overview-note" class="overview-note"></p></section><div class="publication-tools" id="publication-browser"><div class="publication-filters" id="publication-filters" role="group" aria-label="论文分类筛选"></div>
+      <div id="publication-topics" class="topic-filters" role="group" aria-label="研究主题筛选"></div><p id="publication-scope" class="publication-scope" hidden></p>
       <label class="search-label"><span class="visually-hidden" data-i18n="search">检索论文</span><input id="publication-search" type="search" placeholder="检索题名、作者或期刊" autocomplete="off"></label></div>
       <p class="result-count" id="publication-count" role="status" aria-live="polite"></p><div id="publication-list"></div>
       <p id="publication-empty" class="empty-message" hidden data-i18n="empty">没有符合条件的论文。</p>'''),
-    'projects': section('projects', '<div id="project-list" class="grouped-list"></div>'),
+    'projects': section('projects', '<section id="project-overview" class="data-overview" aria-labelledby="project-overview-title"><h2 id="project-overview-title" data-i18n="projectOverview">项目概览</h2><div id="project-totals" class="overview-totals"></div><div id="project-bars" class="overview-bars"></div><p id="project-overview-note" class="overview-note"></p></section><div id="project-filter" class="project-filters" role="status" aria-live="polite"></div><div id="project-list" class="grouped-list"></div>'),
     'awards': section('awards', '<div id="award-list" class="grouped-list"></div>'),
     'skills': section('skills', '<dl id="skill-list" class="skills-list"></dl>'),
     'service': section('service', '<div id="service-list" class="service-list"></div>'),
@@ -127,11 +135,13 @@ for key, (filename, title) in PAGES.items():
         value.replace('<h1 class="page-title"', '<h2 class="page-title"').replace('</h1>', '</h2>')
         for value in SECTIONS.values()
     ]
+    # Overview charts belong on the browsing pages, not in the complete CV.
+    cv_sections = [re.sub(r'<section id="(?:publication|project)-overview".*?</section>', '', value, flags=re.S) for value in cv_sections]
     body = HOME if key == 'about' else ''.join([CV_ABOUT, *cv_sections]) if key == 'cv' else SECTIONS[key]
     if key == 'education':
         body = f'''<section class="content-section"><h1 class="page-title">教育经历 Education</h1>
           <p><a href="index.html?lang=zh&amp;v={ASSET_VERSION}#education">在个人简介页查看教育经历</a></p>
-          <p lang="en"><a href="index.html?lang=en&amp;v={ASSET_VERSION}#education">View education on the About page</a></p></section>'''
+          <p lang="en"><a href="index.html?lang=en&amp;v={ASSET_VERSION}#education">View education on the Personal Profile page</a></p></section>'''
     if key == 'cv':
         body = f'<div class="print-actions"><a href="assets/tianci-gu-cv.docx?v={ASSET_VERSION}" download data-i18n="downloadCv">下载Word简历</a><button type="button" id="print-cv" data-i18n="print">打印或保存PDF</button></div>' + body
     canonical = 'https://sea993.github.io/CV_GUTIANCI/' + ('' if key in {'about', 'education'} else filename)
@@ -162,10 +172,11 @@ for key, (filename, title) in PAGES.items():
           <button type="button" data-language="zh" aria-pressed="true">中文</button>
           <button type="button" data-language="en" aria-pressed="false">English</button>
         </div>
-        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n="menu">菜单</button>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-icon" aria-hidden="true">☰</span><span data-i18n="menu">导航</span></button>
       </div>
     </div>
     <nav class="site-nav" id="site-nav" aria-label="主要导航">{nav}</nav>
+    <nav class="quick-nav" aria-label="快捷导航"><a href="index.html" data-page-link="about" data-i18n="profileShort"{' aria-current="page"' if key == 'about' else ''}>简介</a><a href="publications.html" data-page-link="publications" data-i18n="publications"{' aria-current="page"' if key == 'publications' else ''}>学术成果</a><a href="projects.html" data-page-link="projects" data-i18n="projectsShort"{' aria-current="page"' if key == 'projects' else ''}>科研项目</a></nav>
   </header>
   <main id="main" class="page-shell">{body}<noscript><p>请开启JavaScript浏览网站内容，或<a href="assets/tianci-gu-cv.docx?v={ASSET_VERSION}">下载Word简历</a>。 Enable JavaScript to browse this site, or download the CV.</p></noscript></main>
   {FOOTER}

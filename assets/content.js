@@ -50,22 +50,26 @@ window.CV_CONTENT = {
         "en": "Tianci Gu is a PhD student in Natural Resources at the Faculty of Geographical Science, Beijing Normal University. Born in 1999, he is from Juye, Shandong, and is a member of the Communist Party of China. His research focuses on the local and distant ecological effects of urbanization and biodiversity conservation."
       },
       {
-        "zh": "谷歌学术总引用1169次，h指数20。其已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文8篇，另以第二作者参与5篇论文，均由导师担任第一作者。4篇成果入选ESI高被引论文，成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
-        "en": "His Google Scholar profile records 1,169 citations and an h-index of 20. His publications include four first- or co-first-authored papers, eight corresponding- or co-corresponding-authored papers, and five papers in which he is second author and his supervisor is first author. Four papers are ESI Highly Cited Papers. His work has appeared in npj Urban Sustainability, Earth’s Future and other journals."
+        "zh": "谷歌学术总引用1169次，h指数20。已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文8篇。另以第二作者参与5篇论文，均由导师担任第一作者，其中4篇已发表、1篇已录用。据个人简历材料，4篇成果入选ESI高被引论文。成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
+        "en": "His Google Scholar profile records 1,169 citations and an h-index of 20. He is first or co-first author of four published papers and corresponding or co-corresponding author of eight. He is also second author of five papers with his supervisor as first author: four published articles and one accepted article. His CV lists four ESI Highly Cited Papers. His work has appeared in npj Urban Sustainability, Earth’s Future and other journals."
       },
       {
         "zh": "主持校级课题3项和横向项目1项，参与科研项目11项，涵盖国家重点研发计划、国家自然科学基金、省部级及地方政府委托项目。曾获国家级及校院级奖励。两项政策建议被九三学社中央采用，并获湖北省委批示。",
-        "en": "He has led three university research projects and one commissioned project, and participated in 11 projects supported by the National Key R&D Program, NSFC, provincial and ministerial programs, or local governments. He has received national, university and faculty honors. Two policy recommendations were adopted by the Central Committee of the Jiusan Society and were addressed in written instructions from the Hubei Provincial Party Committee."
+        "en": "He has led three university-funded research projects and one commissioned project, and participated in 11 additional projects supported by the National Key R&D Program of China, the National Natural Science Foundation of China (NSFC), provincial or ministerial programs, or local governments. He has received national, university and faculty honors. Two policy recommendations were adopted by the Central Committee of the Jiusan Society and received written comments from the Hubei Provincial Party leadership."
       },
       {
         "zh": "其研究主线连接城市化过程、生境影响路径与生物多样性响应，重点考察城市化如何通过三类路径改变生境质量并影响生物多样性。城市建设会直接改变生境；道路和污染向周边扩散，产生近程间接影响；消费与贸易通过供应链，将远程间接影响传导至生产地。",
-        "en": "His research connects urbanization processes, pathways of habitat change and biodiversity responses. It examines how urbanization affects habitat quality and biodiversity through three pathways: the direct impacts of urban construction; nearby indirect effects as roads and pollution extend into surrounding areas; and distant indirect effects transmitted through consumption, trade and supply chains to production regions."
+        "en": "His research connects urbanization processes, pathways of habitat change and biodiversity responses. It examines direct impacts of urban construction, indirect impacts on surrounding areas as roads and pollution spread, and distant indirect impacts transmitted through consumption, trade and supply chains to production regions."
       },
       {
         "zh": "后续研究将从城市建设的直接影响入手，通过同等人口、不同空间形态的反事实比较，评估紧凑城市的节地与生态保护潜力。在此基础上，将直接、近程间接与远程间接影响纳入统一框架，量化各类路径的贡献及叠加效应，识别关键区域，探索城内、周边与远端生产地的协同治理，服务新型城镇化、生物多样性保护与美丽中国建设。",
-        "en": "His next step is to compare counterfactual scenarios with the same population but different spatial forms, beginning with direct impacts, to assess the land-sparing and conservation potential of compact cities. He will then bring direct, nearby indirect and distant indirect effects into a common framework, quantify their contributions and combined effects, identify key regions, and examine coordinated governance within cities, their surroundings and distant production regions. This work aims to support new-type urbanization, biodiversity conservation and the Beautiful China initiative."
+        "en": "His future research will compare counterfactual scenarios with the same population but different urban forms to assess the land-sparing and conservation potential of compact cities. It will then integrate direct impacts, indirect impacts on surrounding areas and distant indirect impacts into a common framework, quantify their contributions and combined effects, and identify key regions. The aim is to explore coordinated governance within cities, their surroundings and distant production regions, supporting new-type urbanization, biodiversity conservation and the Beautiful China initiative."
       }
-    ]
+    ],
+    "shortBio": {
+      "zh": "现为北京师范大学自然资源博士生，研究城市化的近远程生态效应，重点关注生境质量与生物多样性保护。成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
+      "en": "Tianci Gu is a PhD student in Natural Resources at Beijing Normal University. His research examines the direct and indirect ecological impacts of urbanization, with a focus on habitat quality and biodiversity conservation. His work has appeared in npj Urban Sustainability and Earth’s Future."
+    }
   },
   "metrics": [
     {
@@ -246,7 +250,10 @@ window.CV_CONTENT = {
           "en": "View graphical abstract"
         }
       },
-      "selected": true
+      "selected": true,
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-2",
@@ -297,7 +304,15 @@ window.CV_CONTENT = {
         }
       },
       "selected": true,
-      "doi": "https://doi.org/10.1016/j.eiar.2026.108631"
+      "doi": "https://doi.org/10.1016/j.eiar.2026.108631",
+      "topics": [
+        "land-use"
+      ],
+      "featured": true,
+      "featuredSummary": {
+        "zh": "分析中国食物消费耕地足迹的城乡差异与变化，并开展SSP情景预测。",
+        "en": "Analyzing urban–rural differences and changes in the cropland footprint of food consumption, with projections under SSP scenarios."
+      }
     },
     {
       "id": "paper-3",
@@ -348,7 +363,16 @@ window.CV_CONTENT = {
         }
       },
       "selected": true,
-      "doi": "https://doi.org/10.1016/j.jenvman.2024.122076"
+      "doi": "https://doi.org/10.1016/j.jenvman.2024.122076",
+      "topics": [
+        "biodiversity",
+        "land-use"
+      ],
+      "featured": true,
+      "featuredSummary": {
+        "zh": "考察城市化背景下景观格局与生态系统健康的耦合关系。",
+        "en": "Examining coupled relationships between landscape patterns and ecosystem health in response to urbanization."
+      }
     },
     {
       "id": "paper-7",
@@ -381,7 +405,10 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1007/s11356-023-29797-8"
       ],
-      "doi": "https://doi.org/10.1007/s11356-023-29797-8"
+      "doi": "https://doi.org/10.1007/s11356-023-29797-8",
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-9",
@@ -419,7 +446,10 @@ window.CV_CONTENT = {
       ],
       "originalLanguage": "en",
       "selected": true,
-      "doi": "https://doi.org/10.1029/2024EF005337"
+      "doi": "https://doi.org/10.1029/2024EF005337",
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-15",
@@ -452,7 +482,8 @@ window.CV_CONTENT = {
         41
       ],
       "originalLanguage": "en",
-      "doi": "https://doi.org/10.1016/j.ecolind.2023.110788"
+      "doi": "https://doi.org/10.1016/j.ecolind.2023.110788",
+      "topics": []
     },
     {
       "id": "paper-10",
@@ -490,7 +521,10 @@ window.CV_CONTENT = {
       ],
       "originalLanguage": "en",
       "selected": true,
-      "doi": "https://doi.org/10.1016/j.apgeog.2024.103359"
+      "doi": "https://doi.org/10.1016/j.apgeog.2024.103359",
+      "topics": [
+        "biodiversity"
+      ]
     },
     {
       "id": "paper-12",
@@ -524,7 +558,8 @@ window.CV_CONTENT = {
       ],
       "originalLanguage": "en",
       "selected": true,
-      "doi": "https://doi.org/10.1038/s40494-025-01765-0"
+      "doi": "https://doi.org/10.1038/s40494-025-01765-0",
+      "topics": []
     },
     {
       "id": "paper-11",
@@ -557,7 +592,10 @@ window.CV_CONTENT = {
         37
       ],
       "originalLanguage": "en",
-      "doi": "https://doi.org/10.1038/s41598-025-13896-2"
+      "doi": "https://doi.org/10.1038/s41598-025-13896-2",
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-8",
@@ -590,7 +628,10 @@ window.CV_CONTENT = {
         32
       ],
       "originalLanguage": "en",
-      "doi": "https://doi.org/10.3389/fenvs.2026.1806610"
+      "doi": "https://doi.org/10.3389/fenvs.2026.1806610",
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-14",
@@ -626,6 +667,9 @@ window.CV_CONTENT = {
       "doi": "https://doi.org/10.1007/s10661-025-13720-4",
       "sources": [
         "https://api.crossref.org/works/10.1007/s10661-025-13720-4"
+      ],
+      "topics": [
+        "land-use"
       ]
     },
     {
@@ -659,7 +703,10 @@ window.CV_CONTENT = {
         39
       ],
       "originalLanguage": "en",
-      "doi": "https://doi.org/10.1080/13467581.2025.2510607"
+      "doi": "https://doi.org/10.1080/13467581.2025.2510607",
+      "topics": [
+        "urban-form"
+      ]
     },
     {
       "id": "paper-16",
@@ -697,7 +744,11 @@ window.CV_CONTENT = {
       ],
       "originalLanguage": "en",
       "selected": true,
-      "doi": "https://doi.org/10.1016/j.eiar.2023.107076"
+      "doi": "https://doi.org/10.1016/j.eiar.2023.107076",
+      "topics": [
+        "land-use",
+        "urban-form"
+      ]
     },
     {
       "id": "paper-19",
@@ -735,7 +786,11 @@ window.CV_CONTENT = {
       ],
       "originalLanguage": "en",
       "selected": true,
-      "doi": "https://doi.org/10.1016/j.jenvman.2024.121371"
+      "doi": "https://doi.org/10.1016/j.jenvman.2024.121371",
+      "topics": [
+        "biodiversity",
+        "land-use"
+      ]
     },
     {
       "id": "paper-17",
@@ -773,7 +828,10 @@ window.CV_CONTENT = {
       ],
       "originalLanguage": "en",
       "selected": true,
-      "doi": "https://doi.org/10.1016/j.jenvman.2022.115565"
+      "doi": "https://doi.org/10.1016/j.jenvman.2022.115565",
+      "topics": [
+        "biodiversity"
+      ]
     },
     {
       "id": "paper-18",
@@ -807,7 +865,10 @@ window.CV_CONTENT = {
       ],
       "originalLanguage": "en",
       "selected": true,
-      "doi": "https://doi.org/10.1016/j.apgeog.2023.103125"
+      "doi": "https://doi.org/10.1016/j.apgeog.2023.103125",
+      "topics": [
+        "biodiversity"
+      ]
     },
     {
       "id": "paper-20",
@@ -849,7 +910,10 @@ window.CV_CONTENT = {
         "zh": "DOI待补充",
         "en": "DOI pending"
       },
-      "searchUrl": "https://scholar.google.com/scholar?q=%E5%9F%8E%E5%B8%82%E5%8C%96%E5%BD%B1%E5%93%8D%E7%94%9F%E7%89%A9%E5%A4%9A%E6%A0%B7%E6%80%A7%E7%9A%84%E8%B7%AF%E5%BE%84%E7%A0%94%E7%A9%B6%E7%BB%BC%E8%BF%B0%E2%80%94%E2%80%94%E7%9B%B4%E6%8E%A5%E3%80%81%E8%BF%91%E7%A8%8B%E9%97%B4%E6%8E%A5%E4%B8%8E%E8%BF%9C%E7%A8%8B%E9%97%B4%E6%8E%A5%E5%BD%B1%E5%93%8D"
+      "searchUrl": "https://scholar.google.com/scholar?q=%E5%9F%8E%E5%B8%82%E5%8C%96%E5%BD%B1%E5%93%8D%E7%94%9F%E7%89%A9%E5%A4%9A%E6%A0%B7%E6%80%A7%E7%9A%84%E8%B7%AF%E5%BE%84%E7%A0%94%E7%A9%B6%E7%BB%BC%E8%BF%B0%E2%80%94%E2%80%94%E7%9B%B4%E6%8E%A5%E3%80%81%E8%BF%91%E7%A8%8B%E9%97%B4%E6%8E%A5%E4%B8%8E%E8%BF%9C%E7%A8%8B%E9%97%B4%E6%8E%A5%E5%BD%B1%E5%93%8D",
+      "topics": [
+        "biodiversity"
+      ]
     },
     {
       "id": "paper-44",
@@ -882,7 +946,10 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1016/j.ese.2026.100771"
       ],
-      "doi": "https://doi.org/10.1016/j.ese.2026.100771"
+      "doi": "https://doi.org/10.1016/j.ese.2026.100771",
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-27",
@@ -915,7 +982,10 @@ window.CV_CONTENT = {
         60
       ],
       "originalLanguage": "en",
-      "doi": "https://doi.org/10.1016/j.scs.2025.106759"
+      "doi": "https://doi.org/10.1016/j.scs.2025.106759",
+      "topics": [
+        "urban-form"
+      ]
     },
     {
       "id": "paper-28",
@@ -948,7 +1018,10 @@ window.CV_CONTENT = {
         61
       ],
       "originalLanguage": "en",
-      "doi": "https://doi.org/10.1016/j.eiar.2025.108218"
+      "doi": "https://doi.org/10.1016/j.eiar.2025.108218",
+      "topics": [
+        "urban-form"
+      ]
     },
     {
       "id": "paper-24",
@@ -981,7 +1054,11 @@ window.CV_CONTENT = {
         57
       ],
       "originalLanguage": "en",
-      "doi": "https://doi.org/10.1016/j.eiar.2023.107275"
+      "doi": "https://doi.org/10.1016/j.eiar.2023.107275",
+      "topics": [
+        "land-use",
+        "urban-form"
+      ]
     },
     {
       "id": "paper-32",
@@ -1014,7 +1091,11 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1016/j.eiar.2023.107182"
       ],
-      "doi": "https://doi.org/10.1016/j.eiar.2023.107182"
+      "doi": "https://doi.org/10.1016/j.eiar.2023.107182",
+      "topics": [
+        "land-use",
+        "urban-form"
+      ]
     },
     {
       "id": "paper-37",
@@ -1047,7 +1128,10 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1016/j.jclepro.2023.139772"
       ],
-      "doi": "https://doi.org/10.1016/j.jclepro.2023.139772"
+      "doi": "https://doi.org/10.1016/j.jclepro.2023.139772",
+      "topics": [
+        "biodiversity"
+      ]
     },
     {
       "id": "paper-33",
@@ -1080,7 +1164,10 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1016/j.jclepro.2023.139019"
       ],
-      "doi": "https://doi.org/10.1016/j.jclepro.2023.139019"
+      "doi": "https://doi.org/10.1016/j.jclepro.2023.139019",
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-34",
@@ -1113,7 +1200,10 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1016/j.jclepro.2023.138245"
       ],
-      "doi": "https://doi.org/10.1016/j.jclepro.2023.138245"
+      "doi": "https://doi.org/10.1016/j.jclepro.2023.138245",
+      "topics": [
+        "biodiversity"
+      ]
     },
     {
       "id": "paper-30",
@@ -1146,7 +1236,10 @@ window.CV_CONTENT = {
         63
       ],
       "originalLanguage": "en",
-      "doi": "https://doi.org/10.1016/j.jenvman.2024.121020"
+      "doi": "https://doi.org/10.1016/j.jenvman.2024.121020",
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-35",
@@ -1179,7 +1272,10 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1016/j.geosus.2023.06.002"
       ],
-      "doi": "https://doi.org/10.1016/j.geosus.2023.06.002"
+      "doi": "https://doi.org/10.1016/j.geosus.2023.06.002",
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-25",
@@ -1212,7 +1308,10 @@ window.CV_CONTENT = {
         58
       ],
       "originalLanguage": "en",
-      "doi": "https://doi.org/10.1080/15481603.2024.2351262"
+      "doi": "https://doi.org/10.1080/15481603.2024.2351262",
+      "topics": [
+        "urban-form"
+      ]
     },
     {
       "id": "paper-31",
@@ -1248,6 +1347,10 @@ window.CV_CONTENT = {
       "doi": "https://doi.org/10.1016/j.ecolind.2024.112422",
       "sources": [
         "https://api.crossref.org/works/10.1016/j.ecolind.2024.112422"
+      ],
+      "topics": [
+        "biodiversity",
+        "land-use"
       ]
     },
     {
@@ -1281,7 +1384,10 @@ window.CV_CONTENT = {
         56
       ],
       "originalLanguage": "en",
-      "doi": "https://doi.org/10.1016/j.ecolind.2024.111913"
+      "doi": "https://doi.org/10.1016/j.ecolind.2024.111913",
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-36",
@@ -1314,7 +1420,10 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1016/j.ecolind.2023.110330"
       ],
-      "doi": "https://doi.org/10.1016/j.ecolind.2023.110330"
+      "doi": "https://doi.org/10.1016/j.ecolind.2023.110330",
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-46",
@@ -1347,7 +1456,10 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1080/13504509.2026.2715132"
       ],
-      "doi": "https://doi.org/10.1080/13504509.2026.2715132"
+      "doi": "https://doi.org/10.1080/13504509.2026.2715132",
+      "topics": [
+        "biodiversity"
+      ]
     },
     {
       "id": "paper-22",
@@ -1380,7 +1492,10 @@ window.CV_CONTENT = {
         55
       ],
       "originalLanguage": "en",
-      "doi": "https://doi.org/10.1080/13504509.2025.2527118"
+      "doi": "https://doi.org/10.1080/13504509.2025.2527118",
+      "topics": [
+        "biodiversity"
+      ]
     },
     {
       "id": "paper-39",
@@ -1413,7 +1528,10 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1002/ldr.5080"
       ],
-      "doi": "https://doi.org/10.1002/ldr.5080"
+      "doi": "https://doi.org/10.1002/ldr.5080",
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-51",
@@ -1445,6 +1563,10 @@ window.CV_CONTENT = {
       "doi": "https://doi.org/10.11821/dlyj020240317",
       "sources": [
         "https://doi.org/10.11821/dlyj020240317"
+      ],
+      "topics": [
+        "biodiversity",
+        "land-use"
       ]
     },
     {
@@ -1478,7 +1600,11 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1016/j.avrs.2026.100427"
       ],
-      "doi": "https://doi.org/10.1016/j.avrs.2026.100427"
+      "doi": "https://doi.org/10.1016/j.avrs.2026.100427",
+      "topics": [
+        "biodiversity",
+        "urban-form"
+      ]
     },
     {
       "id": "paper-41",
@@ -1511,7 +1637,11 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.3390/land13081163"
       ],
-      "doi": "https://doi.org/10.3390/land13081163"
+      "doi": "https://doi.org/10.3390/land13081163",
+      "topics": [
+        "biodiversity",
+        "land-use"
+      ]
     },
     {
       "id": "paper-42",
@@ -1544,7 +1674,11 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.3390/land13050651"
       ],
-      "doi": "https://doi.org/10.3390/land13050651"
+      "doi": "https://doi.org/10.3390/land13050651",
+      "topics": [
+        "land-use",
+        "urban-form"
+      ]
     },
     {
       "id": "paper-40",
@@ -1577,7 +1711,11 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1007/s11356-023-27230-8"
       ],
-      "doi": "https://doi.org/10.1007/s11356-023-27230-8"
+      "doi": "https://doi.org/10.1007/s11356-023-27230-8",
+      "topics": [
+        "biodiversity",
+        "land-use"
+      ]
     },
     {
       "id": "paper-43",
@@ -1610,7 +1748,10 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1007/s11629-024-8603-2"
       ],
-      "doi": "https://doi.org/10.1007/s11629-024-8603-2"
+      "doi": "https://doi.org/10.1007/s11629-024-8603-2",
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-38",
@@ -1643,7 +1784,11 @@ window.CV_CONTENT = {
         "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
         "https://api.crossref.org/works/10.1007/s10661-023-11563-5"
       ],
-      "doi": "https://doi.org/10.1007/s10661-023-11563-5"
+      "doi": "https://doi.org/10.1007/s10661-023-11563-5",
+      "topics": [
+        "biodiversity",
+        "land-use"
+      ]
     },
     {
       "id": "paper-29",
@@ -1676,7 +1821,10 @@ window.CV_CONTENT = {
         62
       ],
       "originalLanguage": "en",
-      "doi": "https://doi.org/10.1080/13467581.2025.2607839"
+      "doi": "https://doi.org/10.1080/13467581.2025.2607839",
+      "topics": [
+        "urban-form"
+      ]
     },
     {
       "id": "paper-21",
@@ -1709,7 +1857,11 @@ window.CV_CONTENT = {
         54
       ],
       "originalLanguage": "en",
-      "doi": "https://doi.org/10.1177/2754124x241305302"
+      "doi": "https://doi.org/10.1177/2754124x241305302",
+      "topics": [
+        "land-use",
+        "urban-form"
+      ]
     },
     {
       "id": "paper-50",
@@ -1743,6 +1895,9 @@ window.CV_CONTENT = {
       "sources": [
         "https://yangtzebasin.whlib.ac.cn/CN/10.11870/cjlyzyyhj202601008",
         "https://doi.org/api/handles/10.11870/cjlyzyyhj202601008"
+      ],
+      "topics": [
+        "land-use"
       ]
     },
     {
@@ -1779,7 +1934,8 @@ window.CV_CONTENT = {
       "doi": "https://doi.org/10.6043/j.issn.0438-0479.202410007",
       "sources": [
         "https://doi.org/api/handles/10.6043/j.issn.0438-0479.202410007"
-      ]
+      ],
+      "topics": []
     },
     {
       "id": "paper-49",
@@ -1813,7 +1969,10 @@ window.CV_CONTENT = {
         "https://doi.org/api/handles/10.3969/j.issn.1005-8141.2026.07.008"
       ],
       "articleUrl": "https://ztkb.cbpt.cnki.net/portal/journal/portal/client/paper/d4c5afb353534711bd8c93967b0de2c2",
-      "doi": "https://doi.org/10.3969/j.issn.1005-8141.2026.07.008"
+      "doi": "https://doi.org/10.3969/j.issn.1005-8141.2026.07.008",
+      "topics": [
+        "land-use"
+      ]
     },
     {
       "id": "paper-47",
@@ -1847,7 +2006,8 @@ window.CV_CONTENT = {
         "https://meetingorganizer.copernicus.org/EGU25/EGU25-6392.html"
       ],
       "kind": "conference",
-      "doi": "https://doi.org/10.5194/egusphere-egu25-6392"
+      "doi": "https://doi.org/10.5194/egusphere-egu25-6392",
+      "topics": []
     },
     {
       "id": "paper-48",
@@ -1881,7 +2041,8 @@ window.CV_CONTENT = {
         "https://meetingorganizer.copernicus.org/EGU25/EGU25-5566.html"
       ],
       "kind": "conference",
-      "doi": "https://doi.org/10.5194/egusphere-egu25-5566"
+      "doi": "https://doi.org/10.5194/egusphere-egu25-5566",
+      "topics": []
     }
   ],
   "projects": [
@@ -1903,9 +2064,12 @@ window.CV_CONTENT = {
       },
       "program": {
         "zh": "北京师范大学博一学科交叉基金 BNUXKJC2406",
-        "en": "BNU First-year Doctoral Interdisciplinary Fund, BNUXKJC2406"
+        "en": "BNU Interdisciplinary Research Fund for First-year Doctoral Students, BNUXKJC2406"
       },
-      "dates": "2024.09—2026.02"
+      "dates": "2024.09—2026.02",
+      "id": "project-68",
+      "role": "led",
+      "source": "university"
     },
     {
       "text": {
@@ -1927,7 +2091,10 @@ window.CV_CONTENT = {
         "zh": "北京师范大学地理科学学部自然资源学院“英才计划”",
         "en": "Talent Program, School of Natural Resources, Beijing Normal University"
       },
-      "dates": "2026.05—2027.05"
+      "dates": "2026.05—2027.05",
+      "id": "project-69",
+      "role": "led",
+      "source": "university"
     },
     {
       "text": {
@@ -1949,7 +2116,10 @@ window.CV_CONTENT = {
         "zh": "中国地质大学（武汉）教学实验室开放基金（研究生专项）",
         "en": "Graduate Research Program, Teaching Laboratory Open Fund, China University of Geosciences (Wuhan)"
       },
-      "dates": "2021.11—2023.05"
+      "dates": "2021.11—2023.05",
+      "id": "project-70",
+      "role": "led",
+      "source": "university"
     },
     {
       "text": {
@@ -1971,12 +2141,15 @@ window.CV_CONTENT = {
         "zh": "横向项目",
         "en": "Commissioned project"
       },
-      "dates": "2022—2023"
+      "dates": "2022—2023",
+      "id": "project-71",
+      "role": "led",
+      "source": "commissioned"
     },
     {
       "text": {
         "zh": "国家重点研发计划课题，2024YFF1306104，气候变化和人类活动对生态状况影响的阈值识别技术，2024-12至2027-11，在研，参与（项目负责人：黄庆旭教授），负责生态阈值模型构建与多尺度分析",
-        "en": "National Key R&D Program task (2024YFF1306104). Techniques to identify ecological thresholds in the impacts of climate change and human activities. December 2024–November 2027; ongoing; participant; led by Prof. Qingxu Huang. Responsibilities: ecological threshold modelling and multiscale analysis."
+        "en": "Research Task under the National Key R&D Program of China (2024YFF1306104). Techniques to identify ecological thresholds in the impacts of climate change and human activities. December 2024–November 2027; ongoing; participant; led by Prof. Qingxu Huang. Responsibilities: ecological threshold modelling and multiscale analysis."
       },
       "group": {
         "zh": "参与国家级项目",
@@ -1991,9 +2164,12 @@ window.CV_CONTENT = {
       },
       "program": {
         "zh": "国家重点研发计划课题 2024YFF1306104",
-        "en": "National Key R&D Program task, 2024YFF1306104"
+        "en": "Research Task under the National Key R&D Program of China, 2024YFF1306104"
       },
-      "dates": "2024.12—2027.11"
+      "dates": "2024.12—2027.11",
+      "id": "project-73",
+      "role": "participant",
+      "source": "key-rd"
     },
     {
       "text": {
@@ -2013,14 +2189,17 @@ window.CV_CONTENT = {
       },
       "program": {
         "zh": "国家自然科学基金国际（地区）合作与交流项目 42361144859",
-        "en": "NSFC International Cooperation and Exchange Project, 42361144859"
+        "en": "NSFC International (Regional) Cooperation and Exchange Program, 42361144859"
       },
-      "dates": "2024.01—2026.12"
+      "dates": "2024.01—2026.12",
+      "id": "project-74",
+      "role": "participant",
+      "source": "nsfc"
     },
     {
       "text": {
         "zh": "国家自然科学基金创新研究群体项目，42121001，城乡融合发展，2021-01至2026-12，在研，参与（项目负责人：方创琳教授），负责城乡融合背景下的生态环境效应评估",
-        "en": "NSFC Innovative Research Group Project (42121001). Urban–rural integrated development. January 2021–December 2026; ongoing; participant; led by Prof. Chuanglin Fang. Responsibilities: assessing ecological and environmental effects of urban–rural integration."
+        "en": "NSFC Research Group Project (42121001). Urban–rural integrated development. January 2021–December 2026; ongoing; participant; led by Prof. Chuanglin Fang. Responsibilities: assessing ecological and environmental effects of urban–rural integration."
       },
       "group": {
         "zh": "参与国家级项目",
@@ -2035,9 +2214,12 @@ window.CV_CONTENT = {
       },
       "program": {
         "zh": "国家自然科学基金创新研究群体项目 42121001",
-        "en": "NSFC Innovative Research Group Project, 42121001"
+        "en": "NSFC Research Group Project, 42121001"
       },
-      "dates": "2021.01—2026.12"
+      "dates": "2021.01—2026.12",
+      "id": "project-75",
+      "role": "participant",
+      "source": "nsfc"
     },
     {
       "text": {
@@ -2059,7 +2241,10 @@ window.CV_CONTENT = {
         "zh": "国家自然科学基金面上项目 41971225",
         "en": "NSFC General Program, 41971225"
       },
-      "dates": "2020.01—2023.12"
+      "dates": "2020.01—2023.12",
+      "id": "project-76",
+      "role": "participant",
+      "source": "nsfc"
     },
     {
       "text": {
@@ -2081,7 +2266,10 @@ window.CV_CONTENT = {
         "zh": "国家自然科学基金青年科学基金项目 42001187",
         "en": "NSFC Young Scientists Fund, 42001187"
       },
-      "dates": "2021.01—2023.12"
+      "dates": "2021.01—2023.12",
+      "id": "project-77",
+      "role": "participant",
+      "source": "nsfc"
     },
     {
       "text": {
@@ -2103,7 +2291,10 @@ window.CV_CONTENT = {
         "zh": "北京市科技新星交叉合作课题 20220484163",
         "en": "Beijing Science and Technology Rising Star Collaboration Project, 20220484163"
       },
-      "dates": "2022.11—2024.10"
+      "dates": "2022.11—2024.10",
+      "id": "project-79",
+      "role": "participant",
+      "source": "provincial"
     },
     {
       "text": {
@@ -2125,7 +2316,10 @@ window.CV_CONTENT = {
         "zh": "黄河中下游数字地理技术教育部重点实验室开放基金 GTYR202205",
         "en": "Open Fund, Key Laboratory of Digital Geography Technology for the Middle and Lower Yellow River, GTYR202205"
       },
-      "dates": "2022.09—2024.09"
+      "dates": "2022.09—2024.09",
+      "id": "project-80",
+      "role": "participant",
+      "source": "provincial"
     },
     {
       "text": {
@@ -2147,7 +2341,10 @@ window.CV_CONTENT = {
         "zh": "北京师范大学地表过程与资源生态国家重点实验室开放课题 2021-KF-03",
         "en": "Open Research Project, State Key Laboratory of Earth Surface Processes and Resource Ecology, BNU, 2021-KF-03"
       },
-      "dates": "2021.06—2022.12"
+      "dates": "2021.06—2022.12",
+      "id": "project-81",
+      "role": "participant",
+      "source": "provincial"
     },
     {
       "text": {
@@ -2169,7 +2366,10 @@ window.CV_CONTENT = {
         "zh": "地方政府委托项目",
         "en": "Government-commissioned project"
       },
-      "dates": "2023"
+      "dates": "2023",
+      "id": "project-83",
+      "role": "participant",
+      "source": "commissioned"
     },
     {
       "text": {
@@ -2191,7 +2391,10 @@ window.CV_CONTENT = {
         "zh": "地方政府委托项目",
         "en": "Government-commissioned project"
       },
-      "dates": "2022"
+      "dates": "2022",
+      "id": "project-84",
+      "role": "participant",
+      "source": "commissioned"
     },
     {
       "text": {
@@ -2213,7 +2416,10 @@ window.CV_CONTENT = {
         "zh": "地方政府委托项目",
         "en": "Government-commissioned project"
       },
-      "dates": "2021—2022"
+      "dates": "2021—2022",
+      "id": "project-85",
+      "role": "participant",
+      "source": "commissioned"
     }
   ],
   "projectSummary": {
@@ -2239,7 +2445,7 @@ window.CV_CONTENT = {
       ],
       "displayTitle": {
         "zh": "国家留学基金委国家公派留学资助",
-        "en": "China Scholarship Council government-funded overseas study support"
+        "en": "CSC funding for overseas study"
       },
       "dates": "2026"
     },
@@ -2554,7 +2760,7 @@ window.CV_CONTENT = {
     {
       "text": {
         "zh": "2020年美国大学生数学建模竞赛二等奖 国家级",
-        "en": "2020 — Second prize, Mathematical Contest in Modeling (MCM). National level."
+        "en": "Mathematical Contest in Modeling (MCM) award, 2020."
       },
       "group": {
         "zh": "本科期间",
@@ -2565,7 +2771,7 @@ window.CV_CONTENT = {
       ],
       "displayTitle": {
         "zh": "美国大学生数学建模竞赛二等奖",
-        "en": "Second prize, Mathematical Contest in Modeling"
+        "en": "Mathematical Contest in Modeling (MCM) award"
       },
       "dates": "2020"
     },
@@ -2653,20 +2859,20 @@ window.CV_CONTENT = {
       ],
       "shortText": {
         "zh": "数据获取：青藏高原科学数据中心、RESDC、ESA、Earthdata。",
-        "en": "Research data: National Tibetan Plateau Data Center, RESDC, ESA and Earthdata."
+        "en": "Research data acquisition: National Tibetan Plateau Data Center, RESDC, ESA and Earthdata."
       }
     },
     {
       "text": {
         "zh": "学科建模方法：熟悉各类地理学、生态学、土地预测建模模型，熟练掌握InVEST、FRAGSTATS、PLUS、SWAT等模型。",
-        "en": "Disciplinary modelling: familiar with geographic, ecological and land-use prediction models; proficient in InVEST, FRAGSTATS, PLUS and SWAT."
+        "en": "Disciplinary modeling: familiar with geographic, ecological and land-use prediction models; proficient in InVEST, FRAGSTATS, PLUS and SWAT."
       },
       "sourceIndices": [
         118
       ],
       "shortText": {
         "zh": "生态建模：InVEST、FRAGSTATS、PLUS、SWAT。",
-        "en": "Ecological modelling: InVEST, FRAGSTATS, PLUS and SWAT."
+        "en": "Ecological and land-use modeling: InVEST, FRAGSTATS, PLUS and SWAT."
       }
     },
     {
@@ -2713,7 +2919,7 @@ window.CV_CONTENT = {
     {
       "text": {
         "zh": "北京师范大学地理科学学部2024级博士生党支部书记（2024.09-至今）",
-        "en": "Secretary of the 2024 doctoral student Party branch, Faculty of Geographical Science, Beijing Normal University (September 2024–present)."
+        "en": "Secretary of the Communist Party of China (CPC) Branch for 2024 Doctoral Students, Faculty of Geographical Science, Beijing Normal University (September 2024–present)."
       },
       "group": {
         "zh": "学生工作",
@@ -2755,7 +2961,7 @@ window.CV_CONTENT = {
     {
       "text": {
         "zh": "北京师范大学2024级博士1班心理委员（2024.09-至今）",
-        "en": "Mental Health Representative, 2024 Doctoral Class 1, Beijing Normal University (September 2024–present)."
+        "en": "Student Mental Health Representative, 2024 Doctoral Class 1, Beijing Normal University (September 2024–present)."
       },
       "group": {
         "zh": "学生工作",
@@ -3091,7 +3297,7 @@ window.CV_CONTENT = {
     {
       "text": {
         "zh": "两项政策建议被九三学社中央采用，并获湖北省委批示。",
-        "en": "Two policy proposals were adopted by the Central Committee of the Jiusan Society and received directives from the Hubei Provincial Party Committee."
+        "en": "Two policy recommendations were adopted by the Central Committee of the Jiusan Society and received written comments from the Hubei Provincial Party leadership."
       },
       "group": {
         "zh": "政策建议",
@@ -3189,22 +3395,22 @@ window.CV_CONTENT = {
   ],
   "biography": [
     {
-      "zh": "谷歌学术总引用1169次，h指数20。其已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文8篇，另以第二作者参与5篇论文，均由导师担任第一作者。4篇成果入选ESI高被引论文，成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
-      "en": "His Google Scholar profile records 1,169 citations and an h-index of 20. His publications include four first- or co-first-authored papers, eight corresponding- or co-corresponding-authored papers, and five papers in which he is second author and his supervisor is first author. Four papers are ESI Highly Cited Papers. His work has appeared in npj Urban Sustainability, Earth’s Future and other journals."
+      "zh": "谷歌学术总引用1169次，h指数20。已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文8篇。另以第二作者参与5篇论文，均由导师担任第一作者，其中4篇已发表、1篇已录用。据个人简历材料，4篇成果入选ESI高被引论文。成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
+      "en": "His Google Scholar profile records 1,169 citations and an h-index of 20. He is first or co-first author of four published papers and corresponding or co-corresponding author of eight. He is also second author of five papers with his supervisor as first author: four published articles and one accepted article. His CV lists four ESI Highly Cited Papers. His work has appeared in npj Urban Sustainability, Earth’s Future and other journals."
     },
     {
       "zh": "主持校级课题3项和横向项目1项，参与科研项目11项，涵盖国家重点研发计划、国家自然科学基金、省部级及地方政府委托项目。曾获国家级及校院级奖励。两项政策建议被九三学社中央采用，并获湖北省委批示。",
-      "en": "He has led three university research projects and one commissioned project, and participated in 11 projects supported by the National Key R&D Program, NSFC, provincial and ministerial programs, or local governments. He has received national, university and faculty honors. Two policy recommendations were adopted by the Central Committee of the Jiusan Society and were addressed in written instructions from the Hubei Provincial Party Committee."
+      "en": "He has led three university-funded research projects and one commissioned project, and participated in 11 additional projects supported by the National Key R&D Program of China, the National Natural Science Foundation of China (NSFC), provincial or ministerial programs, or local governments. He has received national, university and faculty honors. Two policy recommendations were adopted by the Central Committee of the Jiusan Society and received written comments from the Hubei Provincial Party leadership."
     }
   ],
   "researchStatement": [
     {
       "zh": "其研究主线连接城市化过程、生境影响路径与生物多样性响应，重点考察城市化如何通过三类路径改变生境质量并影响生物多样性。城市建设会直接改变生境；道路和污染向周边扩散，产生近程间接影响；消费与贸易通过供应链，将远程间接影响传导至生产地。",
-      "en": "His research connects urbanization processes, pathways of habitat change and biodiversity responses. It examines how urbanization affects habitat quality and biodiversity through three pathways: the direct impacts of urban construction; nearby indirect effects as roads and pollution extend into surrounding areas; and distant indirect effects transmitted through consumption, trade and supply chains to production regions."
+      "en": "His research connects urbanization processes, pathways of habitat change and biodiversity responses. It examines direct impacts of urban construction, indirect impacts on surrounding areas as roads and pollution spread, and distant indirect impacts transmitted through consumption, trade and supply chains to production regions."
     },
     {
       "zh": "后续研究将从城市建设的直接影响入手，通过同等人口、不同空间形态的反事实比较，评估紧凑城市的节地与生态保护潜力。在此基础上，将直接、近程间接与远程间接影响纳入统一框架，量化各类路径的贡献及叠加效应，识别关键区域，探索城内、周边与远端生产地的协同治理，服务新型城镇化、生物多样性保护与美丽中国建设。",
-      "en": "His next step is to compare counterfactual scenarios with the same population but different spatial forms, beginning with direct impacts, to assess the land-sparing and conservation potential of compact cities. He will then bring direct, nearby indirect and distant indirect effects into a common framework, quantify their contributions and combined effects, identify key regions, and examine coordinated governance within cities, their surroundings and distant production regions. This work aims to support new-type urbanization, biodiversity conservation and the Beautiful China initiative."
+      "en": "His future research will compare counterfactual scenarios with the same population but different urban forms to assess the land-sparing and conservation potential of compact cities. It will then integrate direct impacts, indirect impacts on surrounding areas and distant indirect impacts into a common framework, quantify their contributions and combined effects, and identify key regions. The aim is to explore coordinated governance within cities, their surroundings and distant production regions, supporting new-type urbanization, biodiversity conservation and the Beautiful China initiative."
     }
   ],
   "homeResearch": [
@@ -3258,7 +3464,7 @@ window.CV_CONTENT = {
     },
     "projects": {
       "zh": "主持校级课题3项和横向项目1项，参与项目11项：国家重点研发计划及国家自然科学基金项目5项、省部级项目3项、地方政府委托项目3项。",
-      "en": "He has led three university research projects and one commissioned project, and participated in 11 projects: five under the National Key R&D Program or NSFC, three provincial or ministerial projects, and three projects commissioned by local governments."
+      "en": "He has led three university-funded research projects and one commissioned project, and participated in 11 additional projects: four supported by NSFC, one research task under the National Key R&D Program of China, three provincial or ministerial projects, and three commissioned by local governments."
     },
     "awards": {
       "zh": "曾获国家公派留学资助及多项国家级竞赛奖励，并获学业、学术交流和学生工作方面的校院级荣誉。",
@@ -3266,7 +3472,158 @@ window.CV_CONTENT = {
     },
     "service": {
       "zh": "多次承担学生工作并参与学术服务，有两项政策建议被九三学社中央采用并获湖北省委批示。",
-      "en": "He has held several student affairs roles and participated in academic service; two policy recommendations were adopted by the Central Committee of the Jiusan Society and were addressed in written instructions from the Hubei Provincial Party Committee."
+      "en": "He has held several student affairs roles and contributed to academic service. Two policy recommendations were adopted by the Central Committee of the Jiusan Society and received written comments from the Hubei Provincial Party leadership."
     }
-  }
+  },
+  "metricsSnapshot": "2026-10-12",
+  "researchThemes": [
+    {
+      "id": "biodiversity",
+      "label": {
+        "zh": "城市化与生物多样性保护",
+        "en": "Urbanization and Biodiversity Conservation"
+      },
+      "description": {
+        "zh": "考察城市化、生境变化与保护地的生态效应。",
+        "en": "Examining urbanization, habitat change and the ecological outcomes of protected areas."
+      }
+    },
+    {
+      "id": "land-use",
+      "label": {
+        "zh": "土地利用变化与生态系统服务",
+        "en": "Land-use Change and Ecosystem Services"
+      },
+      "description": {
+        "zh": "研究耕地变化、消费足迹与生态系统服务。",
+        "en": "Studying cropland change, consumption footprints and ecosystem services."
+      }
+    },
+    {
+      "id": "urban-form",
+      "label": {
+        "zh": "城市空间形态与反事实研究",
+        "en": "Urban Form and Counterfactual Research"
+      },
+      "description": {
+        "zh": "关注城市扩张与建成空间形态。后续研究将通过反事实比较评估紧凑城市的节地潜力。",
+        "en": "Studying urban expansion and built form. Future research will use counterfactual comparisons to assess the land-sparing potential of compact cities."
+      }
+    }
+  ],
+  "researchMethods": [
+    {
+      "id": "decomposition",
+      "label": {
+        "zh": "分解分析",
+        "en": "Decomposition Analysis"
+      },
+      "papers": [
+        "paper-2"
+      ]
+    },
+    {
+      "id": "invest-plus",
+      "label": {
+        "zh": "InVEST与PLUS建模",
+        "en": "InVEST and PLUS Modeling"
+      },
+      "papers": [
+        "paper-11"
+      ]
+    }
+  ],
+  "researchMapPapers": [
+    {
+      "id": "paper-2",
+      "label": {
+        "zh": "食物消费耕地足迹",
+        "en": "Cropland Footprints"
+      }
+    },
+    {
+      "id": "paper-3",
+      "label": {
+        "zh": "景观格局与生态健康",
+        "en": "Landscape and Ecosystem Health"
+      }
+    },
+    {
+      "id": "paper-9",
+      "label": {
+        "zh": "全球耕地向高地扩张",
+        "en": "Cropland Expansion into Highlands"
+      }
+    },
+    {
+      "id": "paper-10",
+      "label": {
+        "zh": "自然保护区的保护成效",
+        "en": "Nature Reserve Effectiveness"
+      }
+    },
+    {
+      "id": "paper-11",
+      "label": {
+        "zh": "土地城市化与碳储量",
+        "en": "Land Urbanization and Carbon Stocks"
+      }
+    },
+    {
+      "id": "paper-28",
+      "label": {
+        "zh": "全球城市的三维扩张",
+        "en": "Three-dimensional Urban Expansion"
+      }
+    },
+    {
+      "id": "paper-45",
+      "label": {
+        "zh": "建筑形态与鸟类多样性",
+        "en": "Building Form and Bird Diversity"
+      }
+    }
+  ],
+  "methodsAndTools": [
+    {
+      "label": {
+        "zh": "空间数据分析",
+        "en": "Geospatial Data Analysis"
+      },
+      "tools": {
+        "zh": "Python、R、Stata、SPSS、ArcGIS Pro、QGIS、GeoDa。",
+        "en": "Python, R, Stata, SPSS, ArcGIS Pro, QGIS and GeoDa."
+      }
+    },
+    {
+      "label": {
+        "zh": "生态与土地利用建模",
+        "en": "Ecological and Land-use Modeling"
+      },
+      "tools": {
+        "zh": "InVEST、FRAGSTATS、PLUS、SWAT。",
+        "en": "InVEST, FRAGSTATS, PLUS and SWAT."
+      }
+    },
+    {
+      "label": {
+        "zh": "科研可视化",
+        "en": "Scientific Visualization"
+      },
+      "tools": {
+        "zh": "Python、Origin、ArcGIS、Visio、Photoshop、SketchUp。",
+        "en": "Python, Origin, ArcGIS, Visio, Photoshop and SketchUp."
+      }
+    },
+    {
+      "label": {
+        "zh": "研究数据获取",
+        "en": "Research Data Acquisition"
+      },
+      "tools": {
+        "zh": "青藏高原科学数据中心、RESDC、Geodata、ESA、Earthdata。",
+        "en": "National Tibetan Plateau Data Center, RESDC, Geodata, ESA and Earthdata."
+      }
+    }
+  ]
 };
