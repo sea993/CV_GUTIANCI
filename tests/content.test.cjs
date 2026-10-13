@@ -41,8 +41,8 @@ test('the supplied complete list is deduplicated and the selected set is exact',
   const normalized = content.publications.map((p) => p.title.en.toLowerCase().replace(/[^a-z0-9]/g, ''));
   assert.equal(new Set(normalized).size, 48);
   assert.equal(new Set(content.publications.map((p) => p.id)).size, 48);
-  assert.deepEqual(content.publications.filter((p) => p.selected).map((p) => p.id),
-    [1,2,3,9,10,12,16,17,18,19,20].map((id) => 'paper-' + id));
+  assert.deepEqual(content.publications.filter((p) => p.selected).map((p) => p.id).sort(),
+    [1,2,3,9,10,12,16,17,18,19,20].map((id) => 'paper-' + id).sort());
   const abstracts = content.publications.filter((p) => p.kind === 'conference');
   assert.equal(abstracts.length, 2);
   assert.deepEqual(abstracts.map((p) => p.reference), ['EGU25-6392','EGU25-5566']);
@@ -59,13 +59,23 @@ test('DOI links are distinct from source pages and unresolved records remain exp
     assert.match(paper.doi, /^https:\/\/doi\.org\/10\.\d{4,9}\/\S+$/);
     assert(!paper.doiNote);
   }
-  assert.deepEqual(content.publications.filter((paper) => !paper.doi).map((paper) => paper.id), ['paper-20','paper-49','paper-50']);
+  assert.deepEqual(content.publications.filter((paper) => !paper.doi).map((paper) => paper.id).sort(), ['paper-20','paper-49','paper-50']);
   for (const paper of content.publications.filter((paper) => !paper.doi)) {
     assert.equal(paper.doiNote.zh, 'DOI待补充');
     assert(paper.articleUrl || paper.searchUrl);
     assert(!new URL(paper.articleUrl || paper.searchUrl).hostname.includes('doi.org'));
   }
   assert.equal(content.publications.find((paper) => paper.id === 'paper-26').doi, 'https://doi.org/10.6043/j.issn.0438-0479.202410007');
+});
+
+test('publication order prioritizes author roles and the specified corresponding-author paper', () => {
+  const priority = {first:0, corresponding:1, second:2, accepted:2, collaborative:3};
+  const ranks = content.publications.map((paper) => paper.kind === 'conference' ? 4 : priority[paper.category]);
+  assert(ranks.every((rank, index) => index === 0 || ranks[index - 1] <= rank));
+  assert.deepEqual(content.publications.slice(0,4).map((paper) => paper.id), ['paper-1','paper-2','paper-3','paper-7']);
+  assert.equal(content.publications.find((paper) => paper.category === 'corresponding').id, 'paper-9');
+  assert.deepEqual(content.publications.filter((paper) => paper.category === 'second' || paper.category === 'accepted').map((paper) => paper.id), ['paper-16','paper-19','paper-17','paper-18','paper-20']);
+  assert(content.publications.slice(-2).every((paper) => paper.kind === 'conference'));
 });
 
 test('the latest academic and project values have been preserved', () => {

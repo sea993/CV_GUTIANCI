@@ -117,7 +117,6 @@
     if (!byId('publication-list')) return;
     const keyword = query.trim().toLocaleLowerCase();
     const papers = content.publications.filter((paper) => matchesFilter(paper) && (!keyword || [paper.title.zh,paper.title.en,paper.authors.zh,paper.authors.en,paper.venue.zh,paper.venue.en,paper.year,paper.metadata.zh,paper.metadata.en].join(' ').toLocaleLowerCase().includes(keyword)));
-    if (filter === 'all') papers.sort((a,b) => Number(a.kind === 'conference') - Number(b.kind === 'conference') || b.year.localeCompare(a.year));
     setText('publication-count', language === 'zh' ? '共' + content.publications.length + '条记录，当前显示' + papers.length + '条' : 'Showing ' + papers.length + ' of ' + content.publications.length + ' records');
     byId('publication-count').hidden = filter === 'all' && !keyword;
     byId('publication-empty').hidden = papers.length > 0;

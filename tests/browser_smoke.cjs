@@ -52,7 +52,7 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
 
     await go('publications','en');
     check(await page.locator('[data-filter="selected"]').getAttribute('aria-pressed') === 'true', 'Selected publications is not the initial view');
-    check(await page.locator('.publication').evaluateAll(papers=>papers.map(paper=>paper.id).join(',')) === 'paper-1,paper-2,paper-3,paper-9,paper-10,paper-12,paper-16,paper-17,paper-18,paper-19,paper-20', 'The selected publication set differs from the requested list');
+    check(await page.locator('.publication').evaluateAll(papers=>papers.map(paper=>paper.id).join(',')) === 'paper-1,paper-2,paper-3,paper-9,paper-10,paper-12,paper-16,paper-19,paper-17,paper-18,paper-20', 'The selected publication set or its role and journal order is incorrect');
     check(await page.locator('#paper-1 .research-figure').count() === 1, 'The paper figure is missing on the publication page');
     check(await page.locator('.publication .research-figure').count() === 3, 'The supplied graphical abstracts are missing');
     check(await page.locator('[data-filter="review"],.publication[data-status="review"],#paper-4,#paper-5,#paper-6').count() === 0, 'Under-review papers remain public');
@@ -64,6 +64,13 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     await page.locator('[data-language="en"]').click();
     await page.locator('[data-filter="all"]').click();
     check(await page.locator('.publication').count() === 48, 'The complete publication list is missing records');
+    check(await page.locator('.publication').evaluateAll(papers=>papers.slice(0,5).map(paper=>paper.id).join(',')) === 'paper-1,paper-2,paper-3,paper-7,paper-9', 'The complete list still mixes author roles by year');
+    await page.locator('[data-filter="corresponding"]').click();
+    check(await page.locator('.publication').first().getAttribute('id') === 'paper-9', 'Earths Future is not first in corresponding-author publications');
+    await page.locator('[data-language="zh"]').click();
+    check(await page.locator('.publication').first().getAttribute('id') === 'paper-9', 'Language switching changed the corresponding-author order');
+    await page.locator('[data-language="en"]').click();
+    await page.locator('[data-filter="all"]').click();
     check(await page.locator('.publication .doi-link').count() === 45, 'The DOI links are incomplete');
     check(await page.locator('.doi-link').evaluateAll(links=>links.every(link=>link.href.startsWith('https://doi.org/10.')&&link.textContent==='DOI: '+link.href.replace('https://doi.org/','')&&link.target==='_blank'&&link.rel.includes('noopener'))), 'A DOI label, target or safe new-tab attribute is incorrect');
     check(await page.locator('.doi-pending').count() === 3 && await page.locator('.journal-link').count() === 1 && await page.locator('.paper-search-link').count() === 2, 'Unresolved DOI records are missing their labeled fallback links');
@@ -112,6 +119,7 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     await page.locator('[data-filter="first"]').click();
     await page.evaluate(()=>window.dispatchEvent(new Event('beforeprint')));
     check(await page.locator('.publication').count() === 48, 'Print omitted filtered papers');
+    check(await page.locator('.publication').evaluateAll(papers=>papers.slice(0,5).map(paper=>paper.id).join(',')) === 'paper-1,paper-2,paper-3,paper-7,paper-9', 'The printable CV has a different publication order');
     await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));
     check(await page.locator('.publication').count() === 4, 'Print cleanup lost filter state');
     await page.locator('[data-filter="all"]').click();
