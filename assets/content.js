@@ -1738,11 +1738,12 @@ window.CV_CONTENT = {
         "en": "Co-author"
       },
       "originalLanguage": "zh",
-      "doiNote": {
-        "zh": "DOI待补充",
-        "en": "DOI pending"
-      },
-      "searchUrl": "https://scholar.google.com/scholar?q=%E9%95%BF%E6%B1%9F%E7%BB%8F%E6%B5%8E%E5%B8%A6%E4%B8%89%E5%A4%A7%E5%9F%8E%E5%B8%82%E7%BE%A4%E5%9B%BD%E5%9C%9F%E7%A9%BA%E9%97%B4%E5%88%A9%E7%94%A8%E6%95%88%E7%8E%87%E8%80%A6%E5%90%88%E5%8D%8F%E8%B0%83%E7%A0%94%E7%A9%B6"
+      "doiIdentifier": "10.11870/cjlyzyyhj202601008",
+      "articleUrl": "https://yangtzebasin.whlib.ac.cn/CN/10.11870/cjlyzyyhj202601008",
+      "sources": [
+        "https://yangtzebasin.whlib.ac.cn/CN/10.11870/cjlyzyyhj202601008",
+        "https://doi.org/api/handles/10.11870/cjlyzyyhj202601008"
+      ]
     },
     {
       "id": "paper-26",
@@ -1808,13 +1809,11 @@ window.CV_CONTENT = {
       },
       "originalLanguage": "zh",
       "sources": [
-        "https://ztkb.cbpt.cnki.net/portal/journal/portal/client/paper/d4c5afb353534711bd8c93967b0de2c2"
+        "https://ztkb.cbpt.cnki.net/portal/journal/portal/client/paper/d4c5afb353534711bd8c93967b0de2c2",
+        "https://doi.org/api/handles/10.3969/j.issn.1005-8141.2026.07.008"
       ],
       "articleUrl": "https://ztkb.cbpt.cnki.net/portal/journal/portal/client/paper/d4c5afb353534711bd8c93967b0de2c2",
-      "doiNote": {
-        "zh": "DOI待补充",
-        "en": "DOI pending"
-      }
+      "doi": "https://doi.org/10.3969/j.issn.1005-8141.2026.07.008"
     },
     {
       "id": "paper-47",

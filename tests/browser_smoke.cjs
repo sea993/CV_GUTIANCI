@@ -71,9 +71,9 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     check(await page.locator('.publication').first().getAttribute('id') === 'paper-9', 'Language switching changed the corresponding-author order');
     await page.locator('[data-language="en"]').click();
     await page.locator('[data-filter="all"]').click();
-    check(await page.locator('.publication .doi-link').count() === 45, 'The DOI links are incomplete');
+    check(await page.locator('.publication .doi-link').count() === 46, 'The DOI links are incomplete');
     check(await page.locator('.doi-link').evaluateAll(links=>links.every(link=>link.href.startsWith('https://doi.org/10.')&&link.textContent==='DOI: '+link.href.replace('https://doi.org/','')&&link.target==='_blank'&&link.rel.includes('noopener'))), 'A DOI label, target or safe new-tab attribute is incorrect');
-    check(await page.locator('.doi-pending').count() === 3 && await page.locator('.journal-link').count() === 1 && await page.locator('.paper-search-link').count() === 2, 'Unresolved DOI records are missing their labeled fallback links');
+    check(await page.locator('.doi-pending').count() === 1 && await page.locator('.journal-link').count() === 1 && await page.locator('.paper-search-link').count() === 1, 'Unresolved DOI records are missing their labeled fallback links');
     check((await page.locator('#publication-list').innerText()).includes('64(03), 528-537'), 'Journal pagination is missing');
     await page.locator('#publication-search').fill('nonlinear cropland footprint');
     check(await page.locator('.publication').count() === 1, 'English title search failed');
@@ -169,8 +169,8 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
           check(await page.evaluate(()=>[...document.querySelectorAll('.portrait-block,.education-item,.service-entry,.metrics-table th,.metrics-table td')].every(el=>parseFloat(getComputedStyle(el).borderLeftWidth)===0&&parseFloat(getComputedStyle(el).borderRightWidth)===0)), 'Decorative vertical rules remain');
           if (key==='publications' || key==='cv') {
             check(await page.locator('.publication').count()===(key==='publications'?11:48),'Publications missing');
-            check(await page.locator('.doi-link').count()===(key==='publications'?10:45),'DOI links missing at this viewport');
-            check(await page.locator('.doi-pending').count()===(key==='publications'?1:3),'Pending DOI labels missing at this viewport');
+            check(await page.locator('.doi-link').count()===(key==='publications'?10:46),'DOI links missing at this viewport');
+            check(await page.locator('.doi-pending').count()===1,'Pending DOI labels missing at this viewport');
             check(await page.locator('.publication[data-status="review"],#paper-4,#paper-5,#paper-6').count()===0,'Under-review papers remain visible');
             check(!/唯一第一作者|Sole first author|Nature旗下期刊|中科院一区|IF 8\.8|谷天赐的贡献/.test(await page.locator('#publication-list').innerText()),'Unwanted publication labels remain');
             check(await page.locator('.contribution,.paper-meta').count()===0,'Publication metadata blocks remain');

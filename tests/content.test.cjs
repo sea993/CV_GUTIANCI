@@ -54,17 +54,22 @@ test('the supplied complete list is deduplicated and the selected set is exact',
 
 test('DOI links are distinct from source pages and unresolved records remain explicit', () => {
   const linked = content.publications.filter((paper) => paper.doi);
-  assert.equal(linked.length, 45);
+  assert.equal(linked.length, 46);
   for (const paper of linked) {
     assert.match(paper.doi, /^https:\/\/doi\.org\/10\.\d{4,9}\/\S+$/);
     assert(!paper.doiNote);
   }
-  assert.deepEqual(content.publications.filter((paper) => !paper.doi).map((paper) => paper.id).sort(), ['paper-20','paper-49','paper-50']);
+  assert.deepEqual(content.publications.filter((paper) => !paper.doi).map((paper) => paper.id).sort(), ['paper-20','paper-50']);
   for (const paper of content.publications.filter((paper) => !paper.doi)) {
-    assert.equal(paper.doiNote.zh, 'DOI待补充');
     assert(paper.articleUrl || paper.searchUrl);
     assert(!new URL(paper.articleUrl || paper.searchUrl).hostname.includes('doi.org'));
   }
+  assert.equal(content.publications.find((paper) => paper.id === 'paper-20').doiNote.zh, 'DOI待补充');
+  const territorial = content.publications.find((paper) => paper.id === 'paper-50');
+  assert.equal(territorial.doiIdentifier, '10.11870/cjlyzyyhj202601008');
+  assert.equal(territorial.articleUrl, 'https://yangtzebasin.whlib.ac.cn/CN/10.11870/cjlyzyyhj202601008');
+  assert(!territorial.doiNote);
+  assert.equal(content.publications.find((paper) => paper.id === 'paper-49').doi, 'https://doi.org/10.3969/j.issn.1005-8141.2026.07.008');
   assert.equal(content.publications.find((paper) => paper.id === 'paper-26').doi, 'https://doi.org/10.6043/j.issn.0438-0479.202410007');
 });
 
