@@ -35,7 +35,7 @@
     query = params.get('q') || '';
     topic = content.researchThemes.some((item) => item.id === params.get('topic')) ? params.get('topic') : '';
     publishedOnly = params.get('scope') === 'published';
-    rankFilter = ['1','2','3','4','top','not-listed','unverified'].includes(params.get('tier')) ? params.get('tier') : '';
+    rankFilter = ['1','2','3','4','top','core','cssci'].includes(params.get('tier')) ? params.get('tier') : '';
     projectFilter = ['led','participant','nsfc','key-rd','provincial','university','commissioned'].includes(params.get('project')) ? params.get('project') : 'all';
   }
   readLocation();
@@ -61,19 +61,20 @@
   Object.assign(strings.en, {footerContact:'Contact',footerAcademic:'Academic profiles',footerExplore:'Explore',footerHosted:'Hosted on',backToTop:'Back to top'});
   Object.assign(strings.zh, {menu:'导航',skills:'方法与工具',second:'第二作者，导师第一作者',researchInterests:'研究方向',profileShort:'简介',projectsShort:'项目',contactDetails:'联系方式与学术主页',fullBiography:'完整个人介绍',viewSelected:'查看精选成果',viewCv:'查看完整简历',exploreMap:'探索研究图谱',mapExplanation:'主题连接论文，虚线表示论文采用的方法。点击主题查看相关成果，点击论文打开出版方文章；悬停或键盘聚焦可查看关联。',mapTopics:'研究主题',mapPapers:'论文',mapMethods:'研究方法',publicationOverview:'成果概览',projectOverview:'项目概览',journalArticles:'已发表期刊论文',acceptedArticles:'已录用文章',publishedScope:'仅显示已发表期刊论文',allTopics:'全部主题',clearScope:'查看所有类型',led:'主持项目',participant:'参与项目',nsfc:'国家自然科学基金', 'key-rd':'国家重点研发计划课题',provincial:'省部级项目',university:'校级课题',commissioned:'横向与地方政府委托项目',projectOverviewNote:'按项目来源统计，共15项，其中主持4项、参与11项。国家公派留学资助不计入科研项目。',metricsSnapshot:'谷歌学术数据截至',firstMetric:'第一及共同第一作者',correspondingMetric:'通讯及共同通讯作者',citationMetric:'总引用',hMetric:'h指数'});
   Object.assign(strings.en, {menu:'Navigation',about:'Personal Profile',projects:'Research Projects',awards:'Honors and Awards',skills:'Methods and Tools',service:'Academic Service and Experience',cv:'CV',personal:'Personal Details',birth:'Month and Year of Birth',hometown:'Place of Origin',membership:'Political Affiliation',profileShort:'Profile',projectsShort:'Projects',contactDetails:'Contact and Academic Profiles',fullBiography:'Full Personal Profile',viewSelected:'View Selected Publications',viewCv:'View Full CV',exploreMap:'Explore Research Map',researchInterests:'Research Themes',mapExplanation:'Topics connect to papers; dashed lines indicate methods used in a paper. Select a topic to browse related publications or a paper to open its article page. Hover or focus with the keyboard to explore connections.',mapTopics:'Research Themes',mapPapers:'Publications',mapMethods:'Methods',publicationOverview:'Publication Overview',projectOverview:'Research Project Overview',journalArticles:'Published Journal Articles',acceptedArticles:'Accepted Article',publishedScope:'Published journal articles only',allTopics:'All Topics',clearScope:'Include All Record Types',first:'First or Co-first Author',corresponding:'Corresponding or Co-corresponding Author',second:'Second Author with Supervisor as First Author',collaborative:'Other Collaborative Papers',conference:'Conference Abstracts',led:'Projects led',participant:'Projects Participated In',nsfc:'NSFC','key-rd':'National Key R&D Program Research Task',provincial:'Provincial or Ministerial Projects',university:'University-funded Projects',commissioned:'Commissioned Projects',projectOverviewNote:'15 projects classified by source: four led and 11 participated in. CSC funding for overseas study is excluded from research project counts.',metricsSnapshot:'Google Scholar snapshot',firstMetric:'First or Co-first Author',correspondingMetric:'Corresponding or Co-corresponding Author',citationMetric:'Citations',hMetric:'h-index'});
-  Object.assign(strings.zh,{journalRanking:'期刊分区',rankingEdition:'2025版中科院大类分区',rankingSources:'查看统计口径与来源',rankingTop:'1区及2区',rankingNotListed:'该版未列入',rankingUnverified:'分区未核实',journal:'期刊',rankingColumn:'大类分区',source:'数据来源',articleCount:'论文数量',clearRanking:'清除分区筛选'});
-  Object.assign(strings.en,{journalRanking:'Journal Rankings',rankingEdition:'CAS Broad-subject Ranking, 2025 Edition',rankingSources:'Counting Method and Sources',rankingTop:'CAS Tiers 1 and 2',rankingNotListed:'Not Listed in This Edition',rankingUnverified:'Ranking Not Verified',journal:'Journal',rankingColumn:'CAS Tier',source:'Source',articleCount:'Articles',clearRanking:'Clear Ranking Filter'});
+  Object.assign(strings.zh,{journalRanking:'期刊分区与收录',rankingEdition:'JCR 2026版（2025年度数据）',rankingSources:'查看统计口径与来源',rankingTop:'Q1及Q2',journal:'期刊',rankingColumn:'JIF分区或中文收录',source:'数据来源',articleCount:'论文数量',clearRanking:'清除分区或收录筛选',chineseIndexes:'中文期刊收录',core:'中文核心',cssci:'CSSCI',cscd:'CSCD',noRecord:'参考表无记录',notApplicable:'N/A',rankingReference:'JCR参考表'});
+  Object.assign(strings.en,{journalRanking:'Journal Quartiles and Indexing',rankingEdition:'JCR 2026 (2025 Data)',rankingSources:'Counting Method and Sources',rankingTop:'Q1 and Q2',journal:'Journal',rankingColumn:'JIF Quartile or Chinese Index',source:'Source',articleCount:'Articles',clearRanking:'Clear Quartile or Index Filter',chineseIndexes:'Chinese Journal Indexing',core:'Chinese Core',cssci:'CSSCI',cscd:'CSCD',noRecord:'No Record in Reference',notApplicable:'N/A',rankingReference:'JCR Reference'});
   const icon = (name, className) => '<svg class="' + className + '" aria-hidden="true"><use href="assets/icons.svg#' + name + '"></use></svg>';
   const setText = (id, value) => { if (byId(id)) byId(id).textContent = value; };
   const setHTML = (id, value) => { if (byId(id)) byId(id).innerHTML = value; };
   const isPublishedJournal = (paper) => paper.status === 'published' && paper.kind !== 'conference';
   const journalRanking = (paper) => content.journalRankings.journals.find((entry) => entry.venue === paper.venue.en);
+  const chineseJournalIndex = (paper) => paper.originalLanguage === 'zh' ? content.chineseJournalIndexes.journals.find((entry) => entry.venue.en === paper.venue.en) : undefined;
   const rankKey = (paper) => {
     if (!isPublishedJournal(paper) || paper.originalLanguage !== 'en') return '';
     const record = journalRanking(paper);
-    return record?.status === 'ranked' ? String(record.tier) : record?.status || 'unverified';
+    return record?.status === 'ranked' ? record.quartile.slice(1) : '';
   };
-  const rankLabel = (key) => key === 'top' ? text('rankingTop') : key === 'not-listed' ? text('rankingNotListed') : key === 'unverified' ? text('rankingUnverified') : language === 'zh' ? key + '区' : 'CAS Tier ' + key;
+  const rankLabel = (key) => key === 'top' ? text('rankingTop') : ['core','cssci'].includes(key) ? text(key) : 'JCR Q' + key;
   function pageURL(page, params = {}, hash = '') {
     const search = new URLSearchParams({lang:language,v:assetVersion,...params});
     return routes[page] + '?' + search + hash;
@@ -174,13 +175,14 @@
     if (!byId('publication-overview')) return;
     const published = content.publications.filter(isPublishedJournal);
     const english = published.filter((paper) => paper.originalLanguage === 'en');
-    const keys = ['1','2','3','4','not-listed','unverified'];
-    const colors = ['#004da3','#4f83ba','#91b0d1','#c3d4e7','#aeb8c3','#e6ebf0'];
+    const keys = ['1','2','3','4'];
+    const colors = ['#004da3','#4f83ba','#91b0d1','#c3d4e7'];
     const counts = keys.map((key) => english.filter((paper) => rankKey(paper) === key).length);
+    const rankedCount = counts.reduce((sum,count) => sum+count,0);
     const circumference = 2*Math.PI*83;
     let offset = 0;
     const segments = keys.map((key,index) => {
-      const length = circumference*counts[index]/english.length;
+      const length = rankedCount ? circumference*counts[index]/rankedCount : 0;
       const segment = counts[index] ? '<a href="' + escape(pageURL('publications',{filter:'all',scope:'published',tier:key},'#publication-browser')) + '" data-tier="' + key + '" aria-label="' + escape(rankLabel(key) + ': ' + counts[index]) + '"><circle class="rank-segment" cx="120" cy="120" r="83" fill="none" stroke="' + colors[index] + '" stroke-width="22" stroke-dasharray="' + Math.max(0,length-2) + ' ' + circumference + '" stroke-dashoffset="' + -offset + '" transform="rotate(-90 120 120)"/></a>' : '';
       offset += length;
       return segment;
@@ -188,10 +190,15 @@
     const topCount = counts[0]+counts[1];
     setHTML('publication-ranking-chart','<svg class="ranking-donut" viewBox="0 0 240 240" role="group" aria-label="' + escape(text('rankingEdition')) + '">' + segments + '<a href="' + escape(pageURL('publications',{filter:'all',scope:'published',tier:'top'},'#publication-browser')) + '" data-tier="top" aria-label="' + escape(text('rankingTop') + ': ' + topCount) + '"><circle cx="120" cy="120" r="65" fill="white"/><text x="120" y="122" text-anchor="middle" class="rank-total">' + topCount + '</text><text x="120" y="153" text-anchor="middle" class="rank-center-label">' + escape(text('rankingTop')) + '</text></a></svg>');
     setHTML('publication-ranking-legend',keys.map((key,index) => '<button type="button" data-tier="' + key + '" aria-pressed="' + (rankFilter === key) + '"><span class="rank-swatch" style="background:' + colors[index] + '" aria-hidden="true"></span><span>' + escape(rankLabel(key)) + '</span><strong>' + counts[index] + '</strong></button>').join(''));
-    const chineseCount = published.length-english.length;
-    setText('publication-overview-note',language === 'zh' ? '按' + english.length + '篇已发表英文期刊论文统计，每篇计一次。中文期刊论文' + chineseCount + '篇另计；已录用文章与会议摘要不参与分区统计。点击图环或标签查看论文。' : 'Based on ' + english.length + ' published English-language journal articles, counted once each. The ' + chineseCount + ' Chinese-language journal articles, accepted article and conference abstracts are excluded. Select a segment or label to browse the papers.');
-    setText('ranking-method',language === 'zh' ? '统一采用LetPub公开页面列出的2025年3月中科院期刊分区表大类分区，查询日期为2026年10月13日。未列入该版与尚未核实的期刊分别列出，不沿用更名前或其他年份的分区。' : 'The chart uses broad-subject tiers in the March 2025 CAS journal ranking as reported on public LetPub pages, checked on October 13, 2026. Not-listed and unverified records are shown separately. Rankings for former journal titles or other editions are not substituted.');
-    setHTML('ranking-source-table','<table><thead><tr><th scope="col">' + text('journal') + '</th><th scope="col">' + text('rankingColumn') + '</th><th scope="col">' + text('articleCount') + '</th><th scope="col">' + text('source') + '</th></tr></thead><tbody>' + content.journalRankings.journals.map((record) => '<tr><th scope="row">' + escape(record.venue) + '</th><td>' + escape(rankLabel(record.status === 'ranked' ? String(record.tier) : record.status)) + '</td><td>' + english.filter((paper) => paper.venue.en === record.venue).length + '</td><td><a href="' + escape(record.sourceUrl) + '" target="_blank" rel="noopener">LetPub</a></td></tr>').join('') + '</tbody></table>');
+    const chinese = published.filter((paper) => paper.originalLanguage === 'zh');
+    setHTML('chinese-journal-summary','<h3>' + text('chineseIndexes') + '</h3><div>' + ['core','cssci'].map((key) => '<button type="button" data-tier="' + key + '" aria-pressed="' + (rankFilter === key) + '"><span>' + text(key) + '</span><strong>' + chinese.filter((paper) => chineseJournalIndex(paper)?.indexes.includes(key)).length + '</strong></button>').join('') + '</div>');
+    setText('publication-overview-note',language === 'zh' ? 'JCR环图统计' + rankedCount + '篇已发表英文期刊论文，另有' + (english.length-rankedCount) + '篇英文论文的分区情况见统计说明。中文核心与CSSCI收录存在重叠，不相加。已录用文章与会议摘要不计；点击图环或标签查看论文。' : 'The JCR chart covers ' + rankedCount + ' published English-language journal articles. Quartile coverage for the other ' + (english.length-rankedCount) + ' English-language articles is explained below. Chinese Core and CSSCI overlap and are not added together. Accepted articles and conference abstracts are excluded. Select a segment or label to browse the papers.');
+    setText('ranking-method',language === 'zh' ? '采用2026版JCR（2025年度数据）公开参考表的JIF Quartile列，每篇论文计一次，按该表逐刊所列分区统计，不按学科重复计数。来源中的N/A及无记录项不纳入环图；中文期刊收录依据官方期刊或学校说明。核对日期为2026年10月13日。' : 'The chart uses the JIF Quartile column in the public JCR 2026 reference table (2025 data). Each article is counted once using the quartile listed for its journal, without duplicating counts across categories. N/A and absent records are excluded from the chart. Chinese journal indexing follows journal or university statements. Checked on October 13, 2026.');
+    const uncovered = content.journalRankings.journals.filter((record) => record.status !== 'ranked');
+    setHTML('ranking-exclusions','<ul>' + uncovered.map((record) => '<li><span>' + escape(record.venue) + '</span>' + colon() + escape(record.note ? localized(record.note) : record.status === 'not-applicable' ? (language === 'zh' ? '本版参考表的JIF分区为N/A。' : 'JIF Quartile is N/A in this edition.') : (language === 'zh' ? '本版参考表未找到对应记录，不采用历史分区替代。' : 'No matching record in this edition; historical quartiles are not substituted.')) + '</li>').join('') + '</ul>');
+    const sourceRows = content.journalRankings.journals.map((record) => '<tr><th scope="row">' + escape(record.venue) + '</th><td>' + escape(record.quartile || text(record.status === 'not-applicable' ? 'notApplicable' : 'noRecord')) + '</td><td>' + english.filter((paper) => paper.venue.en === record.venue).length + '</td><td><a href="' + escape(record.sourceUrl) + '" target="_blank" rel="noopener">' + text('rankingReference') + '</a></td></tr>').join('');
+    const chineseRows = content.chineseJournalIndexes.journals.map((record) => '<tr><th scope="row">' + escape(localized(record.venue)) + '</th><td>' + record.indexes.map((key) => escape(text(key))).join(', ') + '</td><td>' + chinese.filter((paper) => paper.venue.en === record.venue.en).length + '</td><td><a href="' + escape(record.sourceUrl) + '" target="_blank" rel="noopener">' + escape(localized(record.sourceName)) + '</a></td></tr>').join('');
+    setHTML('ranking-source-table','<table><thead><tr><th scope="col">' + text('journal') + '</th><th scope="col">' + text('rankingColumn') + '</th><th scope="col">' + text('articleCount') + '</th><th scope="col">' + text('source') + '</th></tr></thead><tbody>' + sourceRows + chineseRows + '</tbody></table>');
   }
 
   function renderProjectOverview() {
@@ -231,7 +238,7 @@
 
   function matchesFilter(paper) {
     if (publishedOnly && !isPublishedJournal(paper)) return false;
-    if (rankFilter && (rankFilter === 'top' ? !['1','2'].includes(rankKey(paper)) : rankKey(paper) !== rankFilter)) return false;
+    if (rankFilter && (['core','cssci'].includes(rankFilter) ? !isPublishedJournal(paper) || !chineseJournalIndex(paper)?.indexes.includes(rankFilter) : rankFilter === 'top' ? !['1','2'].includes(rankKey(paper)) : rankKey(paper) !== rankFilter)) return false;
     if (topic && !paper.topics.includes(topic)) return false;
     if (filter === 'all') return true;
     if (filter === 'selected') return paper.selected === true;
@@ -248,9 +255,9 @@
     setHTML('publication-filters', filterOptions.map((option) => '<button type="button" class="filter-button" data-filter="' + option + '" aria-pressed="' + (filter === option) + '">' + escape(text(option)) + '</button>').join(''));
     if (currentPage === 'publications') setHTML('publication-topics','<button type="button" data-topic="" aria-pressed="' + !topic + '">' + escape(text('allTopics')) + '</button>' + content.researchThemes.map((item) => '<button type="button" data-topic="' + item.id + '" aria-pressed="' + (topic === item.id) + '">' + escape(localized(item.label)) + '</button>').join(''));
     byId('publication-scope').hidden = !publishedOnly && !rankFilter;
-    const scopeLabel = rankFilter ? text('rankingEdition') + colon() + rankLabel(rankFilter) : text('publishedScope');
+    const scopeLabel = rankFilter ? text(['core','cssci'].includes(rankFilter) ? 'chineseIndexes' : 'rankingEdition') + colon() + rankLabel(rankFilter) : text('publishedScope');
     setHTML('publication-scope',escape(scopeLabel) + ' <button type="button" data-clear-scope>' + escape(text(rankFilter ? 'clearRanking' : 'clearScope')) + '</button>');
-    byId('publication-ranking-legend')?.querySelectorAll('[data-tier]').forEach((button) => button.setAttribute('aria-pressed',String(button.dataset.tier === rankFilter)));
+    byId('publication-overview')?.querySelectorAll('button[data-tier]').forEach((button) => button.setAttribute('aria-pressed',String(button.dataset.tier === rankFilter)));
   }
 
   function publicationLink(paper) {
@@ -274,6 +281,7 @@
       const heading = currentPage === 'cv' ? 'h3' : 'h2';
       const role = paper.kind === 'conference' ? localized(paper.role) : ['second','accepted'].includes(paper.category) ? (language === 'zh' ? '第二作者' : 'Second author') : paper.category === 'collaborative' ? '' : localized(paper.role);
       const status = paper.kind === 'conference' ? '<span class="status">' + escape(text('conference')) + '</span>' : paper.status === 'published' ? '' : '<span class="status">' + escape(text(paper.status)) + '</span>';
+      const indexing = isPublishedJournal(paper) ? (chineseJournalIndex(paper)?.indexes || []).map((key) => '<span class="journal-index">' + escape(text(key)) + '</span>').join('') : '';
       const citation = [paper.year,paper.reference].filter(Boolean).map(escape).join(', ');
       const illustrated = currentPage === 'publications' && paper.figure;
       return '<article class="publication' + (illustrated ? ' publication-illustrated' : '') + '" id="' + escape(paper.id) + '" data-status="' + escape(paper.status) + '" data-kind="' + escape(paper.kind || 'journal') + '">' +
@@ -281,7 +289,7 @@
         '<' + heading + ' class="publication-title" lang="' + (paper.originalLanguage === 'zh' ? 'zh-CN' : 'en') + '"><span class="publication-number">' + (index + 1) + '.</span><a href="' + escape(paper.doi || paper.articleUrl || paper.searchUrl) + '" target="_blank" rel="noopener">' + escape(title) + '</a></' + heading + '>' + translation +
         '<p class="authors">' + authors + '</p>' +
         '<p class="venue"><em>' + escape(localized(paper.venue)) + '</em>' + (citation ? ', ' + citation : '') + '</p>' +
-        '<p class="publication-notes">' + (role ? '<span>' + escape(role) + '</span>' : '') + status + publicationLink(paper) + '</p></div></article>';
+        '<p class="publication-notes">' + (role ? '<span>' + escape(role) + '</span>' : '') + status + indexing + publicationLink(paper) + '</p></div></article>';
     }).join(''));
   }
 

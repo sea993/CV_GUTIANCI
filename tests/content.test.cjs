@@ -138,23 +138,42 @@ test('research map and topic links use public records and verified method associ
   assert(content.publications.filter(p=>p.featured).every(p=>p.figure&&p.selected&&p.doi));
 });
 
-test('CAS ranking counts use a single edition and keep missing coverage separate', () => {
-  assert.equal(content.journalRankings.edition,'2025-03');
-  assert.equal(content.journalRankings.scope,'broad-subject');
+test('JCR counts use one release and preserve N/A and absent English records', () => {
+  assert.equal(content.journalRankings.edition,'2026');
+  assert.equal(content.journalRankings.metricYear,2025);
+  assert.equal(content.journalRankings.scope,'JIF-quartile');
   const english=content.publications.filter(p=>p.status==='published'&&p.kind!=='conference'&&p.originalLanguage==='en');
   const journals=new Map(content.journalRankings.journals.map(r=>[r.venue,r]));
   assert.equal(journals.size,23);
   assert(english.every(p=>journals.has(p.venue.en)));
-  const keys=['1','2','3','4','not-listed','unverified'];
-  assert.deepEqual(keys.map(key=>english.filter(p=>{const r=journals.get(p.venue.en);return (r.status==='ranked'?String(r.tier):r.status)===key;}).length),[19,7,5,6,3,1]);
+  assert.deepEqual(['Q1','Q2','Q3','Q4'].map(q=>english.filter(p=>journals.get(p.venue.en).quartile===q).length),[28,4,3,0]);
+  assert.equal(english.filter(p=>!journals.get(p.venue.en).quartile).length,6);
   for(const r of journals.values()) {
     assert.equal(r.checkedDate,'2026-10-13');
-    assert(r.sourceUrl.startsWith('https://www.letpub.com.cn/'));
-    if(r.status==='ranked')assert([1,2,3,4].includes(r.tier));
-    else assert.equal(r.tier,null);
+    assert(r.sourceUrl.startsWith('https://www.niic.nsc.ru/'));
+    if(r.status==='ranked') {
+      assert(['Q1','Q2','Q3','Q4'].includes(r.quartile));
+      assert(r.sourcePage>0 && /^\d{4}-\d{3}[\dX]$/.test(r.eissn));
+    } else assert.equal(r.quartile,null);
   }
-  assert.equal(journals.get('npj Heritage Science').status,'not-listed');
-  assert.equal(journals.get('Transactions in Earth, Environment, and Sustainability').status,'unverified');
+  assert.equal(journals.get('npj Heritage Science').status,'not-applicable');
+  assert.equal(journals.get('npj Heritage Science').eissn,'3059-3220');
+  assert.equal(journals.get('Journal of Asian Architecture and Building Engineering').status,'not-applicable');
+  assert.equal(journals.get('Transactions in Earth, Environment, and Sustainability').status,'no-record');
+  assert.equal(journals.get('Environmental Science and Pollution Research').status,'no-record');
+});
+
+test('Chinese Core and CSSCI counts overlap and never include English or accepted papers', () => {
+  const published=content.publications.filter(p=>p.status==='published'&&p.kind!=='conference'&&p.originalLanguage==='zh');
+  const journals=new Map(content.chineseJournalIndexes.journals.map(r=>[r.venue.en,r]));
+  assert.equal(published.length,4);
+  assert.equal(journals.size,4);
+  assert(published.every(p=>journals.has(p.venue.en)));
+  assert.equal(published.filter(p=>journals.get(p.venue.en).indexes.includes('core')).length,4);
+  assert.deepEqual(published.filter(p=>journals.get(p.venue.en).indexes.includes('cssci')).map(p=>p.id),['paper-51','paper-50']);
+  assert(published.filter(p=>journals.get(p.venue.en).indexes.includes('cssci')).every(p=>journals.get(p.venue.en).indexes.includes('core')));
+  assert(content.publications.filter(p=>p.originalLanguage==='en').every(p=>!journals.has(p.venue.en)));
+  for(const r of journals.values()) assert(r.sourceUrl.startsWith('https://'));
 });
 
 test('independent pages and their assets work under a GitHub project path', () => {

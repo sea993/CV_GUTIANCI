@@ -3623,194 +3623,335 @@
     }
   ],
   "journalRankings": {
-    "edition": "2025-03",
-    "scope": "broad-subject",
-    "sourceName": "LetPub",
+    "edition": "2026",
+    "metricYear": 2025,
+    "scope": "JIF-quartile",
+    "sourceName": "JCR 2026 public reference",
+    "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf",
+    "releaseSource": "https://journalcitationreports.zendesk.com/hc/en-gb/articles/47808147130129-2026",
     "checkedDate": "2026-10-13",
     "journals": [
       {
-        "venue": "Environmental Impact Assessment Review",
-        "tier": 1,
+        "venue": "npj Urban Sustainability",
+        "quartile": "Q1",
         "status": "ranked",
-        "subject": "社会学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=11652&page=journalapp&view=detail",
+        "reportTitle": "npj Urban Sustainability",
+        "eissn": "2661-8001",
+        "index": "SSCI",
+        "sourcePage": 20,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=20",
+        "checkedDate": "2026-10-13"
+      },
+      {
+        "venue": "Environmental Impact Assessment Review",
+        "quartile": "Q1",
+        "status": "ranked",
+        "reportTitle": "Environmental Impact Assessment Review",
+        "eissn": "1873-6432",
+        "index": "SSCI",
+        "sourcePage": 16,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=16",
         "checkedDate": "2026-10-13"
       },
       {
         "venue": "Journal of Environmental Management",
-        "tier": 2,
+        "quartile": "Q1",
         "status": "ranked",
-        "subject": "环境科学与生态学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=4483&page=journalapp&view=detail",
-        "checkedDate": "2026-10-13"
-      },
-      {
-        "venue": "npj Urban Sustainability",
-        "tier": 1,
-        "status": "ranked",
-        "subject": "工程技术",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=44037&page=journalapp&view=detail",
+        "reportTitle": "Journal of Environmental Management",
+        "eissn": "1095-8630",
+        "index": "SCIE",
+        "sourcePage": 27,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=27",
         "checkedDate": "2026-10-13"
       },
       {
         "venue": "Environmental Science and Pollution Research",
-        "tier": null,
-        "status": "not-listed",
-        "subject": "",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=2567&page=journalapp&view=detail",
-        "checkedDate": "2026-10-13"
-      },
-      {
-        "venue": "npj Heritage Science",
-        "tier": null,
-        "status": "not-listed",
-        "subject": "",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=44803&page=journalapp&view=detail",
-        "checkedDate": "2026-10-13"
-      },
-      {
-        "venue": "Applied Geography",
-        "tier": 2,
-        "status": "ranked",
-        "subject": "地球科学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=11445&page=journalapp&view=detail",
-        "checkedDate": "2026-10-13"
-      },
-      {
-        "venue": "Ecological Indicators",
-        "tier": 1,
-        "status": "ranked",
-        "subject": "环境科学与生态学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=2408&page=journalapp&view=detail",
-        "checkedDate": "2026-10-13"
-      },
-      {
-        "venue": "Scientific Reports",
-        "tier": 3,
-        "status": "ranked",
-        "subject": "综合性期刊",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=8695&page=journalapp&view=detail",
-        "checkedDate": "2026-10-13"
-      },
-      {
-        "venue": "Environmental Monitoring and Assessment",
-        "tier": 4,
-        "status": "ranked",
-        "subject": "环境科学与生态学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=2559&page=journalapp&view=detail",
-        "checkedDate": "2026-10-13"
-      },
-      {
-        "venue": "Journal of Asian Architecture and Building Engineering",
-        "tier": 4,
-        "status": "ranked",
-        "subject": "工程技术",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=4175&page=journalapp&view=detail",
-        "checkedDate": "2026-10-13"
-      },
-      {
-        "venue": "Frontiers in Environmental Science",
-        "tier": 4,
-        "status": "ranked",
-        "subject": "环境科学与生态学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=10997&page=journalapp&view=detail",
-        "checkedDate": "2026-10-13"
-      },
-      {
-        "venue": "Environmental Science and Ecotechnology",
-        "tier": 1,
-        "status": "ranked",
-        "subject": "环境科学与生态学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=30311&page=journalapp&view=detail",
-        "checkedDate": "2026-10-13"
-      },
-      {
-        "venue": "Sustainable Cities and Society",
-        "tier": 1,
-        "status": "ranked",
-        "subject": "工程技术",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=10255&page=journalapp&view=detail",
-        "checkedDate": "2026-10-13"
-      },
-      {
-        "venue": "Geography and Sustainability",
-        "tier": 1,
-        "status": "ranked",
-        "subject": "环境科学与生态学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=27634&page=journalapp&view=detail",
+        "quartile": null,
+        "status": "no-record",
+        "reportTitle": null,
+        "eissn": null,
+        "index": null,
+        "sourcePage": null,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf",
         "checkedDate": "2026-10-13"
       },
       {
         "venue": "Earth's Future",
-        "tier": 1,
+        "quartile": "Q1",
         "status": "ranked",
-        "subject": "地球科学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=9986&page=journalapp&view=detail",
+        "reportTitle": "Earths Future",
+        "eissn": "2328-4277",
+        "index": "SCIE",
+        "sourcePage": 32,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=32",
+        "checkedDate": "2026-10-13"
+      },
+      {
+        "venue": "Ecological Indicators",
+        "quartile": "Q1",
+        "status": "ranked",
+        "reportTitle": "Ecological Indicators",
+        "eissn": "1872-7034",
+        "index": "SCIE",
+        "sourcePage": 30,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=30",
+        "checkedDate": "2026-10-13"
+      },
+      {
+        "venue": "Applied Geography",
+        "quartile": "Q1",
+        "status": "ranked",
+        "reportTitle": "APPLIED GEOGRAPHY",
+        "eissn": "1873-7730",
+        "index": "SSCI",
+        "sourcePage": 42,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=42",
+        "checkedDate": "2026-10-13"
+      },
+      {
+        "venue": "npj Heritage Science",
+        "quartile": null,
+        "status": "not-applicable",
+        "reportTitle": "npj Heritage Science",
+        "eissn": "3059-3220",
+        "index": "SCIE",
+        "sourcePage": 731,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=731",
+        "checkedDate": "2026-10-13",
+        "note": {
+          "zh": "本版报告以新刊名列出，JIF分区为N/A，不借用原刊名Heritage Science的分区。",
+          "en": "The current title has N/A in the report. The quartile for the former title, Heritage Science, is not substituted."
+        }
+      },
+      {
+        "venue": "Scientific Reports",
+        "quartile": "Q1",
+        "status": "ranked",
+        "reportTitle": "Scientific Reports",
+        "eissn": "2045-2322",
+        "index": "SCIE",
+        "sourcePage": 88,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=88",
+        "checkedDate": "2026-10-13"
+      },
+      {
+        "venue": "Frontiers in Environmental Science",
+        "quartile": "Q2",
+        "status": "ranked",
+        "reportTitle": "Frontiers in Environmental Science",
+        "eissn": "2296-665X",
+        "index": "SCIE",
+        "sourcePage": 109,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=109",
+        "checkedDate": "2026-10-13"
+      },
+      {
+        "venue": "Environmental Monitoring and Assessment",
+        "quartile": "Q3",
+        "status": "ranked",
+        "reportTitle": "ENVIRONMENTAL MONITORING AND ASSESSMENT",
+        "eissn": "1573-2959",
+        "index": "SCIE",
+        "sourcePage": 150,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=150",
+        "checkedDate": "2026-10-13"
+      },
+      {
+        "venue": "Journal of Asian Architecture and Building Engineering",
+        "quartile": null,
+        "status": "not-applicable",
+        "reportTitle": "Journal of Asian Architecture and Building Engineering",
+        "eissn": "1347-2852",
+        "index": "AHCI",
+        "sourcePage": 229,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=229",
+        "checkedDate": "2026-10-13"
+      },
+      {
+        "venue": "Environmental Science and Ecotechnology",
+        "quartile": "Q1",
+        "status": "ranked",
+        "reportTitle": "Environmental Science and Ecotechnology",
+        "eissn": "2666-4984",
+        "index": "SCIE",
+        "sourcePage": 12,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=12",
+        "checkedDate": "2026-10-13"
+      },
+      {
+        "venue": "Sustainable Cities and Society",
+        "quartile": "Q1",
+        "status": "ranked",
+        "reportTitle": "Sustainable Cities and Society",
+        "eissn": "2210-6715",
+        "index": "SCIE",
+        "sourcePage": 14,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=14",
         "checkedDate": "2026-10-13"
       },
       {
         "venue": "Journal of Cleaner Production",
-        "tier": 1,
+        "quartile": "Q1",
         "status": "ranked",
-        "subject": "环境科学与生态学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=4302&page=journalapp&view=detail",
+        "reportTitle": "Journal of Cleaner Production",
+        "eissn": "1879-1786",
+        "index": "SCIE",
+        "sourcePage": 21,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=21",
+        "checkedDate": "2026-10-13"
+      },
+      {
+        "venue": "Geography and Sustainability",
+        "quartile": "Q1",
+        "status": "ranked",
+        "reportTitle": "Geography and Sustainability",
+        "eissn": "2666-6839",
+        "index": "ESCI",
+        "sourcePage": 24,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=24",
         "checkedDate": "2026-10-13"
       },
       {
         "venue": "GIScience & Remote Sensing",
-        "tier": 1,
+        "quartile": "Q1",
         "status": "ranked",
-        "subject": "地球科学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=3102&page=journalapp&view=detail",
+        "reportTitle": "GIScience & Remote Sensing",
+        "eissn": "1943-7226",
+        "index": "SCIE",
+        "sourcePage": 49,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=49",
         "checkedDate": "2026-10-13"
       },
       {
         "venue": "International Journal of Sustainable Development & World Ecology",
-        "tier": 3,
+        "quartile": "Q1",
         "status": "ranked",
-        "subject": "环境科学与生态学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=3897&page=journalapp&view=detail",
+        "reportTitle": "INTERNATIONAL JOURNAL OF SUSTAINABLE DEVELOPMENT AND WORLD E",
+        "eissn": "1745-2627",
+        "index": "SCIE",
+        "sourcePage": 49,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=49",
         "checkedDate": "2026-10-13"
       },
       {
         "venue": "Land Degradation & Development",
-        "tier": 2,
+        "quartile": "Q2",
         "status": "ranked",
-        "subject": "农林科学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=5532&page=journalapp&view=detail",
+        "reportTitle": "LAND DEGRADATION & DEVELOPMENT",
+        "eissn": "1099-145X",
+        "index": "SCIE",
+        "sourcePage": 126,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=126",
         "checkedDate": "2026-10-13"
       },
       {
         "venue": "Avian Research",
-        "tier": 1,
+        "quartile": "Q1",
         "status": "ranked",
-        "subject": "生物学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=9961&page=journalapp&view=detail",
-        "checkedDate": "2026-10-13"
-      },
-      {
-        "venue": "Journal of Mountain Science",
-        "tier": 4,
-        "status": "ranked",
-        "subject": "环境科学与生态学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=4858&page=journalapp&view=detail",
+        "reportTitle": "Avian Research",
+        "eissn": "2053-7166",
+        "index": "SCIE",
+        "sourcePage": 278,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=278",
         "checkedDate": "2026-10-13"
       },
       {
         "venue": "Land",
-        "tier": 3,
+        "quartile": "Q2",
         "status": "ranked",
-        "subject": "环境科学与生态学",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?journalid=25499&page=journalapp&view=detail",
+        "reportTitle": "Land",
+        "eissn": "2073-445X",
+        "index": "SSCI",
+        "sourcePage": 155,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=155",
+        "checkedDate": "2026-10-13"
+      },
+      {
+        "venue": "Journal of Mountain Science",
+        "quartile": "Q3",
+        "status": "ranked",
+        "reportTitle": "Journal of Mountain Science",
+        "eissn": "1993-0321",
+        "index": "SCIE",
+        "sourcePage": 227,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=227",
         "checkedDate": "2026-10-13"
       },
       {
         "venue": "Transactions in Earth, Environment, and Sustainability",
-        "tier": null,
-        "status": "unverified",
-        "subject": "",
-        "sourceUrl": "https://www.letpub.com.cn/index.php?page=journalapp&view=search&searchname=Transactions%20in%20Earth",
+        "quartile": null,
+        "status": "no-record",
+        "reportTitle": null,
+        "eissn": null,
+        "index": null,
+        "sourcePage": null,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf",
         "checkedDate": "2026-10-13"
+      }
+    ]
+  },
+  "chineseJournalIndexes": {
+    "checkedDate": "2026-10-13",
+    "journals": [
+      {
+        "venue": {
+          "zh": "地理研究",
+          "en": "Geographical Research"
+        },
+        "indexes": [
+          "core",
+          "cssci",
+          "cscd"
+        ],
+        "sourceUrl": "https://www.dlyj.ac.cn/CN/column/column313.shtml",
+        "sourceName": {
+          "zh": "期刊官方简介",
+          "en": "Journal Information"
+        }
+      },
+      {
+        "venue": {
+          "zh": "长江流域资源与环境",
+          "en": "Resources and Environment in the Yangtze Basin"
+        },
+        "indexes": [
+          "core",
+          "cssci",
+          "cscd"
+        ],
+        "sourceUrl": "https://yangtzebasin.whlib.ac.cn/CN/column/column1.shtml",
+        "sourceName": {
+          "zh": "期刊官方简介",
+          "en": "Journal Information"
+        }
+      },
+      {
+        "venue": {
+          "zh": "厦门大学学报（自然科学版）",
+          "en": "Journal of Xiamen University (Natural Science)"
+        },
+        "indexes": [
+          "core"
+        ],
+        "sourceUrl": "https://sm.xmu.edu.cn/info/1585/49504.htm",
+        "sourceName": {
+          "zh": "厦门大学官方说明",
+          "en": "Xiamen University"
+        }
+      },
+      {
+        "venue": {
+          "zh": "资源开发与市场",
+          "en": "Resource Development & Market"
+        },
+        "indexes": [
+          "core"
+        ],
+        "sourceUrl": "https://ztkb.cbpt.cnki.net/portal/journal/portal/client/index",
+        "sourceName": {
+          "zh": "期刊官方主页",
+          "en": "Journal Homepage"
+        }
       }
     ]
   }

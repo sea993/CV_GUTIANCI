@@ -27,7 +27,9 @@
 
 英语导航与字段采用核对后的词表：Personal Profile、Publications、Research Projects、Honors and Awards、Academic Service and Experience、CV。期刊题名、作者顺序和官方论文原题名保持不变。MCM英文奖项暂用通用奖项描述，待核对证书中的COMAP等级后再补具体Designation。
 
-`journalRankings`保存LetPub公开页面列出的2025年3月中科院期刊分区表大类分区与逐刊来源，2026年10月13日通过浏览器实际可见文字核对。网页提供可展开的统计口径与23种期刊的来源表，不混用小类分区、JCR分区或2026新锐分区。npj Heritage Science不借用更名前Heritage Science的分区；Environmental Science and Pollution Research的两篇论文与npj Heritage Science的一篇论文按该版未列入处理。Transactions in Earth, Environment, and Sustainability暂未核实分区，单独列出。网页查阅的是公开转载数据，未将其称为官方数据库核验。
+`journalRankings`统一保存2026版JCR（2025年度数据）公开参考表的JIF Quartile字段、刊名、eISSN及PDF页码。版次由[Clarivate说明](https://journalcitationreports.zendesk.com/hc/en-gb/articles/47808147130129-2026)核对，逐刊数据来自[科研机构公开的参考表](https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf)，并与出版方指标交叉核对。JCR环图计入35篇已发表英文期刊论文：Q1 28篇、Q2 4篇、Q3 3篇、Q4 0篇，每篇按参考表逐刊所列分区计一次，不按学科重复计数。该表中的npj Heritage Science和Journal of Asian Architecture and Building Engineering的分区为N/A（合计3篇）；未找到Environmental Science and Pollution Research及Transactions in Earth, Environment, and Sustainability记录（合计3篇）。这6篇继续保留在成果列表，在统计说明中单独列明，不以历史分区或更名前刊名的分区替代。公开参考文件不是本项目直接访问官方订阅数据库所得的导出。
+
+`chineseJournalIndexes`保存4种中文期刊的收录标签及官方来源。4篇已发表中文论文均有中文核心依据，其中地理研究和长江流域资源与环境的2篇同时标注CSSCI、CSCD。厦门大学学报及资源开发与市场仅标注本次已核实的中文核心。中文核心4篇与CSSCI 2篇存在重叠，不相加；这些标签不属于JCR分区。已录用综述与会议摘要均不计入上述统计。点击环图或中文收录标签可筛选论文，支持刷新、语言切换和分享。
 
 文中论文状态、经费、年份及期刊信息取自所提供简历。个人简介和研究计划依据谷天赐补充的文字整理，统一使用第三人称。引用指标采用谷天赐提供的2026年10月12日Google Scholar数据：总引用1169次，2021年至今1165次，h指数20，i10指数26；不据此推断成果收录总数。Google Scholar个人资料链接由谷天赐提供。下载的Word副本已同步48条公开成果、引用指标、导师职称、邮箱、籍贯、项目数量和状态、奖励名称及简写的研究技能；删去旧的贡献、期刊分区和影响因子说明。用户原始文件未被改写。
 
@@ -39,7 +41,7 @@
 
 出版信息核对参考：[资源开发与市场的城镇化耦合协调论文](https://ztkb.cbpt.cnki.net/portal/journal/portal/client/paper/d4c5afb353534711bd8c93967b0de2c2)、[地理研究的全球生态系统健康论文](https://www.dlyj.ac.cn/CN/lexeme/showArticleByLexeme.do?articleID=73744)、[EGU25-6392](https://meetingorganizer.copernicus.org/EGU25/EGU25-6392.html)、[EGU25-5566](https://meetingorganizer.copernicus.org/EGU25/EGU25-5566.html)。其余已核实条目的原文链接保存于公开数据。
 
-修改时应同步更新相关中英文条目。论文列表优先展示原文题名；英文界面为中文论文附上阅读辅助翻译。检索同时匹配中英文题名。期刊分区、影响因子及个人贡献描述不在页面中展示。
+修改时应同步更新相关中英文条目。论文列表优先展示原文题名；英文界面为中文论文附上阅读辅助翻译。检索同时匹配中英文题名。JCR分区集中展示于成果统计区，中文收录标签随对应论文显示；论文条目不展示影响因子和个人贡献描述。
 
 `publications`数组的顺序即网页展示顺序。新增成果应插入相应作者角色和期刊位置；精选、全部、作者筛选及网页完整简历均保留这个顺序，不再按年份混排。排序参考[AGU期刊统计](https://www.agu.org/publications/authors/journals/journal-statistics)、[Nature Portfolio期刊指标](https://www.nature.com/npjheritagesci/journal-impact)等官方信息，并结合研究主线和作者指定优先级；网页不显示分值或影响因子。
 
