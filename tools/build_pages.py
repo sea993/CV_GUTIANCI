@@ -36,10 +36,9 @@ HOME = f'''<section id="about" class="about-layout" aria-labelledby="home-title"
   </aside>
   <div class="about-main">
     <h1 id="home-title" class="about-title" data-i18n="about">个人简介</h1>
-    <p id="home-short-bio" class="home-short-bio"></p>
+    <div id="home-biography" class="home-biography"></div>
     <div id="home-metrics" class="home-metrics" aria-label="学术成果概览"></div>
     <div class="home-actions"><a class="primary-link" href="publications.html" data-selected-link data-i18n="viewSelected">查看精选成果</a><a href="cv.html" data-page-link="cv" data-i18n="viewCv">查看完整简历</a></div>
-    <details class="full-biography"><summary data-i18n="fullBiography">完整个人介绍</summary><div id="home-biography" class="home-biography"></div></details>
     <section id="education" class="home-education" aria-labelledby="education-title">
       <h2 id="education-title" data-i18n="education">教育经历</h2>
       <p class="page-lead" data-page-summary="education"></p>
@@ -80,7 +79,7 @@ def section(key, body):
 
 SECTIONS = {
     'education': section('education', '<div class="education-list" id="education-list"></div>'),
-    'publications': section('publications', '''<section id="publication-overview" class="data-overview" aria-labelledby="publication-overview-title"><h2 id="publication-overview-title" data-i18n="publicationOverview">成果概览</h2><div id="publication-totals" class="overview-totals"></div><div id="publication-bars" class="overview-bars"></div><p id="publication-overview-note" class="overview-note"></p></section><div class="publication-tools" id="publication-browser"><div class="publication-filters" id="publication-filters" role="group" aria-label="论文分类筛选"></div>
+    'publications': section('publications', '''<section id="publication-overview" class="data-overview journal-overview" aria-labelledby="publication-overview-title"><div class="ranking-heading"><h2 id="publication-overview-title" data-i18n="journalRanking">期刊分区</h2><span data-i18n="rankingEdition">2025版中科院大类分区</span></div><div class="ranking-layout"><div id="publication-ranking-chart"></div><div id="publication-ranking-legend" class="ranking-legend"></div></div><p id="publication-overview-note" class="overview-note"></p><details class="ranking-sources"><summary data-i18n="rankingSources">查看统计口径与来源</summary><p id="ranking-method"></p><div id="ranking-source-table" class="ranking-source-table"></div></details></section><div class="publication-tools" id="publication-browser"><div class="publication-filters" id="publication-filters" role="group" aria-label="论文分类筛选"></div>
       <div id="publication-topics" class="topic-filters" role="group" aria-label="研究主题筛选"></div><p id="publication-scope" class="publication-scope" hidden></p>
       <label class="search-label"><span class="visually-hidden" data-i18n="search">检索论文</span><input id="publication-search" type="search" placeholder="检索题名、作者或期刊" autocomplete="off"></label></div>
       <p class="result-count" id="publication-count" role="status" aria-live="polite"></p><div id="publication-list"></div>

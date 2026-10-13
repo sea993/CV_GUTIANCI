@@ -23,11 +23,10 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
   };
   try {
     await go('about');
-    check(!await page.locator('.full-biography').getAttribute('open'), 'The full biography should initially be collapsed');
-    check(await page.locator('#home-short-bio').innerText().then(value=>value.includes('生物多样性')), 'The short research introduction is missing');
+    check(await page.locator('.full-biography,#home-short-bio').count() === 0, 'The removed short or collapsed profile returned');
+    check(await page.locator('#home-biography').isVisible(), 'The detailed introduction should be directly visible');
     check(await page.locator('.home-metrics a').count() === 4, 'The homepage evidence strip is incomplete');
     check(await page.locator('[data-selected-count]').allTextContents().then(values=>values.every(value=>value.includes('11'))), 'Selected publication links have a stale count');
-    await page.locator('.full-biography summary').click();
     check(await page.locator('#home-biography p').count() === 5, 'The homepage introduction is incomplete');
     check(await page.locator('.home-education .education-item').count() === 3, 'Education is missing below the homepage introduction');
     check(await page.locator('.home-education .education-scores').count() === 0, 'Education scores should remain in the full CV');
@@ -86,15 +85,17 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     check(await page.locator('#project-list li').count() === 15, 'All projects were not restored');
 
     await go('publications','en');
-    check(await page.locator('#publication-totals strong').allTextContents().then(values=>values.join(',')==='45,1,2'), 'Publication types were counted incorrectly');
-    check(await page.locator('#publication-bars strong').allTextContents().then(values=>values.join(',')==='4,8,4,29'), 'Published-journal author roles were counted incorrectly');
-    await page.locator('#publication-bars [data-overview-filter="second"]').click();
-    check(await page.locator('.publication').count() === 4 && await page.locator('#paper-20').count() === 0, 'Overview bars include accepted articles in published-journal totals');
+    check(await page.locator('#publication-totals,#publication-bars').count() === 0, 'The rejected author-role overview returned');
+    check(await page.locator('#publication-ranking-legend strong').allTextContents().then(values=>values.join(',')==='19,7,5,6,3,1'), 'The consistent CAS ranking distribution is incorrect');
+    await page.locator('#publication-ranking-legend [data-tier="2"]').click();
+    check(await page.locator('.publication').count() === 7 && await page.locator('#paper-20').count() === 0, 'CAS ranking filter includes non-published records');
     check(new URL(page.url()).searchParams.get('scope') === 'published', 'Published-journal scope is missing from the shareable URL');
     await page.reload();
-    check(await page.locator('.publication').count() === 4, 'Reload lost publication scope');
+    check(await page.locator('.publication').count() === 7 && new URL(page.url()).searchParams.get('tier') === '2', 'Reload lost publication ranking scope');
     await page.locator('[data-clear-scope]').click();
-    check(await page.locator('.publication').count() === 5, 'Clearing journal scope did not restore the accepted second-author article');
+    check(await page.locator('.publication').count() === 48, 'Clearing ranking scope did not restore all records');
+    await page.locator('#publication-ranking-chart [data-tier="top"]').click();
+    check(await page.locator('.publication').count() === 26, 'The Tier 1 and Tier 2 total is incorrect');
     await page.locator('[data-filter="selected"]').click();
     check(await page.locator('[data-filter="selected"]').getAttribute('aria-pressed') === 'true', 'Selected publications is not the initial view');
     check(await page.locator('.publication').evaluateAll(papers=>papers.map(paper=>paper.id).join(',')) === 'paper-1,paper-2,paper-3,paper-9,paper-10,paper-12,paper-16,paper-19,paper-17,paper-18,paper-20', 'The selected publication set or its role and journal order is incorrect');

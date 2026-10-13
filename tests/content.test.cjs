@@ -138,6 +138,25 @@ test('research map and topic links use public records and verified method associ
   assert(content.publications.filter(p=>p.featured).every(p=>p.figure&&p.selected&&p.doi));
 });
 
+test('CAS ranking counts use a single edition and keep missing coverage separate', () => {
+  assert.equal(content.journalRankings.edition,'2025-03');
+  assert.equal(content.journalRankings.scope,'broad-subject');
+  const english=content.publications.filter(p=>p.status==='published'&&p.kind!=='conference'&&p.originalLanguage==='en');
+  const journals=new Map(content.journalRankings.journals.map(r=>[r.venue,r]));
+  assert.equal(journals.size,23);
+  assert(english.every(p=>journals.has(p.venue.en)));
+  const keys=['1','2','3','4','not-listed','unverified'];
+  assert.deepEqual(keys.map(key=>english.filter(p=>{const r=journals.get(p.venue.en);return (r.status==='ranked'?String(r.tier):r.status)===key;}).length),[19,7,5,6,3,1]);
+  for(const r of journals.values()) {
+    assert.equal(r.checkedDate,'2026-10-13');
+    assert(r.sourceUrl.startsWith('https://www.letpub.com.cn/'));
+    if(r.status==='ranked')assert([1,2,3,4].includes(r.tier));
+    else assert.equal(r.tier,null);
+  }
+  assert.equal(journals.get('npj Heritage Science').status,'not-listed');
+  assert.equal(journals.get('Transactions in Earth, Environment, and Sustainability').status,'unverified');
+});
+
 test('independent pages and their assets work under a GitHub project path', () => {
   for (const name of ['index','education','publications','projects','awards','skills','service','cv']) {
   const html = fs.readFileSync(path.join(root, name + '.html'), 'utf8');
