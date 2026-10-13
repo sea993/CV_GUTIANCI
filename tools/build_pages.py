@@ -63,7 +63,8 @@ CV_ABOUT = f'''<section id="about" class="about-section" aria-labelledby="profil
 </section>'''
 
 def section(key, body):
-    return f'<section id="{key}" class="content-section" aria-labelledby="{key}-title"><h1 class="page-title" id="{key}-title" data-i18n="{key}">{PAGES[key][1]}</h1>{body}</section>'
+    lead = f'<p class="page-lead" data-page-summary="{key}"></p>' if key in {'education','publications','projects','awards','service'} else ''
+    return f'<section id="{key}" class="content-section" aria-labelledby="{key}-title"><h1 class="page-title" id="{key}-title" data-i18n="{key}">{PAGES[key][1]}</h1>{lead}{body}</section>'
 
 SECTIONS = {
     'education': section('education', '<div class="education-list" id="education-list"></div>'),

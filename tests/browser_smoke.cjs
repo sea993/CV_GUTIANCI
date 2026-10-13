@@ -23,7 +23,11 @@ const routes = {about:'index.html',education:'education.html',publications:'publ
   };
   try {
     await go('about');
-    check(await page.locator('#home-biography p').count() === 2, 'The homepage introduction is incomplete');
+    check(await page.locator('#home-biography p').count() === 5, 'The homepage introduction is incomplete');
+    const biography = await page.locator('#home-biography').innerText();
+    check(biography.includes('1999年生') && biography.includes('山东巨野人') && biography.includes('中共党员'), 'The updated personal background is missing');
+    check(biography.includes('1169次') && biography.includes('h指数20') && !/1076|h指数19|收录成果43/.test(biography), 'The confirmed citation metrics were not preserved');
+    check(biography.includes('近程间接影响') && biography.includes('远程间接影响') && biography.includes('同等人口'), 'Research pathways and counterfactual plans are missing');
     check(await page.locator('#metrics,.personal-details,#research-statement').count() === 0, 'Detailed CV content remains on the homepage');
     check((await page.locator('[data-email]').innerText()) === 'gutc@mail.bnu.edu.cn', 'Email is incorrect');
     check((await page.locator('[data-email]').getAttribute('href')) === 'mailto:gutc@mail.bnu.edu.cn', 'Email link is incorrect');
@@ -112,6 +116,10 @@ const routes = {about:'index.html',education:'education.html',publications:'publ
           check(await page.locator('footer,#updated-label').count() === 0, 'Footer remains');
           check(await page.locator('#main > section').count() === (key==='cv'?7:1), 'Independent page contains other sections: '+key);
           check(await page.locator('h1').count() === 1, 'Multiple primary headings: '+key);
+          if (['education','publications','projects','awards','service'].includes(key)) {
+            check(await page.locator('.page-title + .page-lead').count()===1, 'The page summary is not immediately below the title: '+key);
+            check(await page.locator('.page-lead').innerText().then(value=>value.trim().length>0), 'The page summary is empty: '+key+' '+language);
+          }
           check(await page.evaluate(()=>[...document.querySelectorAll('script[src]')].every(script=>new URL(script.src).searchParams.get('v')===document.body.dataset.assetVersion)), 'Shared scripts are not versioned consistently: '+key);
           check(await page.locator('#site-nav [aria-current="page"]').getAttribute('data-page-link') === key, 'Active navigation is incorrect: '+key);
           check(await page.locator('#site-nav [data-page-link="skills"]').count() === 0, 'Skills remains in navigation');

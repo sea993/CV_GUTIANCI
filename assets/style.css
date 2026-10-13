@@ -101,6 +101,7 @@ html[lang="en"] .featured-copy h3 { font-family: var(--interface-font); font-siz
 .personal-details dd { margin: 0; overflow-wrap: anywhere; }
 .content-section { padding-top: 40px; }
 .page-title { font: 700 32px/1.4 var(--heading-font); margin: 0 0 25px; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
+.page-lead { max-width: 960px; margin: 0 0 27px; color: #4d5761; font-size: 15px; line-height: 1.9; }
 .education-item { display: grid; grid-template-columns: 190px minmax(0,1fr); gap: 28px; padding: 23px 0; border-bottom: 1px solid var(--line); }
 .education-item:first-child { padding-top: 4px; }
 .school-name { margin: 0 0 9px; font: 600 22px/1.5 var(--heading-font); }
@@ -249,6 +250,7 @@ body[data-page="cv"] .page-title { font-size: 28px; }
   .metrics-table tbody td { font-size: 12pt; }
   .content-section, body[data-page="cv"] .content-section { padding-top: 27px; }
   .page-title, body[data-page="cv"] .page-title { font-size: 18pt; margin-bottom: 17px; padding-bottom: 9px; break-after: avoid; }
+  .page-lead { font-size: 10pt; margin-bottom: 15px; break-after: avoid; }
   .group-title { font-size: 14pt; break-after: avoid; }
   .publication { padding: 12px 0; break-inside: avoid; }
   .publication-title { font-size: 11pt; }

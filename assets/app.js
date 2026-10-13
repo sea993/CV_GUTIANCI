@@ -169,6 +169,7 @@
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
     document.title = localized(content.profile.name) + ' ' + text(currentPage);
     document.querySelectorAll('[data-i18n]').forEach((element) => { element.textContent = text(element.dataset.i18n); });
+    document.querySelectorAll('[data-page-summary]').forEach((element) => { element.textContent = localized(content.pageSummaries[element.dataset.pageSummary]); });
     document.querySelectorAll('[data-profile-name]').forEach((element) => { element.textContent = localized(content.profile.name); });
     document.querySelectorAll('[data-language]').forEach((button) => { button.setAttribute('aria-pressed', String(button.dataset.language === language)); });
     document.querySelectorAll('[data-page-link]').forEach((link) => { link.href = routes[link.dataset.pageLink] + '?lang=' + language + '&v=' + assetVersion; });
@@ -177,7 +178,6 @@
     renderProfile();
     renderEducation();
     if (byId('publication-list')) {
-      setText('publication-summary', localized(content.summary));
       byId('publication-search').placeholder = text('searchPlaceholder');
       byId('publication-search').value = query;
       byId('publication-filters').setAttribute('aria-label', language === 'zh' ? '论文分类筛选' : 'Publication filters');
@@ -185,7 +185,6 @@
       renderPublications();
       setText('patents-line', text('patents') + colon() + localized(content.patents));
     }
-    setText('project-summary', localized(content.projectSummary));
     renderRecords('project-list', content.projects);
     renderRecords('award-list', content.awards);
     if (byId('skill-list')) {

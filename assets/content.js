@@ -18,8 +18,8 @@ window.CV_CONTENT = {
       "en": "Ecological effects of urbanization and biodiversity conservation"
     },
     "bio": {
-      "zh": "谷天赐，中共党员，北京师范大学自然资源专业博士生，研究城市化的近远程生态效应与生物多样性保护。博士导师为黄庆旭教授和何春阳教授。",
-      "en": "Tianci Gu is a PhD student in Natural Resources at Beijing Normal University and a member of the Communist Party of China. His research focuses on the local and distant ecological effects of urbanization and biodiversity conservation. His doctoral supervisors are Prof. Qingxu Huang and Prof. Chunyang He."
+      "zh": "谷天赐，中共党员，1999年生，山东巨野人，现为北京师范大学地理科学学部自然资源专业博士生。其研究关注城市化的近远程生态效应与生物多样性保护。",
+      "en": "Tianci Gu is a PhD student in Natural Resources at the Faculty of Geographical Science, Beijing Normal University. Born in 1999, he is from Juye, Shandong, and is a member of the Communist Party of China. His research focuses on the local and distant ecological effects of urbanization and biodiversity conservation."
     },
     "email": "gutc@mail.bnu.edu.cn",
     "phone": "18366013097",
@@ -28,8 +28,8 @@ window.CV_CONTENT = {
       "en": "November 1999"
     },
     "hometown": {
-      "zh": "山东省菏泽市",
-      "en": "Heze, Shandong, China"
+      "zh": "山东巨野",
+      "en": "Juye, Shandong, China"
     },
     "membership": {
       "zh": "中共党员",
@@ -46,12 +46,24 @@ window.CV_CONTENT = {
     "researchgate": "https://www.researchgate.net/profile/Tianci-Gu-2",
     "homeBio": [
       {
-        "zh": "谷天赐是北京师范大学地理科学学部自然资源专业博士生，博士导师为黄庆旭教授和何春阳教授。",
-        "en": "Tianci Gu is a PhD student in Natural Resources at the Faculty of Geographical Science, Beijing Normal University. His doctoral supervisors are Prof. Qingxu Huang and Prof. Chunyang He."
+        "zh": "谷天赐，中共党员，1999年生，山东巨野人，现为北京师范大学地理科学学部自然资源专业博士生。其研究关注城市化的近远程生态效应与生物多样性保护。",
+        "en": "Tianci Gu is a PhD student in Natural Resources at the Faculty of Geographical Science, Beijing Normal University. Born in 1999, he is from Juye, Shandong, and is a member of the Communist Party of China. His research focuses on the local and distant ecological effects of urbanization and biodiversity conservation."
       },
       {
-        "zh": "其研究关注城市化的近远程生态效应与生物多样性保护。后续将通过同等人口、不同空间形态的反事实比较，评估紧凑城市的节地与生态保护潜力。",
-        "en": "His research focuses on the local and distant ecological effects of urbanization and biodiversity conservation. His next step is to compare urban forms under the same population to assess the land-sparing and conservation potential of compact cities."
+        "zh": "谷歌学术总引用1169次，h指数20。谷天赐已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文8篇，另有4篇论文由导师担任第一作者、谷天赐担任第二作者。4篇成果入选ESI高被引论文，成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
+        "en": "His Google Scholar profile records 1,169 citations and an h-index of 20. His publications include four first- or co-first-authored papers, eight corresponding- or co-corresponding-authored papers, and four papers with his supervisor as first author and Gu as second author. Four papers are ESI Highly Cited Papers. His work has appeared in npj Urban Sustainability, Earth’s Future and other journals."
+      },
+      {
+        "zh": "谷天赐主持校级课题3项和横向项目1项，参与国家重点研发计划及国家自然科学基金国际合作与面上项目。曾获国家级及校院级奖励。两项政策建议被九三学社中央采用，并获湖北省委批示。",
+        "en": "Gu has led three university research projects and one commissioned project, and participated in the National Key R&D Program and NSFC international cooperation and General Program projects. He has received national, university and faculty honors. Two policy recommendations were adopted by the Central Committee of the Jiusan Society and were addressed in written instructions from the Hubei Provincial Party Committee."
+      },
+      {
+        "zh": "其研究主线连接城市化过程、生境影响路径与生物多样性响应，重点考察城市化如何通过三类路径改变生境质量并影响生物多样性。城市建设会直接改变生境；道路和污染向周边扩散，产生近程间接影响；消费与贸易通过供应链，将远程间接影响传导至生产地。",
+        "en": "His research connects urbanization processes, pathways of habitat change and biodiversity responses. It examines how urbanization affects habitat quality and biodiversity through three pathways: the direct impacts of urban construction; nearby indirect effects as roads and pollution extend into surrounding areas; and distant indirect effects transmitted through consumption, trade and supply chains to production regions."
+      },
+      {
+        "zh": "后续研究将从城市建设的直接影响入手，通过同等人口、不同空间形态的反事实比较，评估紧凑城市的节地与生态保护潜力。在此基础上，将直接、近程间接与远程间接影响纳入统一框架，量化各类路径的贡献及叠加效应，识别关键区域，探索城内、周边与远端生产地的协同治理，服务新型城镇化、生物多样性保护与美丽中国建设。",
+        "en": "His next step is to compare counterfactual scenarios with the same population but different spatial forms, beginning with direct impacts, to assess the land-sparing and conservation potential of compact cities. He will then bring direct, nearby indirect and distant indirect effects into a common framework, quantify their contributions and combined effects, identify key regions, and examine coordinated governance within cities, their surroundings and distant production regions. This work aims to support new-type urbanization, biodiversity conservation and the Beautiful China initiative."
       }
     ]
   },
@@ -2431,22 +2443,22 @@ window.CV_CONTENT = {
   ],
   "biography": [
     {
-      "zh": "已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文8篇，另有导师第一作者、谷天赐第二作者论文4篇。4篇成果入选ESI高被引论文，成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
-      "en": "Gu has published four first- or co-first-authored papers, eight corresponding- or co-corresponding-authored papers, and four papers with his supervisor as first author and Gu as second author. Four papers are ESI highly cited papers. His work has appeared in npj Urban Sustainability, Earth’s Future and other journals."
+      "zh": "谷歌学术总引用1169次，h指数20。谷天赐已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文8篇，另有4篇论文由导师担任第一作者、谷天赐担任第二作者。4篇成果入选ESI高被引论文，成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
+      "en": "His Google Scholar profile records 1,169 citations and an h-index of 20. His publications include four first- or co-first-authored papers, eight corresponding- or co-corresponding-authored papers, and four papers with his supervisor as first author and Gu as second author. Four papers are ESI Highly Cited Papers. His work has appeared in npj Urban Sustainability, Earth’s Future and other journals."
     },
     {
-      "zh": "谷天赐主持3项校级课题和1项横向项目，参与国家重点研发计划及国家自然科学基金国际合作、面上等项目，获得国家级及校院级奖励。两项政策建议被九三学社中央采用，并获湖北省委批示。",
-      "en": "Gu has led three university research projects and one commissioned project, and participated in National Key R&D Program tasks and NSFC international cooperation and general projects. He has received national, university and faculty awards. Two policy proposals were adopted by the Central Committee of the Jiusan Society and received directives from the Hubei Provincial Party Committee."
+      "zh": "谷天赐主持校级课题3项和横向项目1项，参与国家重点研发计划及国家自然科学基金国际合作与面上项目。曾获国家级及校院级奖励。两项政策建议被九三学社中央采用，并获湖北省委批示。",
+      "en": "Gu has led three university research projects and one commissioned project, and participated in the National Key R&D Program and NSFC international cooperation and General Program projects. He has received national, university and faculty honors. Two policy recommendations were adopted by the Central Committee of the Jiusan Society and were addressed in written instructions from the Hubei Provincial Party Committee."
     }
   ],
   "researchStatement": [
     {
-      "zh": "谷天赐的研究围绕城市化过程、生境影响路径和生物多样性响应展开，重点关注城市化如何通过不同路径改变生境质量。城市建设会直接改变生境；道路和污染向周边扩散，产生近程间接影响；消费与贸易则通过供应链，将远程间接影响传导到生产地。",
-      "en": "Gu’s research examines how urbanization changes habitats and how biodiversity responds. He distinguishes the direct effects of urban construction, nearby indirect effects from roads and pollution, and distant indirect effects transmitted through consumption, trade and supply chains to production regions."
+      "zh": "其研究主线连接城市化过程、生境影响路径与生物多样性响应，重点考察城市化如何通过三类路径改变生境质量并影响生物多样性。城市建设会直接改变生境；道路和污染向周边扩散，产生近程间接影响；消费与贸易通过供应链，将远程间接影响传导至生产地。",
+      "en": "His research connects urbanization processes, pathways of habitat change and biodiversity responses. It examines how urbanization affects habitat quality and biodiversity through three pathways: the direct impacts of urban construction; nearby indirect effects as roads and pollution extend into surrounding areas; and distant indirect effects transmitted through consumption, trade and supply chains to production regions."
     },
     {
-      "zh": "后续研究将从城市建设的直接影响入手，在同等人口、不同空间形态的反事实情景下，评估紧凑城市的节地与生态保护潜力。谷天赐将把近远程影响纳入统一框架，量化三类路径的贡献和叠加效应，识别关键区域，探索城内、周边与远端生产地的协同治理，并依托学会开展学术交流与政策咨询，服务新型城镇化、生物多样性保护与美丽中国建设。",
-      "en": "Gu plans to compare counterfactual scenarios with the same population but different spatial forms, beginning with the direct effects of urban construction, to assess the land-sparing and conservation potential of compact cities. He will bring nearby and distant effects into a common framework, quantify the contributions and combined effects of these three pathways, identify key regions, and examine coordinated governance within cities, their surroundings and distant production regions. Through professional societies, he hopes to contribute academic exchange and policy advice supporting new-type urbanization, biodiversity conservation and the Beautiful China initiative."
+      "zh": "后续研究将从城市建设的直接影响入手，通过同等人口、不同空间形态的反事实比较，评估紧凑城市的节地与生态保护潜力。在此基础上，将直接、近程间接与远程间接影响纳入统一框架，量化各类路径的贡献及叠加效应，识别关键区域，探索城内、周边与远端生产地的协同治理，服务新型城镇化、生物多样性保护与美丽中国建设。",
+      "en": "His next step is to compare counterfactual scenarios with the same population but different spatial forms, beginning with direct impacts, to assess the land-sparing and conservation potential of compact cities. He will then bring direct, nearby indirect and distant indirect effects into a common framework, quantify their contributions and combined effects, identify key regions, and examine coordinated governance within cities, their surroundings and distant production regions. This work aims to support new-type urbanization, biodiversity conservation and the Beautiful China initiative."
     }
   ],
   "homeResearch": [
@@ -2488,5 +2500,27 @@ window.CV_CONTENT = {
       },
       "page": "publications"
     }
-  ]
+  ],
+  "pageSummaries": {
+    "education": {
+      "zh": "谷天赐完成了人文地理与城乡规划相关的本硕学习，目前在北京师范大学攻读自然资源博士。",
+      "en": "Gu’s undergraduate and master’s training spans human geography and urban–rural planning, and he is now pursuing a PhD in Natural Resources at Beijing Normal University."
+    },
+    "publications": {
+      "zh": "研究聚焦城市化的生态效应与土地利用变化，成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
+      "en": "His research examines the ecological effects of urbanization and land-use change, with publications in npj Urban Sustainability, Earth’s Future and other journals."
+    },
+    "projects": {
+      "zh": "谷天赐主持校级课题3项和横向项目1项，并参与国家重点研发计划及国家自然科学基金项目。",
+      "en": "Gu has led three university research projects and one commissioned project, and participated in the National Key R&D Program and NSFC projects."
+    },
+    "awards": {
+      "zh": "谷天赐获得国家公派留学资助及国家级竞赛奖励，并获学业、学术交流和学生工作方面的校院级荣誉。",
+      "en": "Gu has received government-funded overseas study support and national competition awards, alongside university and faculty honors for academic performance, scholarly exchange and student service."
+    },
+    "service": {
+      "zh": "谷天赐承担学生工作并参与学术服务，两项政策建议被九三学社中央采用并获湖北省委批示。",
+      "en": "Gu contributes to student affairs and academic service; two policy recommendations were adopted by the Central Committee of the Jiusan Society and were addressed in written instructions from the Hubei Provincial Party Committee."
+    }
+  }
 };
