@@ -114,18 +114,17 @@ html[lang="en"] .featured-copy h3 { font-family: var(--interface-font); font-siz
 .content-section { padding-top: 40px; }
 .page-title { font: 700 32px/1.4 var(--heading-font); margin: 0 0 25px; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .page-lead { max-width: 960px; margin: 0 0 27px; color: #4d5761; font-size: 15px; line-height: 1.9; }
-.education-item { display: grid; grid-template-columns: 190px minmax(0,1fr); gap: 28px; padding: 23px 0; border-bottom: 1px solid var(--line); }
+.education-item { display: grid; grid-template-columns: 190px minmax(0,1fr); gap: 28px; padding: 23px 0; border-bottom: 1px solid var(--line); color: #000; font: inherit; }
 .education-item:first-child { padding-top: 4px; }
-.school-name { margin: 0 0 9px; font: 600 22px/1.5 var(--heading-font); }
-.education-item p { margin-bottom: 6px; }
-.education-item .dates { color: var(--muted); font: 14px/1.75 var(--interface-font); padding-top: 4px; }
-.advisors { color: var(--muted); font-size: 14px; }
-.education-scores { display: flex; flex-wrap: wrap; gap: 6px 30px; font: 13px/1.8 var(--interface-font); }
-.home-education .page-lead { font-size: 14px; margin-bottom: 18px; }
-.home-education .education-item { grid-template-columns: 130px minmax(0,1fr); gap: 20px; padding: 18px 0; }
+.school-name { margin: 0 0 6px; font: inherit; }
+.education-item p { margin-bottom: 6px; font: inherit; }
+.education-item .dates { color: inherit; font: inherit; }
+.advisors { color: inherit; font: inherit; }
+.education-scores { display: flex; flex-wrap: wrap; gap: 6px 30px; font: inherit; }
+#education .page-lead { color: #000; font: inherit; }
+.home-education .page-lead { margin-bottom: 18px; }
+.home-education .education-item { grid-template-columns: 155px minmax(0,1fr); gap: 20px; padding: 18px 0; }
 .home-education .education-item:first-child { padding-top: 2px; }
-.home-education .school-name { font-size: 19px; margin-bottom: 6px; }
-.home-education .education-item p { font-size: 13px; }
 .publication-tools { margin: 0 0 22px; }
 .publication-filters { display: flex; flex-wrap: wrap; gap: 6px 23px; margin-bottom: 17px; }
 .filter-button { border: 0; border-bottom: 2px solid transparent; background: none; padding: 6px 0; color: var(--muted); font: 13px/1.75 var(--interface-font); }
@@ -235,9 +234,7 @@ body[data-page="cv"] .page-title { font-size: 28px; }
   .page-title { font-size: 28px; margin-bottom: 22px; }
   .education-item { display: block; padding: 21px 0; }
   .education-item .dates { padding: 0; margin-bottom: 10px; }
-  .school-name { font-size: 21px; }
-  .education-scores { gap: 5px 22px; font-size: 13px; }
-  .advisors { font-size: 13px; }
+  .education-scores { gap: 5px 22px; }
   .publication-filters { gap: 5px 18px; }
   .publication-title { font-size: 16px; }
   .featured-study { grid-template-columns: 1fr; gap: 16px; }
@@ -282,7 +279,6 @@ body[data-page="cv"] .page-title { font-size: 28px; }
   .original-title, .authors, .publication-notes, .venue { font-size: 8.5pt; }
   .venue em { font-size: 10pt; }
   .education-item { display: grid; grid-template-columns: 125px minmax(0,1fr); padding: 15px 0; break-inside: avoid; }
-  .school-name { font-size: 14pt; }
   .group-block { margin-bottom: 19px; }
   .record-item { display: grid; grid-template-columns: 100px minmax(0,1fr); gap: 20px; padding: 7px 0; break-inside: avoid; }
   .record-date, .record-title, #award-list .record-title, .record-full { font-size: 10pt; }
