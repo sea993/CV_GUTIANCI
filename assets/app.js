@@ -52,9 +52,8 @@
 
   function researchFigure(paper) {
     const figure = paper.figure;
-    const label = language === 'zh' ? '图' + figure.number : 'Fig. ' + figure.number;
     return '<figure class="research-figure"><a class="research-image-link" href="' + escape(figure.src) + '" target="_blank" rel="noopener"><img src="' + escape(figure.src) + '" width="' + figure.width + '" height="' + figure.height + '" alt="' + escape(localized(figure.alt)) + '" loading="lazy" decoding="async"></a>' +
-      '<figcaption>Gu et al., ' + escape(paper.year) + '. <a href="' + escape(figure.sourceUrl) + '" target="_blank" rel="noopener">' + label + '</a><br><a href="' + escape(figure.licenseUrl) + '" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a></figcaption></figure>';
+      '<figcaption><a href="' + escape(figure.src) + '" target="_blank" rel="noopener">' + escape(localized(figure.caption)) + '</a></figcaption></figure>';
   }
 
   function renderFeaturedResearch() {
@@ -82,15 +81,15 @@
 
   function matchesFilter(paper) {
     if (filter === 'all') return true;
-    if (filter === 'first') return paper.category === 'first' || paper.category === 'review';
+    if (filter === 'first') return paper.category === 'first';
     if (filter === 'second') return paper.category === 'second' || paper.category === 'accepted';
-    if (filter === 'review' || filter === 'accepted') return paper.status === filter;
+    if (filter === 'accepted') return paper.status === filter;
     return paper.category === filter;
   }
 
   function renderFilters() {
     if (!byId('publication-filters')) return;
-    const options = ['all','first','corresponding','second','collaborative','accepted','review'];
+    const options = ['all','first','corresponding','second','collaborative','accepted'];
     setHTML('publication-filters', options.map((option) => '<button type="button" class="filter-button" data-filter="' + option + '" aria-pressed="' + (filter === option) + '">' + escape(text(option)) + '</button>').join(''));
   }
 

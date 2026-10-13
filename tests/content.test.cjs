@@ -7,7 +7,7 @@ const content = JSON.parse(fs.readFileSync(path.join(root, 'assets/content.json'
 
 test('the complete resume collections are present', () => {
   assert.equal(content.education.length, 3);
-  assert.equal(content.publications.length, 31);
+  assert.equal(content.publications.length, 27);
   assert.equal(content.projects.length, 15);
   assert.equal(content.awards.length, 23);
   assert.equal(content.skills.length, 5);
@@ -28,12 +28,12 @@ test('every bilingual value has both Chinese and English text', () => {
   inspect(content);
 });
 
-test('accepted and reviewed manuscripts remain distinct from published papers', () => {
-  assert.equal(content.publications.filter((p) => p.status === 'review').length, 3);
+test('only approved publication records are included in public data', () => {
+  assert.equal(content.publications.filter((p) => p.status === 'review').length, 0);
   assert.equal(content.publications.filter((p) => p.status === 'accepted').length, 1);
-  assert.equal(content.publications.filter((p) => p.status === 'published').length, 27);
-  assert.equal(content.publications.find((p) => p.venue.en === 'Nature Sustainability').status, 'review');
-  assert.match(content.publications.find((p) => p.venue.en === 'Global Change Biology').title.en, /^Protecting the safe havens/);
+  assert.equal(content.publications.filter((p) => p.status === 'published').length, 26);
+  assert(!content.publications.some((p) => ['paper-4','paper-5','paper-6','paper-7'].includes(p.id)));
+  assert(content.publications.every((p) => ['published','accepted'].includes(p.status)));
 });
 
 test('the latest academic and project values have been preserved', () => {
@@ -46,7 +46,7 @@ test('the latest academic and project values have been preserved', () => {
   assert(content.projects.some((p) => p.text.zh.includes('2024YFF1306104')));
   assert(content.awards.some((p) => p.text.zh.includes('优秀报告一等奖')));
   assert(content.services.some((p) => p.text.zh.includes('九三学社中央')));
-  assert.equal(content.publications.filter((p) => p.contribution).length, 12);
+  assert.equal(content.publications.filter((p) => p.contribution).length, 9);
 });
 
 test('Chinese journal volume and page information is retained', () => {

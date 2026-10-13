@@ -222,16 +222,17 @@ window.CV_CONTENT = {
         "en": "Comparing people-oriented, population and land urbanization across Chinese cities from 2005 to 2020."
       },
       "figure": {
-        "src": "assets/research/urbanization-fig1.png",
-        "width": 685,
-        "height": 398,
-        "number": 1,
+        "src": "assets/research/people-oriented-urbanization-ga.jpg",
+        "width": 3358,
+        "height": 2263,
         "alt": {
-          "zh": "论文图1：2005至2020年中国城市18项城镇化指标的时空分布。",
-          "en": "Figure 1 from the paper: spatial and temporal patterns of 18 urbanization indicators in Chinese cities between 2005 and 2020."
+          "zh": "图形摘要：以人为本、人口与土地城镇化的比较，以及经济、社会、环境和公平维度的协调性。",
+          "en": "Graphical abstract comparing people-oriented, population and land urbanization, including economic, social, environmental and equity dimensions."
         },
-        "sourceUrl": "https://www.nature.com/articles/s42949-025-00251-7#Fig1",
-        "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+        "caption": {
+          "zh": "查看图形摘要",
+          "en": "View graphical abstract"
+        }
       }
     },
     {
@@ -268,7 +269,20 @@ window.CV_CONTENT = {
         19,
         20
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "figure": {
+        "src": "assets/research/cropland-footprint-ga.png",
+        "width": 1458,
+        "height": 690,
+        "alt": {
+          "zh": "图形摘要：中国城乡转型、食物消费耕地足迹趋势，以及饮食变化与农业集约化的比较。",
+          "en": "Graphical abstract showing urban-rural transition, cropland footprint trends, and dietary shifts compared with agricultural intensification in China."
+        },
+        "caption": {
+          "zh": "查看图形摘要",
+          "en": "View graphical abstract"
+        }
+      }
     },
     {
       "id": "paper-3",
@@ -304,147 +318,20 @@ window.CV_CONTENT = {
         21,
         22
       ],
-      "originalLanguage": "en"
-    },
-    {
-      "id": "paper-4",
-      "category": "first",
-      "status": "published",
-      "title": {
-        "zh": "中国耕地破碎化驱动因素识别",
-        "en": "Identifying the driving forces of cultivated land fragmentation in China"
-      },
-      "authors": {
-        "zh": "Gu, T., Chen, W., Liang, J., Pan, S., & Ye, X",
-        "en": "Gu, T., Chen, W., Liang, J., Pan, S., & Ye, X"
-      },
-      "venue": {
-        "zh": "Environmental Science and Pollution Research",
-        "en": "Environmental Science and Pollution Research"
-      },
-      "year": "2023",
-      "reference": "30(48), 105275-105292",
-      "metadata": {
-        "zh": "EI",
-        "en": "EI"
-      },
-      "role": {
-        "zh": "第一作者",
-        "en": "First author"
-      },
-      "contribution": null,
-      "sourceIndices": [
-        23
-      ],
-      "originalLanguage": "en"
-    },
-    {
-      "id": "paper-5",
-      "category": "review",
-      "status": "review",
-      "title": {
-        "zh": "城市化对生物多样性的积极作用：Metros for Meadows反事实揭示紧凑城市的土地节约效应",
-        "en": "A silver lining of urbanization for biodiversity: A Metros for Meadows counterfactual reveals compact urban land sparing"
-      },
-      "authors": {
-        "zh": "Gu, T., Huang, Q., McDonald, R., Bryan, B., He, C., & Fath, B",
-        "en": "Gu, T., Huang, Q., McDonald, R., Bryan, B., He, C., & Fath, B"
-      },
-      "venue": {
-        "zh": "Nature Sustainability",
-        "en": "Nature Sustainability"
-      },
-      "year": "",
-      "reference": "",
-      "metadata": {
-        "zh": "",
-        "en": ""
-      },
-      "role": {
-        "zh": "第一作者",
-        "en": "First author"
-      },
-      "contribution": {
-        "zh": "研究设计、指标构建、数据处理与分析、论文撰写及返修。",
-        "en": "Study design, indicator development, data processing and analysis, manuscript writing and revision."
-      },
-      "sourceIndices": [
-        25,
-        26
-      ],
-      "originalLanguage": "en"
-    },
-    {
-      "id": "paper-6",
-      "category": "review",
-      "status": "review",
-      "title": {
-        "zh": "转型的黄金窗口：城市愿景与城市化如何交互推动可持续变革",
-        "en": "The golden window of transformation: How urban visions and urbanization interact to drive sustainable change"
-      },
-      "authors": {
-        "zh": "Gu, T., Huang, Q., Liao, C., Villasante, S., & Aynekulu, E",
-        "en": "Gu, T., Huang, Q., Liao, C., Villasante, S., & Aynekulu, E"
-      },
-      "venue": {
-        "zh": "Global Sustainability",
-        "en": "Global Sustainability"
-      },
-      "year": "",
-      "reference": "",
-      "metadata": {
-        "zh": "",
-        "en": ""
-      },
-      "role": {
-        "zh": "第一作者",
-        "en": "First author"
-      },
-      "contribution": {
-        "zh": "研究设计、指标构建、数据处理与分析、论文撰写及返修。",
-        "en": "Study design, indicator development, data processing and analysis, manuscript writing and revision."
-      },
-      "sourceIndices": [
-        27,
-        28
-      ],
-      "originalLanguage": "en"
-    },
-    {
-      "id": "paper-7",
-      "category": "review",
-      "status": "review",
-      "title": {
-        "zh": "保护安全庇护所：中国IUCN红色名录物种分布范围内生境质量的不成比例下降",
-        "en": "Protecting the safe havens: Disproportionate declines in habitat quality within the ranges of IUCN Red List Species in China"
-      },
-      "authors": {
-        "zh": "Gu, T., Huang, Q., Ren, Q",
-        "en": "Gu, T., Huang, Q., Ren, Q"
-      },
-      "venue": {
-        "zh": "Global Change Biology",
-        "en": "Global Change Biology"
-      },
-      "year": "",
-      "reference": "",
-      "metadata": {
-        "zh": "",
-        "en": ""
-      },
-      "role": {
-        "zh": "第一作者",
-        "en": "First author"
-      },
-      "contribution": {
-        "zh": "研究设计、指标构建、数据处理与分析、论文撰写及返修。",
-        "en": "Study design, indicator development, data processing and analysis, manuscript writing and revision."
-      },
-      "sourceIndices": [
-        29,
-        30
-      ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "figure": {
+        "src": "assets/research/landscape-ecosystem-health-ga.jpg",
+        "width": 1336,
+        "height": 886,
+        "alt": {
+          "zh": "图形摘要：城市化水平、景观格局与生态系统健康的关联及影响路径。",
+          "en": "Graphical abstract showing relationships and impact pathways between urbanization, landscape patterns and ecosystem health."
+        },
+        "caption": {
+          "zh": "查看图形摘要",
+          "en": "View graphical abstract"
+        }
+      }
     },
     {
       "id": "paper-8",
