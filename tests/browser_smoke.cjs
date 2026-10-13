@@ -86,16 +86,16 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
 
     await go('publications','en');
     check(await page.locator('#publication-totals,#publication-bars').count() === 0, 'The rejected author-role overview returned');
-    check(await page.locator('#publication-ranking-legend strong').allTextContents().then(values=>values.join(',')==='28,4,3,0'), 'The consistent JCR quartile distribution is incorrect');
+    check(await page.locator('#publication-ranking-legend strong').allTextContents().then(values=>values.join(',')==='29,6,3,0'), 'The consistent JCR quartile distribution is incorrect');
     await page.locator('#publication-ranking-legend [data-tier="2"]').click();
-    check(await page.locator('.publication').count() === 4 && await page.locator('#paper-20').count() === 0, 'JCR quartile filter includes non-published records');
+    check(await page.locator('.publication').count() === 6 && await page.locator('#paper-20').count() === 0, 'JCR quartile filter includes non-published records');
     check(new URL(page.url()).searchParams.get('scope') === 'published', 'Published-journal scope is missing from the shareable URL');
     await page.reload();
-    check(await page.locator('.publication').count() === 4 && new URL(page.url()).searchParams.get('tier') === '2', 'Reload lost publication ranking scope');
+    check(await page.locator('.publication').count() === 6 && new URL(page.url()).searchParams.get('tier') === '2', 'Reload lost publication ranking scope');
     await page.locator('[data-clear-scope]').click();
     check(await page.locator('.publication').count() === 48, 'Clearing ranking scope did not restore all records');
     await page.locator('#publication-ranking-chart [data-tier="top"]').click();
-    check(await page.locator('.publication').count() === 32, 'The Q1 and Q2 total is incorrect');
+    check(await page.locator('.publication').count() === 35, 'The Q1 and Q2 total is incorrect');
     await page.locator('#chinese-journal-summary [data-tier="core"]').click();
     check(await page.locator('.publication').count() === 4 && await page.locator('.publication .journal-index').filter({hasText:'Chinese Core'}).count() === 4, 'Chinese Core filtering or labels are incorrect');
     await page.locator('#chinese-journal-summary [data-tier="cssci"]').click();

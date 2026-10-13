@@ -138,7 +138,7 @@ test('research map and topic links use public records and verified method associ
   assert(content.publications.filter(p=>p.featured).every(p=>p.figure&&p.selected&&p.doi));
 });
 
-test('JCR counts use one release and preserve N/A and absent English records', () => {
+test('JCR counts include the corrected category and explicit former-title convention', () => {
   assert.equal(content.journalRankings.edition,'2026');
   assert.equal(content.journalRankings.metricYear,2025);
   assert.equal(content.journalRankings.scope,'JIF-quartile');
@@ -146,19 +146,25 @@ test('JCR counts use one release and preserve N/A and absent English records', (
   const journals=new Map(content.journalRankings.journals.map(r=>[r.venue,r]));
   assert.equal(journals.size,23);
   assert(english.every(p=>journals.has(p.venue.en)));
-  assert.deepEqual(['Q1','Q2','Q3','Q4'].map(q=>english.filter(p=>journals.get(p.venue.en).quartile===q).length),[28,4,3,0]);
-  assert.equal(english.filter(p=>!journals.get(p.venue.en).quartile).length,6);
+  assert.deepEqual(['Q1','Q2','Q3','Q4'].map(q=>english.filter(p=>journals.get(p.venue.en).quartile===q).length),[29,6,3,0]);
+  assert.equal(english.filter(p=>!journals.get(p.venue.en).quartile).length,3);
   for(const r of journals.values()) {
     assert.equal(r.checkedDate,'2026-10-13');
-    assert(r.sourceUrl.startsWith('https://www.niic.nsc.ru/'));
+    assert(r.sourceUrl.startsWith('https://www.niic.nsc.ru/') || r.sourceUrl === 'https://scholar.pusan.ac.kr/journals/18971/');
     if(r.status==='ranked') {
       assert(['Q1','Q2','Q3','Q4'].includes(r.quartile));
-      assert(r.sourcePage>0 && /^\d{4}-\d{3}[\dX]$/.test(r.eissn));
+      assert(/^\d{4}-\d{3}[\dX]$/.test(r.eissn));
+      if(r.basis!=='category') assert(r.sourcePage>0);
     } else assert.equal(r.quartile,null);
   }
-  assert.equal(journals.get('npj Heritage Science').status,'not-applicable');
+  assert.equal(journals.get('npj Heritage Science').quartile,'Q1');
+  assert.equal(journals.get('npj Heritage Science').basis,'former-title');
+  assert.equal(journals.get('npj Heritage Science').rankingTitle,'Heritage Science');
+  assert.equal(journals.get('npj Heritage Science').currentTitleReference.quartile,null);
+  assert(journals.get('npj Heritage Science').note.en.includes('author'));
   assert.equal(journals.get('npj Heritage Science').eissn,'3059-3220');
-  assert.equal(journals.get('Journal of Asian Architecture and Building Engineering').status,'not-applicable');
+  assert.equal(journals.get('Journal of Asian Architecture and Building Engineering').quartile,'Q2');
+  assert.equal(journals.get('Journal of Asian Architecture and Building Engineering').subject,'CONSTRUCTION & BUILDING TECHNOLOGY');
   assert.equal(journals.get('Transactions in Earth, Environment, and Sustainability').status,'no-record');
   assert.equal(journals.get('Environmental Science and Pollution Research').status,'no-record');
 });

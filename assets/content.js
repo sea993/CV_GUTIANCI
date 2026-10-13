@@ -3710,17 +3710,28 @@ window.CV_CONTENT = {
       },
       {
         "venue": "npj Heritage Science",
-        "quartile": null,
-        "status": "not-applicable",
+        "quartile": "Q1",
+        "status": "ranked",
         "reportTitle": "npj Heritage Science",
         "eissn": "3059-3220",
         "index": "SCIE",
-        "sourcePage": 731,
-        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=731",
+        "sourcePage": 79,
+        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=79",
         "checkedDate": "2026-10-13",
         "note": {
-          "zh": "本版报告以新刊名列出，JIF分区为N/A，不借用原刊名Heritage Science的分区。",
-          "en": "The current title has N/A in the report. The quartile for the former title, Heritage Science, is not substituted."
+          "zh": "按作者指定口径，沿用更名前Heritage Science的JIF Q1；新刊名在本版参考表中的分区字段仍为N/A。",
+          "en": "At the author’s request, this chart uses the JIF Q1 quartile for the former title, Heritage Science. The current title remains N/A in the public reference table."
+        },
+        "currentTitleReference": {
+          "quartile": null,
+          "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=731"
+        },
+        "basis": "former-title",
+        "rankingTitle": "Heritage Science",
+        "rankingEissn": "2050-7445",
+        "sourceName": {
+          "zh": "Heritage Science分区",
+          "en": "Heritage Science Quartile"
         }
       },
       {
@@ -3758,14 +3769,28 @@ window.CV_CONTENT = {
       },
       {
         "venue": "Journal of Asian Architecture and Building Engineering",
-        "quartile": null,
-        "status": "not-applicable",
+        "quartile": "Q2",
+        "status": "ranked",
         "reportTitle": "Journal of Asian Architecture and Building Engineering",
         "eissn": "1347-2852",
-        "index": "AHCI",
-        "sourcePage": 229,
-        "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=229",
-        "checkedDate": "2026-10-13"
+        "index": "AHCI, SCIE",
+        "sourcePage": null,
+        "sourceUrl": "https://scholar.pusan.ac.kr/journals/18971/",
+        "checkedDate": "2026-10-13",
+        "referenceTable": {
+          "quartile": null,
+          "sourceUrl": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf#page=229"
+        },
+        "basis": "category",
+        "subject": "CONSTRUCTION & BUILDING TECHNOLOGY",
+        "sourceName": {
+          "zh": "PNU Scholar",
+          "en": "PNU Scholar"
+        },
+        "note": {
+          "zh": "采用CONSTRUCTION & BUILDING TECHNOLOGY学科的JIF Q2，补充来源为釜山国立大学PNU Scholar。",
+          "en": "Counted as JIF Q2 in Construction & Building Technology, using Pusan National University’s PNU Scholar as a supplementary source."
+        }
       },
       {
         "venue": "Environmental Science and Ecotechnology",
