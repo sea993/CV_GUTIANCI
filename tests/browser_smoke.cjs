@@ -24,6 +24,8 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
   try {
     await go('about');
     check(await page.locator('#home-biography p').count() === 5, 'The homepage introduction is incomplete');
+    check(await page.locator('.home-education .education-item').count() === 3, 'Education is missing below the homepage introduction');
+    check(await page.locator('.home-education .education-scores').count() === 0, 'Education scores should remain in the full CV');
     const biography = await page.locator('#home-biography').innerText();
     check(biography.includes('1999年生') && biography.includes('山东巨野人') && biography.includes('中共党员'), 'The updated personal background is missing');
     check(biography.includes('1169次') && biography.includes('h指数20') && !/1076|h指数19|收录成果43/.test(biography), 'The confirmed citation metrics were not preserved');
@@ -211,14 +213,14 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
       for (const language of ['zh','en']) {
         for (const legacyPath of ['education.html?lang='+language, '?lang='+language+'#education']) {
           await page.goto(new URL(legacyPath,base).href,{waitUntil:'load'});
-          await page.waitForURL(url=>url.pathname.endsWith('/cv.html')&&url.searchParams.get('lang')===language&&url.hash==='#education');
+          await page.waitForURL(url=>(url.pathname.endsWith('/index.html')||url.pathname.endsWith('/'))&&url.searchParams.get('lang')===language&&url.hash==='#education');
           check(await page.locator('.education-item').count()===3,'The legacy education link lost education records');
           check(await page.locator('html').getAttribute('lang')===(language==='zh'?'zh-CN':'en'),'The education redirect lost the language');
-          check(await page.locator('#site-nav [aria-current="page"]').getAttribute('data-page-link')==='cv','The education redirect did not activate the CV navigation');
-          check(new URL(page.url()).searchParams.get('v')===await page.locator('body').getAttribute('data-asset-version'),'The education redirect did not update the asset version');
+          check(await page.locator('#site-nav [aria-current="page"]').getAttribute('data-page-link')==='about','The education redirect did not activate the About navigation');
+          if (legacyPath.startsWith('education.html')) check(new URL(page.url()).searchParams.get('v')===await page.locator('body').getAttribute('data-asset-version'),'The education redirect did not update the asset version');
           check(await page.evaluate(()=>document.querySelector('#education-title').getBoundingClientRect().top>=document.querySelector('.site-header').getBoundingClientRect().bottom&&document.querySelector('#education-title').getBoundingClientRect().bottom<innerHeight),'The education heading is hidden after redirect');
         }
-        await page.screenshot({path:path.join(screenshots,'education-in-cv-'+language+'-'+width+'.png')});
+        await page.screenshot({path:path.join(screenshots,'education-on-home-'+language+'-'+width+'.png')});
       }
     }
     await page.goto(new URL('skills.html?lang=en',base).href,{waitUntil:'load'});

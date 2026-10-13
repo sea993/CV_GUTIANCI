@@ -17,12 +17,13 @@
   }
   try { localStorage.setItem('cv-language', language); } catch (_) { /* Storage is optional. */ }
   if (currentPage === 'education' || currentPage === 'skills') {
-    window.location.replace('cv.html?lang=' + language + '&v=' + assetVersion + '#' + currentPage);
+    const target = currentPage === 'education' ? routes.about : routes.cv;
+    window.location.replace(target + '?lang=' + language + '&v=' + assetVersion + '#' + currentPage);
     return;
   }
   const legacySection = window.location.hash.slice(1);
-  if (currentPage === 'about' && Object.hasOwn(routes, legacySection) && legacySection !== 'about') {
-    const inCV = legacySection === 'education' || legacySection === 'skills';
+  if (currentPage === 'about' && Object.hasOwn(routes, legacySection) && !['about','education'].includes(legacySection)) {
+    const inCV = legacySection === 'skills';
     window.location.replace((inCV ? routes.cv : routes[legacySection]) + '?lang=' + language + '&v=' + assetVersion + (inCV ? '#' + legacySection : ''));
     return;
   }
@@ -147,7 +148,7 @@
       const rankText = language === 'zh' ? '第' + rank[0] + '名，共' + rank[1] + '人' : rank[0] + ' of ' + rank[1];
       const separator = language === 'zh' ? '，' : ', ';
       const scores = currentPage === 'cv' ? '<p class="education-scores"><span>' + escape(text('rank')) + colon() + escape(rankText) + '</span><span>' + escape(text('gpa')) + colon() + escape(item.gpa) + '</span></p>' : '';
-      const heading = currentPage === 'cv' ? 'h3' : 'h2';
+      const heading = ['about','cv'].includes(currentPage) ? 'h3' : 'h2';
       return '<article class="education-item"><p class="dates">' + escape(localized(item.dates)) + '</p><div><' + heading + ' class="school-name">' + escape(localized(item.school)) + '</' + heading + '><p>' + escape(localized(item.degree)) + separator + escape(localized(item.major)) + '</p><p class="advisors">' + escape(text('advisors')) + colon() + escape(localized(item.advisors)) + '</p>' + scores + '</div></article>';
     }).join(''));
   }

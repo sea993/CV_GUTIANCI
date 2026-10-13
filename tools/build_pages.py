@@ -36,6 +36,11 @@ HOME = f'''<section id="about" class="about-layout" aria-labelledby="home-title"
   <div class="about-main">
     <h1 id="home-title" class="about-title" data-i18n="about">个人简介</h1>
     <div id="home-biography" class="home-biography"></div>
+    <section id="education" class="home-education" aria-labelledby="education-title">
+      <h2 id="education-title" data-i18n="education">教育经历</h2>
+      <p class="page-lead" data-page-summary="education"></p>
+      <div id="education-list" class="education-list"></div>
+    </section>
     <h2 data-i18n="researchInterests">研究兴趣</h2><ul id="home-research" class="research-interests"></ul>
     <h2 data-i18n="selectedResearch">研究选读</h2><div id="home-featured" class="featured-research"></div>
     <h2 data-i18n="recentNews">近期动态</h2><ul id="home-news" class="news-list"></ul>
@@ -125,11 +130,11 @@ for key, (filename, title) in PAGES.items():
     body = HOME if key == 'about' else ''.join([CV_ABOUT, *cv_sections]) if key == 'cv' else SECTIONS[key]
     if key == 'education':
         body = f'''<section class="content-section"><h1 class="page-title">教育经历 Education</h1>
-          <p><a href="cv.html?lang=zh&amp;v={ASSET_VERSION}#education">在完整简历中查看教育经历</a></p>
-          <p lang="en"><a href="cv.html?lang=en&amp;v={ASSET_VERSION}#education">View education in the full CV</a></p></section>'''
+          <p><a href="index.html?lang=zh&amp;v={ASSET_VERSION}#education">在个人简介页查看教育经历</a></p>
+          <p lang="en"><a href="index.html?lang=en&amp;v={ASSET_VERSION}#education">View education on the About page</a></p></section>'''
     if key == 'cv':
         body = f'<div class="print-actions"><a href="assets/tianci-gu-cv.docx?v={ASSET_VERSION}" download data-i18n="downloadCv">下载Word简历</a><button type="button" id="print-cv" data-i18n="print">打印或保存PDF</button></div>' + body
-    canonical = 'https://sea993.github.io/CV_GUTIANCI/' + ('' if key == 'about' else 'cv.html' if key == 'education' else filename)
+    canonical = 'https://sea993.github.io/CV_GUTIANCI/' + ('' if key in {'about', 'education'} else filename)
     html = f'''<!doctype html>
 <html lang="zh-CN">
 <head>
