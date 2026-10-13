@@ -95,7 +95,7 @@
   ],
   "summary": {
     "zh": "已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文8篇，另以第二作者参与5篇论文，均由导师担任第一作者；ESI高被引论文4篇。成果发表于npj Urban Sustainability、Earth's Future、Environmental Impact Assessment Review等期刊。",
-    "en": "He has published four first- or co-first-authored papers, eight corresponding- or co-corresponding-authored papers, and five papers in which he is second author and his supervisor is first author. Four papers are ESI highly cited papers. His work has appeared in npj Urban Sustainability, Earth’s Future and Environmental Impact Assessment Review."
+    "en": "He has published four first- or co-first-authored papers and eight corresponding- or co-corresponding-authored papers. He is also second author on five papers in which his supervisor is first author. Four papers are ESI highly cited papers. His work has appeared in npj Urban Sustainability, Earth’s Future and Environmental Impact Assessment Review."
   },
   "metricsNote": {
     "zh": "Google Scholar，2026年10月12日更新。",
@@ -868,7 +868,7 @@
         "en": "Environmental Science and Ecotechnology"
       },
       "year": "2026",
-      "reference": "100771",
+      "reference": "34, 100771",
       "metadata": {
         "zh": "",
         "en": ""
@@ -890,7 +890,7 @@
       "status": "published",
       "title": {
         "zh": "2000—2020年中国收缩城市环境质量改善幅度低于非收缩城市：基于倾向得分匹配的定量比较",
-        "en": "Urban environmental quality of shrinking cities in China improved less than that of non-shrinking cities during 2000-2020: A quantitative comparison based on propensity score matching method"
+        "en": "Urban environmental quality of shrinking cities in China improved less than that of non-shrinking cites during 2000-2020: A quantitative comparison based on propensity score matching method"
       },
       "authors": {
         "zh": "Yue, K., Wu, K., Huang, Q., Wang, Y., Gu, T., Hou, Y., Feng, X., Zhang, S., Xie, Y., & Wang, J",
@@ -901,7 +901,7 @@
         "en": "Sustainable Cities and Society"
       },
       "year": "2025",
-      "reference": "106759",
+      "reference": "131, 106759",
       "metadata": {
         "zh": "第五作者/SCI/中科院一区top/IF 10.5",
         "en": "Fifth author/SCI/CAS Q1, Top/IF 10.5"
@@ -1432,7 +1432,7 @@
         "en": "Geographical Research"
       },
       "year": "2025",
-      "reference": "(10), 2626-2642",
+      "reference": "44(10), 2626-2642",
       "metadata": {
         "zh": "",
         "en": ""
@@ -1463,8 +1463,8 @@
         "zh": "Avian Research",
         "en": "Avian Research"
       },
-      "year": "2026",
-      "reference": "100427",
+      "year": "2027",
+      "reference": "18(1), 100427",
       "metadata": {
         "zh": "",
         "en": ""
@@ -1717,7 +1717,7 @@
       "status": "published",
       "title": {
         "zh": "长江经济带三大城市群国土空间利用效率耦合协调研究",
-        "en": "Coupling coordination of territorial space utilization efficiency across the three major urban agglomerations of the Yangtze River Economic Belt"
+        "en": "Coupled Coordination of Territorial Spatial Utilization Efficiency in the Three Major Urban Agglomerations in the Yangtze River Economic Belt"
       },
       "authors": {
         "zh": "颜美美, 陈万旭, 谷天赐, 刘晴晴, 刘培文, 潘思佩, 曾杰, 刘志玲",
@@ -1728,7 +1728,7 @@
         "en": "Resources and Environment in the Yangtze Basin"
       },
       "year": "2026",
-      "reference": "",
+      "reference": "35(1)",
       "metadata": {
         "zh": "",
         "en": ""
@@ -2085,8 +2085,8 @@
     },
     {
       "text": {
-        "zh": "北京市科技新星交叉合作课题，20220484163，京津冀城市群产业结构转型和PM2.5污染相关死亡变化的研究，2022-11至2024-10，在研，参与（项目负责人：黄庆旭教授），负责产业结构数据分析与健康影响评估",
-        "en": "Beijing Science and Technology Rising Star Cross-disciplinary Collaboration Project (20220484163). Changes in industrial structure and PM2.5-related mortality in the Beijing–Tianjin–Hebei urban agglomeration. November 2022–October 2024; ongoing; participant; led by Prof. Qingxu Huang. Responsibilities: industrial structure analysis and health impact assessment."
+        "zh": "北京市科技新星交叉合作课题，20220484163，京津冀城市群产业结构转型和PM2.5污染相关死亡变化的研究，2022-11至2024-10，结题，参与（项目负责人：黄庆旭教授），负责产业结构数据分析与健康影响评估",
+        "en": "Beijing Science and Technology Rising Star Cross-disciplinary Collaboration Project (20220484163). Changes in industrial structure and PM2.5-related mortality in the Beijing–Tianjin–Hebei urban agglomeration. November 2022–October 2024; completed; participant; led by Prof. Qingxu Huang. Responsibilities: industrial structure analysis and health impact assessment."
       },
       "group": {
         "zh": "参与省部级项目",
@@ -2658,15 +2658,15 @@
     },
     {
       "text": {
-        "zh": "学科建模方法：熟悉各类地理学、生态学、土地预测建模模型，熟练掌握InVEST、Fragstats、PLUS、SWAT等模型。",
-        "en": "Disciplinary modelling: familiar with geographic, ecological and land-use prediction models; proficient in InVEST, Fragstats, PLUS and SWAT."
+        "zh": "学科建模方法：熟悉各类地理学、生态学、土地预测建模模型，熟练掌握InVEST、FRAGSTATS、PLUS、SWAT等模型。",
+        "en": "Disciplinary modelling: familiar with geographic, ecological and land-use prediction models; proficient in InVEST, FRAGSTATS, PLUS and SWAT."
       },
       "sourceIndices": [
         118
       ],
       "shortText": {
-        "zh": "生态建模：InVEST、Fragstats、PLUS、SWAT。",
-        "en": "Ecological modelling: InVEST, Fragstats, PLUS and SWAT."
+        "zh": "生态建模：InVEST、FRAGSTATS、PLUS、SWAT。",
+        "en": "Ecological modelling: InVEST, FRAGSTATS, PLUS and SWAT."
       }
     },
     {
@@ -2684,8 +2684,8 @@
     },
     {
       "text": {
-        "zh": "科研图件绘制：熟练使用Origin、Visio、Photoshop、ArcGIS、Sketch Up、Python等科研绘图软件。",
-        "en": "Scientific visualization: proficient in Origin, Visio, Photoshop, ArcGIS, Sketch Up and Python."
+        "zh": "科研图件绘制：熟练使用Origin、Visio、Photoshop、ArcGIS、SketchUp、Python等科研绘图软件。",
+        "en": "Scientific visualization: proficient in Origin, Visio, Photoshop, ArcGIS, SketchUp and Python."
       },
       "sourceIndices": [
         120
