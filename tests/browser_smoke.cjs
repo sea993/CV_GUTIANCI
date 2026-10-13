@@ -53,17 +53,20 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     await go('publications','en');
     check(await page.locator('[data-filter="selected"]').getAttribute('aria-pressed') === 'true', 'Selected publications is not the initial view');
     check(await page.locator('.publication').evaluateAll(papers=>papers.map(paper=>paper.id).join(',')) === 'paper-1,paper-2,paper-3,paper-9,paper-10,paper-12,paper-16,paper-19,paper-17,paper-18,paper-20', 'The selected publication set or its role and journal order is incorrect');
+    check(await page.locator('.publication-number').allTextContents().then(numbers=>numbers.length===11&&numbers.every((number,index)=>number===`${index+1}.`)), 'Selected publications are not numbered consecutively');
     check(await page.locator('#paper-1 .research-figure').count() === 1, 'The paper figure is missing on the publication page');
     check(await page.locator('.publication .research-figure').count() === 3, 'The supplied graphical abstracts are missing');
     check(await page.locator('[data-filter="review"],.publication[data-status="review"],#paper-4,#paper-5,#paper-6').count() === 0, 'Under-review papers remain public');
     await page.locator('#publication-search').fill('What Factors Drove');
     check(await page.locator('.publication').count() === 1 && await page.locator('#paper-9').count() === 1, 'Search within selected publications failed');
+    check(await page.locator('.publication-number').innerText()==='1.', 'Search did not restart publication numbering');
     await page.locator('[data-language="zh"]').click();
     check(await page.locator('[data-filter="selected"]').getAttribute('aria-pressed') === 'true' && await page.locator('.publication').count() === 1, 'Language switching discarded the selected search');
     await page.locator('#publication-search').fill('');
     await page.locator('[data-language="en"]').click();
     await page.locator('[data-filter="all"]').click();
     check(await page.locator('.publication').count() === 48, 'The complete publication list is missing records');
+    check(await page.locator('.publication-number').allTextContents().then(numbers=>numbers.length===48&&numbers.every((number,index)=>number===`${index+1}.`)), 'The full publication list is not numbered consecutively');
     check(await page.locator('.publication').evaluateAll(papers=>papers.slice(0,5).map(paper=>paper.id).join(',')) === 'paper-1,paper-2,paper-3,paper-7,paper-9', 'The complete list still mixes author roles by year');
     await page.locator('[data-filter="corresponding"]').click();
     check(await page.locator('.publication').first().getAttribute('id') === 'paper-9', 'Earths Future is not first in corresponding-author publications');
@@ -120,6 +123,7 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     await page.locator('[data-filter="first"]').click();
     await page.evaluate(()=>window.dispatchEvent(new Event('beforeprint')));
     check(await page.locator('.publication').count() === 48, 'Print omitted filtered papers');
+    check(await page.locator('.publication-number').allTextContents().then(numbers=>numbers.length===48&&numbers.every((number,index)=>number===`${index+1}.`)), 'Print omitted or reordered publication numbers');
     check(await page.locator('.publication').evaluateAll(papers=>papers.slice(0,5).map(paper=>paper.id).join(',')) === 'paper-1,paper-2,paper-3,paper-7,paper-9', 'The printable CV has a different publication order');
     await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));
     check(await page.locator('.publication').count() === 4, 'Print cleanup lost filter state');

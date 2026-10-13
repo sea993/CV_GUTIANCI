@@ -122,7 +122,7 @@
     setText('publication-count', language === 'zh' ? '共' + content.publications.length + '条记录，当前显示' + papers.length + '条' : 'Showing ' + papers.length + ' of ' + content.publications.length + ' records');
     byId('publication-count').hidden = filter === 'all' && !keyword;
     byId('publication-empty').hidden = papers.length > 0;
-    setHTML('publication-list', papers.map((paper) => {
+    setHTML('publication-list', papers.map((paper, index) => {
       const authors = escape(localized(paper.authors)).replace(/Gu,\s*T\.\*?|谷天赐/g, '<strong>$&</strong>');
       const title = paper.title[paper.originalLanguage];
       const translation = paper.originalLanguage === 'zh' && language === 'en' ? '<p class="original-title" lang="en">' + escape(paper.title.en) + '</p>' : '';
@@ -133,7 +133,7 @@
       const illustrated = currentPage === 'publications' && paper.figure;
       return '<article class="publication' + (illustrated ? ' publication-illustrated' : '') + '" id="' + escape(paper.id) + '" data-status="' + escape(paper.status) + '" data-kind="' + escape(paper.kind || 'journal') + '">' +
         (illustrated ? researchFigure(paper) : '') + '<div class="publication-copy">' +
-        '<' + heading + ' class="publication-title" lang="' + (paper.originalLanguage === 'zh' ? 'zh-CN' : 'en') + '">' + escape(title) + '</' + heading + '>' + translation +
+        '<' + heading + ' class="publication-title" lang="' + (paper.originalLanguage === 'zh' ? 'zh-CN' : 'en') + '"><span class="publication-number">' + (index + 1) + '.</span>' + escape(title) + '</' + heading + '>' + translation +
         '<p class="authors">' + authors + '</p>' +
         '<p class="venue"><em>' + escape(localized(paper.venue)) + '</em>' + (citation ? ', ' + citation : '') + '</p>' +
         '<p class="publication-notes">' + (role ? '<span>' + escape(role) + '</span>' : '') + status + publicationLink(paper) + '</p></div></article>';

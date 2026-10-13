@@ -133,8 +133,9 @@ html[lang="en"] .featured-copy h3 { font-family: var(--interface-font); font-siz
 .publication:first-child { padding-top: 2px; }
 .publication-illustrated { display: grid; grid-template-columns: 215px minmax(0,1fr); gap: 25px; align-items: start; }
 .publication-illustrated .research-figure figcaption br { display: block; }
-.publication-copy { min-width: 0; }
-.publication-title { font: 600 17px/1.65 var(--interface-font); margin: 0 0 7px; }
+.publication-copy { min-width: 0; padding-left: 32px; }
+.publication-title { position: relative; font: 600 17px/1.65 var(--interface-font); margin: 0 0 7px; }
+.publication-number { position: absolute; top: 0; left: -32px; min-width: 24px; text-align: right; color: var(--accent); font-weight: 400; font-variant-numeric: tabular-nums; }
 .publication p { margin: 6px 0; overflow-wrap: anywhere; }
 .original-title { color: var(--muted); font-size: 13px; }
 .authors { color: #4d5761; font-size: 13px; line-height: 1.8; }
