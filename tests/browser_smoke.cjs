@@ -29,8 +29,8 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     check(biography.includes('1169次') && biography.includes('h指数20') && !/1076|h指数19|收录成果43/.test(biography), 'The confirmed citation metrics were not preserved');
     check(biography.includes('近程间接影响') && biography.includes('远程间接影响') && biography.includes('同等人口'), 'Research pathways and counterfactual plans are missing');
     check(await page.locator('#metrics,.personal-details,#research-statement').count() === 0, 'Detailed CV content remains on the homepage');
-    check((await page.locator('[data-email]').innerText()) === 'gutc@mail.bnu.edu.cn', 'Email is incorrect');
-    check((await page.locator('[data-email]').getAttribute('href')) === 'mailto:gutc@mail.bnu.edu.cn', 'Email link is incorrect');
+    check((await page.locator('#main [data-email]').innerText()) === 'gutc@mail.bnu.edu.cn', 'Email is incorrect');
+    check((await page.locator('#main [data-email]').getAttribute('href')) === 'mailto:gutc@mail.bnu.edu.cn', 'Email link is incorrect');
     check((await page.locator('#scholar-link').getAttribute('href')).includes('gLpuU54AAAAJ'), 'Scholar profile link is incorrect');
     check(await page.locator('.contact-icon').count() === 5, 'Contact icons were removed during rendering');
     check(await page.locator('#home-featured .research-figure').count() === 1, 'The selected research figure is missing');
@@ -99,6 +99,7 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     check(await page.locator('.publication').count() === 1 && await page.locator('#paper-51').count() === 1, 'The Chinese ecosystem health paper is missing');
     await page.locator('#publication-search').fill('<img src=x onerror=alert(1)>');
     check(await page.locator('.publication').count() === 0 && await page.locator('#publication-empty').isVisible(), 'Empty search message failed');
+    check(await page.evaluate(()=>Math.abs(document.querySelector('.site-footer').getBoundingClientRect().bottom-innerHeight)<2), 'The footer does not reach the bottom of a short page');
 
     await go('cv');
     check(await page.locator('#publication-list .research-figure').count() === 0, 'Research thumbnails were included in the printable CV');
@@ -127,6 +128,7 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     await page.locator('#skills').screenshot({path:path.join(screenshots,'cv-skills-zh.png')});
     await page.emulateMedia({media:'print'});
     check(!await page.locator('.site-header').isVisible(), 'Print includes navigation');
+    check(!await page.locator('.site-footer').isVisible(), 'Print includes the website footer');
     await page.emulateMedia({media:'screen'});
     await go('cv','en');
     check((await page.locator('#project-list').innerText()).includes('RMB 600,000'), 'Project funding was lost from the full CV');
@@ -143,7 +145,15 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
           }
           const body = await page.locator('#main').innerText();
           check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth), 'Horizontal overflow: ' + key + ' ' + language + ' ' + width);
-          check(await page.locator('footer,#updated-label').count() === 0, 'Footer remains');
+          check(await page.locator('footer').count() === 1 && await page.locator('.site-footer').isVisible(), 'The shared footer is missing: '+key);
+          check(await page.locator('#updated-label').count() === 0, 'The rejected update-date block returned');
+          check(await page.locator('.site-footer [data-email]').getAttribute('href') === 'mailto:gutc@mail.bnu.edu.cn', 'The footer email is incorrect');
+          check(await page.locator('#footer-scholar-link').getAttribute('href') === 'https://scholar.google.com/citations?user=gLpuU54AAAAJ&hl='+(language==='zh'?'zh-CN':'en'), 'The footer Scholar profile or language is incorrect');
+          check(await page.locator('#footer-orcid-link').getAttribute('href') === 'https://orcid.org/0000-0001-9466-5545', 'The footer ORCID link is incorrect');
+          check(await page.locator('#footer-researchgate-link').getAttribute('href') === 'https://www.researchgate.net/profile/Tianci-Gu-2', 'The footer ResearchGate link is incorrect');
+          check(await page.locator('#footer-contact-title').innerText() === (language==='zh'?'联系与交流':'Contact'), 'The footer language is incorrect');
+          check(await page.locator('#footer-copyright').innerText() === '© '+new Date().getFullYear()+' '+(language==='zh'?'谷天赐':'Tianci Gu'), 'The footer attribution is incorrect');
+          check(await page.locator('.site-footer [data-page-link]').evaluateAll((links,lang)=>links.every(link=>new URL(link.href).searchParams.get('lang')===lang&&new URL(link.href).searchParams.get('v')===document.body.dataset.assetVersion),language), 'Footer navigation lost the language or current version');
           check(await page.locator('#main > section').count() === (key==='cv'?7:1), 'Independent page contains other sections: '+key);
           check(await page.locator('h1').count() === 1, 'Multiple primary headings: '+key);
           if (['publications','projects','awards','service'].includes(key)) {
@@ -174,6 +184,13 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
           if (width===1280) await page.screenshot({path:path.join(screenshots,key+'-'+language+'-desktop.png'),fullPage:['about','awards','service'].includes(key)});
           if (width===390) await page.screenshot({path:path.join(screenshots,key+'-'+language+'-mobile.png'),fullPage:key==='about'});
           if (width===1280 && key==='service' && language==='zh') await page.locator('.service-group').filter({has:page.locator('.policy-list')}).screenshot({path:path.join(screenshots,'policy-zh.png')});
+          if ([1280,390].includes(width) && key==='about') {
+            await page.locator('.site-footer').screenshot({path:path.join(screenshots,'footer-'+language+'-'+width+'.png')});
+            await page.evaluate(()=>scrollTo(0,document.documentElement.scrollHeight));
+            await page.screenshot({path:path.join(screenshots,'footer-context-'+language+'-'+width+'.png')});
+            await page.locator('.back-to-top').click();
+            check(await page.evaluate(()=>scrollY<2) && new URL(page.url()).hash==='#top', 'The return-to-top link failed');
+          }
         }
       }
     }
@@ -182,6 +199,9 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     check(await page.locator('#site-nav').isVisible(),'Mobile menu did not open');
     await page.locator('#site-nav [data-page-link="cv"]').click();
     check(await page.locator('.menu-button').getAttribute('aria-expanded')==='false','Mobile menu did not close');
+    await page.locator('.site-footer [data-page-link="publications"]').click();
+    check(new URL(page.url()).pathname.endsWith('/publications.html') && new URL(page.url()).searchParams.get('lang')==='en', 'Footer navigation did not retain English');
+    check(new URL(page.url()).searchParams.get('v')===await page.locator('body').getAttribute('data-asset-version'), 'Footer navigation loaded an outdated page');
     for (const width of [1280,390]) {
       await page.setViewportSize({width,height:1000});
       for (const language of ['zh','en']) {

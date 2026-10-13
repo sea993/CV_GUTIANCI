@@ -66,7 +66,7 @@
 - [al-folio](https://github.com/alshedivat/al-folio)：参考出版记录分类和论文检索交互。
 - [Nature](https://www.nature.com/)：参考编辑式标题层级、简洁版面与细分隔线。
 
-字体分为三种用途：Georgia用于主要英文标题，Microsoft YaHei用于中文，Segoe UI用于英文正文、导航、控件和数字。强调色`#004DA3`取自用户提供的北京师范大学校徽图片主色。页面不设置重复的个人信息页脚。
+字体分为三种用途：Georgia用于主要英文标题，Microsoft YaHei用于中文，Segoe UI用于英文正文、导航、控件和数字。强调色`#004DA3`取自用户提供的北京师范大学校徽图片主色。页底参考张震主页的站点入口与署名布局，提供邮箱、学术主页、成果及简历导航、仓库链接和返回顶部入口；背景为浅蓝灰色，中英文随页面切换，简历打印时隐藏。
 
 本项目采用独立HTML、CSS和JavaScript实现；未使用上述项目的模板文件或Nature商标。
 

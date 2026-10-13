@@ -78,6 +78,39 @@ SECTIONS = {
     'service': section('service', '<div id="service-list" class="service-list"></div>'),
 }
 
+FOOTER = '''<footer class="site-footer" id="site-footer">
+    <div class="footer-inner">
+      <div class="footer-main">
+        <section class="footer-contact" aria-labelledby="footer-contact-title">
+          <h2 id="footer-contact-title" data-i18n="footerContact">联系与交流</h2>
+          <p id="footer-affiliation">北京师范大学地理科学学部</p>
+          <a href="mailto:gutc@mail.bnu.edu.cn" data-email><span>gutc@mail.bnu.edu.cn</span></a>
+        </section>
+        <nav aria-labelledby="footer-academic-title">
+          <h2 id="footer-academic-title" data-i18n="footerAcademic">学术主页</h2>
+          <ul>
+            <li><a id="footer-scholar-link" href="https://scholar.google.com/citations?user=gLpuU54AAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+            <li><a id="footer-orcid-link" href="https://orcid.org/0000-0001-9466-5545" target="_blank" rel="noopener">ORCID</a></li>
+            <li><a id="footer-researchgate-link" href="https://www.researchgate.net/profile/Tianci-Gu-2" target="_blank" rel="noopener">ResearchGate</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="footer-explore-title">
+          <h2 id="footer-explore-title" data-i18n="footerExplore">站点导航</h2>
+          <ul>
+            <li><a href="publications.html" data-page-link="publications" data-i18n="publications">学术成果</a></li>
+            <li><a href="cv.html" data-page-link="cv" data-i18n="cv">完整简历</a></li>
+            <li><a href="https://github.com/sea993/CV_GUTIANCI" target="_blank" rel="noopener">GitHub</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p id="footer-copyright">© 2026 谷天赐</p>
+        <p class="footer-host"><span data-i18n="footerHosted">托管于</span> <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a></p>
+        <a class="back-to-top" href="#top"><span data-i18n="backToTop">返回顶部</span><span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>'''
+
 for key, (filename, title) in PAGES.items():
     nav = ''.join(
         f'<a href="{name}" data-page-link="{route}" data-i18n="{route}"'
@@ -114,7 +147,7 @@ for key, (filename, title) in PAGES.items():
   <script src="assets/content.js?v={ASSET_VERSION}" defer></script>
   <script src="assets/app.js?v={ASSET_VERSION}" defer></script>
 </head>
-<body data-page="{key}" data-asset-version="{ASSET_VERSION}">
+<body id="top" data-page="{key}" data-asset-version="{ASSET_VERSION}">
   <a class="skip-link" href="#main" data-i18n="skip">跳到正文</a>
   <header class="site-header">
     <div class="header-inner">
@@ -130,6 +163,7 @@ for key, (filename, title) in PAGES.items():
     <nav class="site-nav" id="site-nav" aria-label="主要导航">{nav}</nav>
   </header>
   <main id="main" class="page-shell">{body}<noscript><p>请开启JavaScript浏览网站内容，或<a href="assets/tianci-gu-cv.docx?v={ASSET_VERSION}">下载Word简历</a>。 Enable JavaScript to browse this site, or download the CV.</p></noscript></main>
+  {FOOTER}
 </body>
 </html>
 '''

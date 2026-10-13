@@ -46,6 +46,8 @@
   strings.en.journalPage = 'Journal page';
   strings.zh.findPaper = '检索论文';
   strings.en.findPaper = 'Find article';
+  Object.assign(strings.zh, {footerContact:'联系与交流',footerAcademic:'学术主页',footerExplore:'站点导航',footerHosted:'托管于',backToTop:'返回顶部'});
+  Object.assign(strings.en, {footerContact:'Contact',footerAcademic:'Academic profiles',footerExplore:'Explore',footerHosted:'Hosted on',backToTop:'Back to top'});
   const icon = (name, className) => '<svg class="' + className + '" aria-hidden="true"><use href="assets/icons.svg#' + name + '"></use></svg>';
   const setText = (id, value) => { if (byId(id)) byId(id).textContent = value; };
   const setHTML = (id, value) => { if (byId(id)) byId(id).innerHTML = value; };
@@ -184,6 +186,14 @@
     setHTML('personal-information', ['birth','hometown','membership','phone'].map((key) => '<dt>' + escape(text(key)) + '</dt><dd>' + (key === 'phone' ? '<a href="tel:+86' + escape(content.profile.phone) + '">+86 ' + escape(content.profile.phone) + '</a>' : escape(localized(content.profile[key]))) + '</dd>').join(''));
   }
 
+  function renderFooter() {
+    setText('footer-affiliation', localized(content.profile.affiliation));
+    setText('footer-copyright', '© ' + new Date().getFullYear() + ' ' + localized(content.profile.name));
+    byId('footer-scholar-link').href = content.profile.scholar + '&hl=' + (language === 'zh' ? 'zh-CN' : 'en');
+    byId('footer-orcid-link').href = content.profile.orcid;
+    byId('footer-researchgate-link').href = content.profile.researchgate;
+  }
+
   function render() {
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
     document.title = localized(content.profile.name) + ' ' + text(currentPage);
@@ -195,6 +205,7 @@
     document.querySelectorAll('[data-email]').forEach((link) => { link.href = 'mailto:' + content.profile.email; link.querySelector('span').textContent = content.profile.email; });
     byId('site-nav').setAttribute('aria-label', language === 'zh' ? '主要导航' : 'Main navigation');
     renderProfile();
+    renderFooter();
     renderEducation();
     if (byId('publication-list')) {
       byId('publication-search').placeholder = text('searchPlaceholder');

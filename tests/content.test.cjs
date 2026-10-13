@@ -122,7 +122,8 @@ test('independent pages and their assets work under a GitHub project path', () =
   for (const match of html.matchAll(/href="#([^"]+)"/g)) assert(html.includes(`id="${match[1]}"`));
   for (const match of html.matchAll(/href="([a-z]+\.html)(?:[?#][^"]*)?"/g)) assert(fs.existsSync(path.join(root,match[1])));
   assert(!html.includes('section-number'));
-  assert(!html.includes('<footer'));
+  assert.equal([...html.matchAll(/<footer\b/g)].length, 1);
+  assert(html.includes('id="site-footer"') && html.includes('href="#top"'));
   assert(!html.includes('gutc@cug.edu.cn'));
   }
   assert(fs.statSync(path.join(root, 'assets/tianci-gu-cv.docx')).size > 50000);
