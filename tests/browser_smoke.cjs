@@ -51,25 +51,42 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     check(!(await page.locator('#project-list').innerText()).includes('Responsibilities:'), 'Verbose project responsibilities remain on the project page');
 
     await go('publications','en');
+    check(await page.locator('[data-filter="selected"]').getAttribute('aria-pressed') === 'true', 'Selected publications is not the initial view');
+    check(await page.locator('.publication').evaluateAll(papers=>papers.map(paper=>paper.id).join(',')) === 'paper-1,paper-2,paper-3,paper-9,paper-10,paper-12,paper-16,paper-17,paper-18,paper-19,paper-20', 'The selected publication set differs from the requested list');
     check(await page.locator('#paper-1 .research-figure').count() === 1, 'The paper figure is missing on the publication page');
     check(await page.locator('.publication .research-figure').count() === 3, 'The supplied graphical abstracts are missing');
-    check(await page.locator('[data-filter="review"],.publication[data-status="review"],#paper-4,#paper-5,#paper-6,#paper-7').count() === 0, 'Withdrawn papers remain public');
+    check(await page.locator('[data-filter="review"],.publication[data-status="review"],#paper-4,#paper-5,#paper-6').count() === 0, 'Under-review papers remain public');
+    await page.locator('#publication-search').fill('What Factors Drove');
+    check(await page.locator('.publication').count() === 1 && await page.locator('#paper-9').count() === 1, 'Search within selected publications failed');
+    await page.locator('[data-language="zh"]').click();
+    check(await page.locator('[data-filter="selected"]').getAttribute('aria-pressed') === 'true' && await page.locator('.publication').count() === 1, 'Language switching discarded the selected search');
+    await page.locator('#publication-search').fill('');
+    await page.locator('[data-language="en"]').click();
+    await page.locator('[data-filter="all"]').click();
+    check(await page.locator('.publication').count() === 48, 'The complete publication list is missing records');
     check((await page.locator('#publication-list').innerText()).includes('64(03), 528-537'), 'Journal pagination is missing');
     await page.locator('#publication-search').fill('nonlinear cropland footprint');
     check(await page.locator('.publication').count() === 1, 'English title search failed');
     check(await page.locator('.publication').getAttribute('data-status') === 'published', 'Published manuscript misclassified');
     await page.locator('#publication-search').fill('');
     await page.locator('[data-filter="first"]').click();
-    check(await page.locator('.publication').count() === 3, 'First-author filter failed');
+    check(await page.locator('.publication').count() === 4 && await page.locator('#paper-7').count() === 1, 'First-author filter failed');
     await page.locator('[data-language="zh"]').click();
-    check(await page.locator('.publication').count() === 3, 'Language switching discarded filter state');
+    check(await page.locator('.publication').count() === 4, 'Language switching discarded filter state');
     await page.locator('[data-filter="accepted"]').click();
     check(await page.locator('.publication').count() === 1, 'Accepted filter failed');
     await page.locator('[data-filter="first"]').click();
-    check(await page.locator('.publication').count() === 3, 'First author filter failed');
+    check(await page.locator('.publication').count() === 4, 'First author filter failed');
+    await page.locator('[data-filter="conference"]').click();
+    check(await page.locator('.publication').count() === 2 && await page.locator('.publication[data-kind="conference"]').count() === 2, 'Conference abstracts are missing or mixed with journal articles');
+    check(await page.locator('.publication-notes .status').allTextContents().then(values=>values.every(value=>value==='会议摘要')), 'Conference abstracts lack their type labels');
     await page.locator('[data-filter="all"]').click();
     await page.locator('#publication-search').fill('谷歌地球引擎');
     check(await page.locator('.publication').count() === 1, 'Chinese title search failed');
+    await page.locator('#publication-search').fill('长江经济带三大城市群');
+    check(await page.locator('.publication').count() === 2, 'The two Yangtze River Economic Belt papers are missing');
+    await page.locator('#publication-search').fill('全球生态系统健康');
+    check(await page.locator('.publication').count() === 1 && await page.locator('#paper-51').count() === 1, 'The Chinese ecosystem health paper is missing');
     await page.locator('#publication-search').fill('<img src=x onerror=alert(1)>');
     check(await page.locator('.publication').count() === 0 && await page.locator('#publication-empty').isVisible(), 'Empty search message failed');
 
@@ -91,9 +108,9 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
     check(fs.readFileSync(await download.path()).equals(fs.readFileSync(path.join(root,'assets/tianci-gu-cv.docx'))), 'Downloaded CV differs from the latest download file');
     await page.locator('[data-filter="first"]').click();
     await page.evaluate(()=>window.dispatchEvent(new Event('beforeprint')));
-    check(await page.locator('.publication').count() === 27, 'Print omitted filtered papers');
+    check(await page.locator('.publication').count() === 48, 'Print omitted filtered papers');
     await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));
-    check(await page.locator('.publication').count() === 3, 'Print cleanup lost filter state');
+    check(await page.locator('.publication').count() === 4, 'Print cleanup lost filter state');
     await page.locator('[data-filter="all"]').click();
     await page.locator('#education').screenshot({path:path.join(screenshots,'cv-education-zh.png')});
     await page.locator('#skills').screenshot({path:path.join(screenshots,'cv-skills-zh.png')});
@@ -130,8 +147,8 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
           check(await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()==='#004da3'), 'The logo blue is incorrect');
           check(await page.evaluate(()=>[...document.querySelectorAll('.portrait-block,.education-item,.service-entry,.metrics-table th,.metrics-table td')].every(el=>parseFloat(getComputedStyle(el).borderLeftWidth)===0&&parseFloat(getComputedStyle(el).borderRightWidth)===0)), 'Decorative vertical rules remain');
           if (key==='publications' || key==='cv') {
-            check(await page.locator('.publication').count()===27,'Publications missing');
-            check(await page.locator('.publication[data-status="review"],#paper-4,#paper-5,#paper-6,#paper-7').count()===0,'Withdrawn papers remain visible');
+            check(await page.locator('.publication').count()===(key==='publications'?11:48),'Publications missing');
+            check(await page.locator('.publication[data-status="review"],#paper-4,#paper-5,#paper-6').count()===0,'Under-review papers remain visible');
             check(!/唯一第一作者|Sole first author|Nature旗下期刊|中科院一区|IF 8\.8|谷天赐的贡献/.test(await page.locator('#publication-list').innerText()),'Unwanted publication labels remain');
             check(await page.locator('.contribution,.paper-meta').count()===0,'Publication metadata blocks remain');
           }

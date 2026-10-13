@@ -26,7 +26,7 @@
     window.location.replace((inCV ? routes.cv : routes[legacySection]) + '?lang=' + language + '&v=' + assetVersion + (inCV ? '#' + legacySection : ''));
     return;
   }
-  let filter = 'all';
+  let filter = currentPage === 'publications' ? 'selected' : 'all';
   let query = '';
   let printState = null;
   const byId = (id) => document.getElementById(id);
@@ -38,6 +38,12 @@
   strings.en.selectedResearch = 'Selected research';
   strings.zh.fullArticle = '论文全文';
   strings.en.fullArticle = 'Read article';
+  strings.zh.selected = '精选成果';
+  strings.en.selected = 'Selected publications';
+  strings.zh.conference = '会议摘要';
+  strings.en.conference = 'Conference abstracts';
+  strings.zh.viewAbstract = '查看摘要';
+  strings.en.viewAbstract = 'Read abstract';
   const icon = (name, className) => '<svg class="' + className + '" aria-hidden="true"><use href="assets/icons.svg#' + name + '"></use></svg>';
   const setText = (id, value) => { if (byId(id)) byId(id).textContent = value; };
   const setHTML = (id, value) => { if (byId(id)) byId(id).innerHTML = value; };
@@ -83,6 +89,9 @@
 
   function matchesFilter(paper) {
     if (filter === 'all') return true;
+    if (filter === 'selected') return paper.selected === true;
+    if (filter === 'conference') return paper.kind === 'conference';
+    if (paper.kind === 'conference') return false;
     if (filter === 'first') return paper.category === 'first';
     if (filter === 'second') return paper.category === 'second' || paper.category === 'accepted';
     if (filter === 'accepted') return paper.status === filter;
@@ -91,7 +100,7 @@
 
   function renderFilters() {
     if (!byId('publication-filters')) return;
-    const options = ['all','first','corresponding','second','collaborative','accepted'];
+    const options = ['selected','all','first','corresponding','second','collaborative','conference','accepted'];
     setHTML('publication-filters', options.map((option) => '<button type="button" class="filter-button" data-filter="' + option + '" aria-pressed="' + (filter === option) + '">' + escape(text(option)) + '</button>').join(''));
   }
 
@@ -99,6 +108,7 @@
     if (!byId('publication-list')) return;
     const keyword = query.trim().toLocaleLowerCase();
     const papers = content.publications.filter((paper) => matchesFilter(paper) && (!keyword || [paper.title.zh,paper.title.en,paper.authors.zh,paper.authors.en,paper.venue.zh,paper.venue.en,paper.year,paper.metadata.zh,paper.metadata.en].join(' ').toLocaleLowerCase().includes(keyword)));
+    if (filter === 'all') papers.sort((a,b) => Number(a.kind === 'conference') - Number(b.kind === 'conference') || b.year.localeCompare(a.year));
     setText('publication-count', language === 'zh' ? '共' + content.publications.length + '条记录，当前显示' + papers.length + '条' : 'Showing ' + papers.length + ' of ' + content.publications.length + ' records');
     byId('publication-count').hidden = filter === 'all' && !keyword;
     byId('publication-empty').hidden = papers.length > 0;
@@ -107,16 +117,16 @@
       const title = paper.title[paper.originalLanguage];
       const translation = paper.originalLanguage === 'zh' && language === 'en' ? '<p class="original-title" lang="en">' + escape(paper.title.en) + '</p>' : '';
       const heading = currentPage === 'cv' ? 'h3' : 'h2';
-      const role = ['second','accepted'].includes(paper.category) ? (language === 'zh' ? '第二作者' : 'Second author') : paper.category === 'collaborative' ? '' : localized(paper.role);
-      const status = paper.status === 'published' ? '' : '<span class="status">' + escape(text(paper.status)) + '</span>';
+      const role = paper.kind === 'conference' ? localized(paper.role) : ['second','accepted'].includes(paper.category) ? (language === 'zh' ? '第二作者' : 'Second author') : paper.category === 'collaborative' ? '' : localized(paper.role);
+      const status = paper.kind === 'conference' ? '<span class="status">' + escape(text('conference')) + '</span>' : paper.status === 'published' ? '' : '<span class="status">' + escape(text(paper.status)) + '</span>';
       const citation = [paper.year,paper.reference].filter(Boolean).map(escape).join(', ');
       const illustrated = currentPage === 'publications' && paper.figure;
-      return '<article class="publication' + (illustrated ? ' publication-illustrated' : '') + '" id="' + escape(paper.id) + '" data-status="' + escape(paper.status) + '">' +
+      return '<article class="publication' + (illustrated ? ' publication-illustrated' : '') + '" id="' + escape(paper.id) + '" data-status="' + escape(paper.status) + '" data-kind="' + escape(paper.kind || 'journal') + '">' +
         (illustrated ? researchFigure(paper) : '') + '<div class="publication-copy">' +
         '<' + heading + ' class="publication-title" lang="' + (paper.originalLanguage === 'zh' ? 'zh-CN' : 'en') + '">' + escape(title) + '</' + heading + '>' + translation +
         '<p class="authors">' + authors + '</p>' +
         '<p class="venue"><em>' + escape(localized(paper.venue)) + '</em>' + (citation ? ', ' + citation : '') + '</p>' +
-        (role || status || paper.doi ? '<p class="publication-notes">' + (role ? '<span>' + escape(role) + '</span>' : '') + status + (paper.doi ? '<a href="' + escape(paper.doi) + '" target="_blank" rel="noopener">' + text('fullArticle') + '</a>' : '') + '</p>' : '') + '</div></article>';
+        (role || status || paper.doi ? '<p class="publication-notes">' + (role ? '<span>' + escape(role) + '</span>' : '') + status + (paper.doi ? '<a href="' + escape(paper.doi) + '" target="_blank" rel="noopener">' + text(paper.kind === 'conference' ? 'viewAbstract' : 'fullArticle') + '</a>' : '') + '</p>' : '') + '</div></article>';
     }).join(''));
   }
 

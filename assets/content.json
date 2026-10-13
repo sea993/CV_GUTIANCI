@@ -245,7 +245,8 @@
           "zh": "查看图形摘要",
           "en": "View graphical abstract"
         }
-      }
+      },
+      "selected": true
     },
     {
       "id": "paper-2",
@@ -294,7 +295,9 @@
           "zh": "查看图形摘要",
           "en": "View graphical abstract"
         }
-      }
+      },
+      "selected": true,
+      "doi": "https://doi.org/10.1016/j.eiar.2026.108631"
     },
     {
       "id": "paper-3",
@@ -343,7 +346,42 @@
           "zh": "查看图形摘要",
           "en": "View graphical abstract"
         }
-      }
+      },
+      "selected": true,
+      "doi": "https://doi.org/10.1016/j.jenvman.2024.122076"
+    },
+    {
+      "id": "paper-7",
+      "category": "first",
+      "status": "published",
+      "title": {
+        "zh": "中国耕地破碎化的驱动因素识别",
+        "en": "Identifying the driving forces of cultivated land fragmentation in China"
+      },
+      "authors": {
+        "zh": "Gu, T., Chen, W., Liang, J., Pan, S., & Ye, X.",
+        "en": "Gu, T., Chen, W., Liang, J., Pan, S., & Ye, X."
+      },
+      "venue": {
+        "zh": "Environmental Science and Pollution Research",
+        "en": "Environmental Science and Pollution Research"
+      },
+      "year": "2023",
+      "reference": "30(48), 105275-105292",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "第一作者",
+        "en": "First author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1007/s11356-023-29797-8"
+      ],
+      "doi": "https://doi.org/10.1007/s11356-023-29797-8"
     },
     {
       "id": "paper-8",
@@ -375,7 +413,8 @@
       "sourceIndices": [
         32
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.3389/fenvs.2026.1806610"
     },
     {
       "id": "paper-9",
@@ -411,7 +450,9 @@
         33,
         34
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "selected": true,
+      "doi": "https://doi.org/10.1029/2024EF005337"
     },
     {
       "id": "paper-10",
@@ -447,7 +488,9 @@
         35,
         36
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "selected": true,
+      "doi": "https://doi.org/10.1016/j.apgeog.2024.103359"
     },
     {
       "id": "paper-11",
@@ -479,7 +522,8 @@
       "sourceIndices": [
         37
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1038/s41598-025-13896-2"
     },
     {
       "id": "paper-12",
@@ -511,7 +555,9 @@
       "sourceIndices": [
         38
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "selected": true,
+      "doi": "https://doi.org/10.1038/s40494-025-01765-0"
     },
     {
       "id": "paper-13",
@@ -543,7 +589,8 @@
       "sourceIndices": [
         39
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1080/13467581.2025.2510607"
     },
     {
       "id": "paper-14",
@@ -607,7 +654,8 @@
       "sourceIndices": [
         41
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1016/j.ecolind.2023.110788"
     },
     {
       "id": "paper-16",
@@ -643,7 +691,9 @@
         43,
         44
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "selected": true,
+      "doi": "https://doi.org/10.1016/j.eiar.2023.107076"
     },
     {
       "id": "paper-17",
@@ -679,7 +729,9 @@
         45,
         46
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "selected": true,
+      "doi": "https://doi.org/10.1016/j.jenvman.2022.115565"
     },
     {
       "id": "paper-18",
@@ -711,7 +763,9 @@
       "sourceIndices": [
         47
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "selected": true,
+      "doi": "https://doi.org/10.1016/j.apgeog.2023.103125"
     },
     {
       "id": "paper-19",
@@ -747,7 +801,9 @@
         48,
         49
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "selected": true,
+      "doi": "https://doi.org/10.1016/j.jenvman.2024.121371"
     },
     {
       "id": "paper-20",
@@ -783,7 +839,8 @@
         51,
         52
       ],
-      "originalLanguage": "zh"
+      "originalLanguage": "zh",
+      "selected": true
     },
     {
       "id": "paper-21",
@@ -815,7 +872,8 @@
       "sourceIndices": [
         54
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1177/2754124x241305302"
     },
     {
       "id": "paper-22",
@@ -834,7 +892,7 @@
         "en": "International Journal of Sustainable Development & World Ecology"
       },
       "year": "2025",
-      "reference": "1-13",
+      "reference": "32(6), 637-649",
       "metadata": {
         "zh": "第二作者/SCI",
         "en": "Second author/SCI"
@@ -847,7 +905,8 @@
       "sourceIndices": [
         55
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1080/13504509.2025.2527118"
     },
     {
       "id": "paper-23",
@@ -879,7 +938,8 @@
       "sourceIndices": [
         56
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1016/j.ecolind.2024.111913"
     },
     {
       "id": "paper-24",
@@ -911,7 +971,8 @@
       "sourceIndices": [
         57
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1016/j.eiar.2023.107275"
     },
     {
       "id": "paper-25",
@@ -943,7 +1004,8 @@
       "sourceIndices": [
         58
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1080/15481603.2024.2351262"
     },
     {
       "id": "paper-26",
@@ -951,7 +1013,7 @@
       "status": "published",
       "title": {
         "zh": "基于谷歌地球引擎平台的中国城市环境质量分区和分规模动态评估",
-        "en": "Dynamic assessment of urban environmental quality in China by region and city size using Google Earth Engine"
+        "en": "Dynamic assessment of urban environmental quality among zones and city sizes in Chinese cities based on the Google Earth Engine platform"
       },
       "authors": {
         "zh": "王艺锦, 白岩松, 岳铠鸿, 谷天赐, 朱国梁, 黄庆旭",
@@ -1007,7 +1069,8 @@
       "sourceIndices": [
         60
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1016/j.scs.2025.106759"
     },
     {
       "id": "paper-28",
@@ -1039,7 +1102,8 @@
       "sourceIndices": [
         61
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1016/j.eiar.2025.108218"
     },
     {
       "id": "paper-29",
@@ -1071,7 +1135,8 @@
       "sourceIndices": [
         62
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1080/13467581.2025.2607839"
     },
     {
       "id": "paper-30",
@@ -1103,7 +1168,8 @@
       "sourceIndices": [
         63
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1016/j.jenvman.2024.121020"
     },
     {
       "id": "paper-31",
@@ -1136,6 +1202,647 @@
         64
       ],
       "originalLanguage": "en"
+    },
+    {
+      "id": "paper-32",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "城市化对碳排放的溢出效应：2000—2019年的全球视角",
+        "en": "Spillover effects of urbanization on carbon emissions: A global view from 2000 to 2019"
+      },
+      "authors": {
+        "zh": "Chen, W., Wang, G., Yang, L., Huang, C., Xu, N., Gu, T., & Zeng, J.",
+        "en": "Chen, W., Wang, G., Yang, L., Huang, C., Xu, N., Gu, T., & Zeng, J."
+      },
+      "venue": {
+        "zh": "Environmental Impact Assessment Review",
+        "en": "Environmental Impact Assessment Review"
+      },
+      "year": "2023",
+      "reference": "102, 107182",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
+      ]
+    },
+    {
+      "id": "paper-33",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "2000—2020年全球生态系统服务平衡的驱动因素识别",
+        "en": "Identifying the driving forces of global ecosystem services balance, 2000–2020"
+      },
+      "authors": {
+        "zh": "Peng, Y., Chen, W., Pan, S., Gu, T., & Zeng, J.",
+        "en": "Peng, Y., Chen, W., Pan, S., Gu, T., & Zeng, J."
+      },
+      "venue": {
+        "zh": "Journal of Cleaner Production",
+        "en": "Journal of Cleaner Production"
+      },
+      "year": "2023",
+      "reference": "426, 139019",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1016/j.jclepro.2023.139019"
+      ],
+      "doi": "https://doi.org/10.1016/j.jclepro.2023.139019"
+    },
+    {
+      "id": "paper-34",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "20年来全球保护地生境质量对土地利用活动的空间非平稳响应",
+        "en": "Spatially non-stationary response of habitat quality to land use activities in World's protected areas over 20 years"
+      },
+      "authors": {
+        "zh": "Yang, L., Pan, S., Chen, W., Zeng, J., Xu, H., & Gu, T.",
+        "en": "Yang, L., Pan, S., Chen, W., Zeng, J., Xu, H., & Gu, T."
+      },
+      "venue": {
+        "zh": "Journal of Cleaner Production",
+        "en": "Journal of Cleaner Production"
+      },
+      "year": "2023",
+      "reference": "419, 138245",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1016/j.jclepro.2023.138245"
+      ],
+      "doi": "https://doi.org/10.1016/j.jclepro.2023.138245"
+    },
+    {
+      "id": "paper-35",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "解析1980—2020年中国耕地海拔上升的过程",
+        "en": "Untangling the increasing elevation of cropland in China from 1980 to 2020"
+      },
+      "authors": {
+        "zh": "Chen, W., Yang, L., Zeng, J., Yuan, J., Gu, T., & Liu, Z.",
+        "en": "Chen, W., Yang, L., Zeng, J., Yuan, J., Gu, T., & Liu, Z."
+      },
+      "venue": {
+        "zh": "Geography and Sustainability",
+        "en": "Geography and Sustainability"
+      },
+      "year": "2023",
+      "reference": "4(4), 281-293",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1016/j.geosus.2023.06.002"
+      ],
+      "doi": "https://doi.org/10.1016/j.geosus.2023.06.002"
+    },
+    {
+      "id": "paper-36",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "中国生态系统服务平衡及其影响因素：以成渝城市群为例",
+        "en": "Ecosystem services balance and its influencing factors detection in China: A case study in Chengdu-Chongqing urban agglomerations"
+      },
+      "authors": {
+        "zh": "Luo, T., Zeng, J., Chen, W., Wang, Y., Gu, T., & Huang, C.",
+        "en": "Luo, T., Zeng, J., Chen, W., Wang, Y., Gu, T., & Huang, C."
+      },
+      "venue": {
+        "zh": "Ecological Indicators",
+        "en": "Ecological Indicators"
+      },
+      "year": "2023",
+      "reference": "151, 110330",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1016/j.ecolind.2023.110330"
+      ],
+      "doi": "https://doi.org/10.1016/j.ecolind.2023.110330"
+    },
+    {
+      "id": "paper-37",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "全球保护地保护成效评估：生境质量与人类活动视角",
+        "en": "Assessing the conservation effectiveness of the World's protected areas: A habitat quality and human activities perspective"
+      },
+      "authors": {
+        "zh": "Yang, L., Bian, C., Pan, S., Chen, W., Zeng, J., Xu, H., & Gu, T.",
+        "en": "Yang, L., Bian, C., Pan, S., Chen, W., Zeng, J., Xu, H., & Gu, T."
+      },
+      "venue": {
+        "zh": "Journal of Cleaner Production",
+        "en": "Journal of Cleaner Production"
+      },
+      "year": "2023",
+      "reference": "431, 139772",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
+      ]
+    },
+    {
+      "id": "paper-38",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "中国长江流域土地城镇化与生态系统健康的空间关系",
+        "en": "Spatial relationship between land urbanization and ecosystem health in the Yangtze River Basin, China"
+      },
+      "authors": {
+        "zh": "Yang, L., Chen, W., Pan, S., Zeng, J., Yuan, Y., & Gu, T.",
+        "en": "Yang, L., Chen, W., Pan, S., Zeng, J., Yuan, Y., & Gu, T."
+      },
+      "venue": {
+        "zh": "Environmental Monitoring and Assessment",
+        "en": "Environmental Monitoring and Assessment"
+      },
+      "year": "2023",
+      "reference": "195(8), 957",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
+      ]
+    },
+    {
+      "id": "paper-39",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "中国耕地撂荒风险评估与制图",
+        "en": "Assessing and mapping cropland abandonment risk in China"
+      },
+      "authors": {
+        "zh": "Zeng, J., Luo, T., Chen, W., & Gu, T.",
+        "en": "Zeng, J., Luo, T., Chen, W., & Gu, T."
+      },
+      "venue": {
+        "zh": "Land Degradation & Development",
+        "en": "Land Degradation & Development"
+      },
+      "year": "2024",
+      "reference": "35(8), 2738-2753",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1002/ldr.5080"
+      ],
+      "doi": "https://doi.org/10.1002/ldr.5080"
+    },
+    {
+      "id": "paper-40",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "中国长江流域生态系统健康的区域差异及驱动因素",
+        "en": "Regional differences and driving forces of ecosystem health in Yangtze River Basin, China"
+      },
+      "authors": {
+        "zh": "Yang, L., Chen, W., Zeng, J., Pan, S., Zhong, Y., & Gu, T.",
+        "en": "Yang, L., Chen, W., Zeng, J., Pan, S., Zhong, Y., & Gu, T."
+      },
+      "venue": {
+        "zh": "Environmental Science and Pollution Research",
+        "en": "Environmental Science and Pollution Research"
+      },
+      "year": "2023",
+      "reference": "30(27), 70985-71000",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
+      ]
+    },
+    {
+      "id": "paper-41",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "基于FLUS–InVEST模型的北京土地覆被变化与生境质量多情景预测",
+        "en": "Multi–scenario prediction of land cover changes and habitat quality based on the FLUS–InVEST model in Beijing"
+      },
+      "authors": {
+        "zh": "Zhu, X., Wang, Z., Gu, T., & Zhang, Y.",
+        "en": "Zhu, X., Wang, Z., Gu, T., & Zhang, Y."
+      },
+      "venue": {
+        "zh": "Land",
+        "en": "Land"
+      },
+      "year": "2024",
+      "reference": "13(8), 1163",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
+      ]
+    },
+    {
+      "id": "paper-42",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "城市扩展对中国黄河流域城市群碳排放的影响",
+        "en": "Impact of urban expansion on carbon emissions in the urban agglomerations of Yellow River Basin, China"
+      },
+      "authors": {
+        "zh": "Wang, Z., Zeng, Y., Wang, X., Gu, T., & Chen, W.",
+        "en": "Wang, Z., Zeng, Y., Wang, X., Gu, T., & Chen, W."
+      },
+      "venue": {
+        "zh": "Land",
+        "en": "Land"
+      },
+      "year": "2024",
+      "reference": "13(5), 651",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
+      ]
+    },
+    {
+      "id": "paper-43",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "中国耕地爬坡及其影响",
+        "en": "Slope-climbing of cropland and its effects in China"
+      },
+      "authors": {
+        "zh": "Chen, W., Xie, Y., Yuan, J., Zeng, J., Yang, L., Gu, T., & Lei, F.",
+        "en": "Chen, W., Xie, Y., Yuan, J., Zeng, J., Yang, L., Gu, T., & Lei, F."
+      },
+      "venue": {
+        "zh": "Journal of Mountain Science",
+        "en": "Journal of Mountain Science"
+      },
+      "year": "2024",
+      "reference": "21(8), 2754-2769",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1007/s11629-024-8603-2"
+      ],
+      "doi": "https://doi.org/10.1007/s11629-024-8603-2"
+    },
+    {
+      "id": "paper-44",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "双重约束空间规划促进中国沿海蓝碳生态系统的主动扩展",
+        "en": "Dual-constraint spatial planning unlocks proactive blue carbon expansion across China’s coastlines"
+      },
+      "authors": {
+        "zh": "Xu, Y., Gu, T., Xu, F., Xing, L., Chi, G., Qiu, R., He, C., Li, Y., & Huang, Q.",
+        "en": "Xu, Y., Gu, T., Xu, F., Xing, L., Chi, G., Qiu, R., He, C., Li, Y., & Huang, Q."
+      },
+      "venue": {
+        "zh": "Environmental Science and Ecotechnology",
+        "en": "Environmental Science and Ecotechnology"
+      },
+      "year": "2026",
+      "reference": "100771",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1016/j.ese.2026.100771"
+      ],
+      "doi": "https://doi.org/10.1016/j.ese.2026.100771"
+    },
+    {
+      "id": "paper-45",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "三维建筑形态对城市鸟类多样性的影响：中国77座城市的证据",
+        "en": "Investigating the effects of three-dimensional building morphology on urban bird diversity: Evidence from 77 cities in China"
+      },
+      "authors": {
+        "zh": "Zhu, G., Huang, Q., Zhang, Z., Li, Z., Hou, Y., Gu, T., & Wang, W.",
+        "en": "Zhu, G., Huang, Q., Zhang, Z., Li, Z., Hou, Y., Gu, T., & Wang, W."
+      },
+      "venue": {
+        "zh": "Avian Research",
+        "en": "Avian Research"
+      },
+      "year": "2026",
+      "reference": "100427",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1016/j.avrs.2026.100427"
+      ],
+      "doi": "https://doi.org/10.1016/j.avrs.2026.100427"
+    },
+    {
+      "id": "paper-46",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "基于倾向得分匹配与双重差分方法评估中国1399个保护地的双重效应",
+        "en": "Evaluating the dual effects of 1,399 protected areas in China leveraging propensity score matching and difference in differences methods"
+      },
+      "authors": {
+        "zh": "Xie, Y., Gu, T., Zhang, S., Wang, W., Ren, Q., & Huang, Q.",
+        "en": "Xie, Y., Gu, T., Zhang, S., Wang, W., Ren, Q., & Huang, Q."
+      },
+      "venue": {
+        "zh": "International Journal of Sustainable Development & World Ecology",
+        "en": "International Journal of Sustainable Development & World Ecology"
+      },
+      "year": "2026",
+      "reference": "1-22",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
+      ]
+    },
+    {
+      "id": "paper-47",
+      "category": "first",
+      "status": "published",
+      "title": {
+        "zh": "中国以人为本的城镇化是否赶上了土地和人口城镇化？",
+        "en": "Do people-oriented urbanization catch up with land and population urbanization in China?"
+      },
+      "authors": {
+        "zh": "Gu, T., Huang, Q., & Hou, Y.",
+        "en": "Gu, T., Huang, Q., & Hou, Y."
+      },
+      "venue": {
+        "zh": "EGU General Assembly Conference Abstracts",
+        "en": "EGU General Assembly Conference Abstracts"
+      },
+      "year": "2025",
+      "reference": "EGU25-6392",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "第一作者",
+        "en": "First author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://meetingorganizer.copernicus.org/EGU25/EGU25-6392.html"
+      ],
+      "kind": "conference",
+      "doi": "https://doi.org/10.5194/egusphere-egu25-6392"
+    },
+    {
+      "id": "paper-48",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "全球城市扩展的时空动态：二维城市面积与三维建筑体积的证据",
+        "en": "The spatiotemporal dynamics of global urban expansion: Evidence from 2D urban area and 3D urban building volume"
+      },
+      "authors": {
+        "zh": "Hou, Y., Huang, Q., Gu, T., & Zhu, G.",
+        "en": "Hou, Y., Huang, Q., Gu, T., & Zhu, G."
+      },
+      "venue": {
+        "zh": "EGU General Assembly Conference Abstracts",
+        "en": "EGU General Assembly Conference Abstracts"
+      },
+      "year": "2025",
+      "reference": "EGU25-5566",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "en",
+      "sources": [
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://meetingorganizer.copernicus.org/EGU25/EGU25-5566.html"
+      ],
+      "kind": "conference",
+      "doi": "https://doi.org/10.5194/egusphere-egu25-5566"
+    },
+    {
+      "id": "paper-49",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "长江经济带三大城市群新型城镇化耦合协调时空特征研究",
+        "en": "Spatiotemporal patterns of coupling coordination in new-type urbanization across the three major urban agglomerations of the Yangtze River Economic Belt"
+      },
+      "authors": {
+        "zh": "刘培文, 陈万旭, 谷天赐, 刘晴晴, 颜美美, 潘思佩, 曾杰, 刘志玲",
+        "en": "Liu, P., Chen, W., Gu, T., Liu, Q., Yan, M., Pan, S., Zeng, J., & Liu, Z."
+      },
+      "venue": {
+        "zh": "资源开发与市场",
+        "en": "Resource Development & Market"
+      },
+      "year": "2026",
+      "reference": "42(07), 1026-1036",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "zh",
+      "doi": "https://ztkb.cbpt.cnki.net/portal/journal/portal/client/paper/d4c5afb353534711bd8c93967b0de2c2",
+      "sources": [
+        "https://ztkb.cbpt.cnki.net/portal/journal/portal/client/paper/d4c5afb353534711bd8c93967b0de2c2"
+      ]
+    },
+    {
+      "id": "paper-50",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "长江经济带三大城市群国土空间利用效率耦合协调研究",
+        "en": "Coupling coordination of territorial space utilization efficiency across the three major urban agglomerations of the Yangtze River Economic Belt"
+      },
+      "authors": {
+        "zh": "颜美美, 陈万旭, 谷天赐, 刘晴晴, 刘培文, 潘思佩, 曾杰, 刘志玲",
+        "en": "Yan, M., Chen, W., Gu, T., Liu, Q., Liu, P., Pan, S., Zeng, J., & Liu, Z."
+      },
+      "venue": {
+        "zh": "长江流域资源与环境",
+        "en": "Resources and Environment in the Yangtze Basin"
+      },
+      "year": "2026",
+      "reference": "",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "zh"
+    },
+    {
+      "id": "paper-51",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "全球生态系统健康时空演变规律及其驱动机制",
+        "en": "Spatiotemporal evolution patterns and driving mechanisms of global ecosystem health"
+      },
+      "authors": {
+        "zh": "袁杨皓玥, 陈万旭, 曾杰, 谷天赐",
+        "en": "Yuan, Y., Chen, W., Zeng, J., & Gu, T."
+      },
+      "venue": {
+        "zh": "地理研究",
+        "en": "Geographical Research"
+      },
+      "year": "2025",
+      "reference": "(10), 2626-2642",
+      "metadata": {
+        "zh": "",
+        "en": ""
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "originalLanguage": "zh",
+      "doi": "https://doi.org/10.11821/dlyj020240317",
+      "sources": [
+        "https://doi.org/10.11821/dlyj020240317"
+      ]
     }
   ],
   "projects": [

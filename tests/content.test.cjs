@@ -7,7 +7,7 @@ const content = JSON.parse(fs.readFileSync(path.join(root, 'assets/content.json'
 
 test('the complete resume collections are present', () => {
   assert.equal(content.education.length, 3);
-  assert.equal(content.publications.length, 27);
+  assert.equal(content.publications.length, 48);
   assert.equal(content.projects.length, 15);
   assert.equal(content.awards.length, 23);
   assert.equal(content.skills.length, 5);
@@ -31,9 +31,25 @@ test('every bilingual value has both Chinese and English text', () => {
 test('only approved publication records are included in public data', () => {
   assert.equal(content.publications.filter((p) => p.status === 'review').length, 0);
   assert.equal(content.publications.filter((p) => p.status === 'accepted').length, 1);
-  assert.equal(content.publications.filter((p) => p.status === 'published').length, 26);
-  assert(!content.publications.some((p) => ['paper-4','paper-5','paper-6','paper-7'].includes(p.id)));
+  assert.equal(content.publications.filter((p) => p.status === 'published').length, 47);
+  assert(!content.publications.some((p) => ['paper-4','paper-5','paper-6'].includes(p.id)));
+  assert(content.publications.some((p) => p.id === 'paper-7' && p.status === 'published'));
   assert(content.publications.every((p) => ['published','accepted'].includes(p.status)));
+});
+
+test('the supplied complete list is deduplicated and the selected set is exact', () => {
+  const normalized = content.publications.map((p) => p.title.en.toLowerCase().replace(/[^a-z0-9]/g, ''));
+  assert.equal(new Set(normalized).size, 48);
+  assert.equal(new Set(content.publications.map((p) => p.id)).size, 48);
+  assert.deepEqual(content.publications.filter((p) => p.selected).map((p) => p.id),
+    [1,2,3,9,10,12,16,17,18,19,20].map((id) => 'paper-' + id));
+  const abstracts = content.publications.filter((p) => p.kind === 'conference');
+  assert.equal(abstracts.length, 2);
+  assert.deepEqual(abstracts.map((p) => p.reference), ['EGU25-6392','EGU25-5566']);
+  assert(abstracts.every((p) => p.doi.startsWith('https://doi.org/10.5194/egusphere-')));
+  for (const title of ['长江经济带三大城市群新型城镇化耦合协调时空特征研究','长江经济带三大城市群国土空间利用效率耦合协调研究','全球生态系统健康时空演变规律及其驱动机制','基于谷歌地球引擎平台的中国城市环境质量分区和分规模动态评估']) {
+    assert.equal(content.publications.filter((p) => p.title.zh === title).length, 1);
+  }
 });
 
 test('the latest academic and project values have been preserved', () => {
