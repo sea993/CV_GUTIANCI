@@ -6,7 +6,7 @@ const root = path.resolve(__dirname, '..');
 const base = process.env.SITE_URL || 'http://127.0.0.1:8765/';
 const screenshots = path.join(root, 'temp', 'blue-review');
 fs.mkdirSync(screenshots, {recursive:true});
-const routes = {about:'index.html',education:'education.html',publications:'publications.html',projects:'projects.html',awards:'awards.html',service:'service.html',cv:'cv.html'};
+const routes = {about:'index.html',publications:'publications.html',projects:'projects.html',awards:'awards.html',service:'service.html',cv:'cv.html'};
 
 (async () => {
   const browser = await chromium.launch({headless:true, ...(process.env.BROWSER_CHANNEL ? {channel:process.env.BROWSER_CHANNEL} : {})});
@@ -75,6 +75,8 @@ const routes = {about:'index.html',education:'education.html',publications:'publ
 
     await go('cv');
     check(await page.locator('#publication-list .research-figure').count() === 0, 'Research thumbnails were included in the printable CV');
+    check(await page.locator('.education-item').count() === 3, 'Education is incomplete in the CV');
+    check(await page.locator('#education .page-lead').innerText().then(value=>value.trim().length>0), 'The education summary was lost from the CV');
     check(await page.locator('.education-scores').count() === 3, 'Education scores were lost from the CV');
     check(await page.locator('#skill-list dt').count() === 5, 'Concise skills are missing from the CV');
     check((await page.locator('#metrics').innerText()).includes('1,169') && (await page.locator('#metrics').innerText()).includes('1,165'), 'Citation counts are incorrect');
@@ -116,18 +118,17 @@ const routes = {about:'index.html',education:'education.html',publications:'publ
           check(await page.locator('footer,#updated-label').count() === 0, 'Footer remains');
           check(await page.locator('#main > section').count() === (key==='cv'?7:1), 'Independent page contains other sections: '+key);
           check(await page.locator('h1').count() === 1, 'Multiple primary headings: '+key);
-          if (['education','publications','projects','awards','service'].includes(key)) {
+          if (['publications','projects','awards','service'].includes(key)) {
             check(await page.locator('.page-title + .page-lead').count()===1, 'The page summary is not immediately below the title: '+key);
             check(await page.locator('.page-lead').innerText().then(value=>value.trim().length>0), 'The page summary is empty: '+key+' '+language);
           }
           check(await page.evaluate(()=>[...document.querySelectorAll('script[src]')].every(script=>new URL(script.src).searchParams.get('v')===document.body.dataset.assetVersion)), 'Shared scripts are not versioned consistently: '+key);
           check(await page.locator('#site-nav [aria-current="page"]').getAttribute('data-page-link') === key, 'Active navigation is incorrect: '+key);
-          check(await page.locator('#site-nav [data-page-link="skills"]').count() === 0, 'Skills remains in navigation');
+          check(await page.locator('#site-nav [data-page-link="skills"],#site-nav [data-page-link="education"]').count() === 0, 'A CV section remains in navigation');
           check(!/我|本人|\b(?:I|my|myself|we|our)\b/i.test(body), 'First-person copy remains: '+key);
           check(!body.includes('gutc@cug.edu.cn'), 'Old email remains: '+key);
           check(await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()==='#004da3'), 'The logo blue is incorrect');
           check(await page.evaluate(()=>[...document.querySelectorAll('.portrait-block,.education-item,.service-entry,.metrics-table th,.metrics-table td')].every(el=>parseFloat(getComputedStyle(el).borderLeftWidth)===0&&parseFloat(getComputedStyle(el).borderRightWidth)===0)), 'Decorative vertical rules remain');
-          if (key==='education') check(await page.locator('.education-item').count()===3 && await page.locator('.education-scores').count()===0,'Education page includes scores or omits education');
           if (key==='publications' || key==='cv') {
             check(await page.locator('.publication').count()===27,'Publications missing');
             check(await page.locator('.publication[data-status="review"],#paper-4,#paper-5,#paper-6,#paper-7').count()===0,'Withdrawn papers remain visible');
@@ -140,7 +141,7 @@ const routes = {about:'index.html',education:'education.html',publications:'publ
             check(await page.locator('.service-entry').count()===12,'Service entries missing');
             check((await page.locator('.policy-list').innerText()).includes('·') && !body.includes('政策建议成果：'),'Policy entry has incorrect formatting');
           }
-          if (width===1280) await page.screenshot({path:path.join(screenshots,key+'-'+language+'-desktop.png'),fullPage:['about','education','awards','service'].includes(key)});
+          if (width===1280) await page.screenshot({path:path.join(screenshots,key+'-'+language+'-desktop.png'),fullPage:['about','awards','service'].includes(key)});
           if (width===390) await page.screenshot({path:path.join(screenshots,key+'-'+language+'-mobile.png'),fullPage:key==='about'});
           if (width===1280 && key==='service' && language==='zh') await page.locator('.service-group').filter({has:page.locator('.policy-list')}).screenshot({path:path.join(screenshots,'policy-zh.png')});
         }
@@ -149,8 +150,23 @@ const routes = {about:'index.html',education:'education.html',publications:'publ
     await go('about','en');
     await page.locator('.menu-button').click();
     check(await page.locator('#site-nav').isVisible(),'Mobile menu did not open');
-    await page.locator('#site-nav [data-page-link="education"]').click();
+    await page.locator('#site-nav [data-page-link="cv"]').click();
     check(await page.locator('.menu-button').getAttribute('aria-expanded')==='false','Mobile menu did not close');
+    for (const width of [1280,390]) {
+      await page.setViewportSize({width,height:1000});
+      for (const language of ['zh','en']) {
+        for (const legacyPath of ['education.html?lang='+language, '?lang='+language+'#education']) {
+          await page.goto(new URL(legacyPath,base).href,{waitUntil:'load'});
+          await page.waitForURL(url=>url.pathname.endsWith('/cv.html')&&url.searchParams.get('lang')===language&&url.hash==='#education');
+          check(await page.locator('.education-item').count()===3,'The legacy education link lost education records');
+          check(await page.locator('html').getAttribute('lang')===(language==='zh'?'zh-CN':'en'),'The education redirect lost the language');
+          check(await page.locator('#site-nav [aria-current="page"]').getAttribute('data-page-link')==='cv','The education redirect did not activate the CV navigation');
+          check(new URL(page.url()).searchParams.get('v')===await page.locator('body').getAttribute('data-asset-version'),'The education redirect did not update the asset version');
+          check(await page.evaluate(()=>document.querySelector('#education-title').getBoundingClientRect().top>=document.querySelector('.site-header').getBoundingClientRect().bottom&&document.querySelector('#education-title').getBoundingClientRect().bottom<innerHeight),'The education heading is hidden after redirect');
+        }
+        await page.screenshot({path:path.join(screenshots,'education-in-cv-'+language+'-'+width+'.png')});
+      }
+    }
     await page.goto(new URL('skills.html?lang=en',base).href,{waitUntil:'load'});
     await page.waitForURL(url=>url.pathname.endsWith('/cv.html')&&url.searchParams.get('lang')==='en'&&url.hash==='#skills');
     check(await page.locator('#skill-list dt').count()===5,'Legacy skills route did not redirect to CV');

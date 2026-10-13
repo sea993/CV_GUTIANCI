@@ -16,13 +16,14 @@
     try { if (localStorage.getItem('cv-language') === 'en') language = 'en'; } catch (_) { /* Storage is optional. */ }
   }
   try { localStorage.setItem('cv-language', language); } catch (_) { /* Storage is optional. */ }
-  if (currentPage === 'skills') {
-    window.location.replace('cv.html?lang=' + language + '&v=' + assetVersion + '#skills');
+  if (currentPage === 'education' || currentPage === 'skills') {
+    window.location.replace('cv.html?lang=' + language + '&v=' + assetVersion + '#' + currentPage);
     return;
   }
   const legacySection = window.location.hash.slice(1);
   if (currentPage === 'about' && Object.hasOwn(routes, legacySection) && legacySection !== 'about') {
-    window.location.replace(routes[legacySection] + '?lang=' + language + '&v=' + assetVersion);
+    const inCV = legacySection === 'education' || legacySection === 'skills';
+    window.location.replace((inCV ? routes.cv : routes[legacySection]) + '?lang=' + language + '&v=' + assetVersion + (inCV ? '#' + legacySection : ''));
     return;
   }
   let filter = 'all';

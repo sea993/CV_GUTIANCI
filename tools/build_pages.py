@@ -83,16 +83,20 @@ for key, (filename, title) in PAGES.items():
         f'<a href="{name}" data-page-link="{route}" data-i18n="{route}"'
         + (' aria-current="page"' if route == key else '')
         + f'>{label}</a>'
-        for route, (name, label) in PAGES.items() if route != 'skills'
+        for route, (name, label) in PAGES.items() if route not in {'education', 'skills'}
     )
     cv_sections = [
         value.replace('<h1 class="page-title"', '<h2 class="page-title"').replace('</h1>', '</h2>')
         for value in SECTIONS.values()
     ]
     body = HOME if key == 'about' else ''.join([CV_ABOUT, *cv_sections]) if key == 'cv' else SECTIONS[key]
+    if key == 'education':
+        body = f'''<section class="content-section"><h1 class="page-title">教育经历 Education</h1>
+          <p><a href="cv.html?lang=zh&amp;v={ASSET_VERSION}#education">在完整简历中查看教育经历</a></p>
+          <p lang="en"><a href="cv.html?lang=en&amp;v={ASSET_VERSION}#education">View education in the full CV</a></p></section>'''
     if key == 'cv':
         body = f'<div class="print-actions"><a href="assets/tianci-gu-cv.docx?v={ASSET_VERSION}" download data-i18n="downloadCv">下载Word简历</a><button type="button" id="print-cv" data-i18n="print">打印或保存PDF</button></div>' + body
-    canonical = 'https://sea993.github.io/CV_GUTIANCI/' + ('' if key == 'about' else filename)
+    canonical = 'https://sea993.github.io/CV_GUTIANCI/' + ('' if key == 'about' else 'cv.html' if key == 'education' else filename)
     html = f'''<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -130,4 +134,4 @@ for key, (filename, title) in PAGES.items():
 </html>
 '''
     (ROOT / filename).write_text(html, encoding='utf-8')
-print(f'Generated {len(PAGES)} pages, including the legacy skills redirect.')
+print(f'Generated {len(PAGES)} pages, including the legacy education and skills redirects.')

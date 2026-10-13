@@ -7,7 +7,7 @@
 ## 功能
 
 - 中文和English切换，语言选择保存在浏览器，并支持`?lang=en`直达。
-- 个人简介、教育经历、学术成果、科研项目、奖励荣誉及经历与服务分别使用独立页面。首页采用照片与联系信息侧栏、分段介绍、研究兴趣及近期动态。五个栏目在标题下显示一条概括核心两点的主旨句，详细指标、教育成绩和简写的研究技能集中在`cv.html`。
+- 个人简介、学术成果、科研项目、奖励荣誉及经历与服务分别使用独立页面。教育经历合并在`cv.html`的个人简介之后，不再单设导航栏目。首页采用照片与联系信息侧栏、分段介绍、研究兴趣及近期动态。教育经历及其他四个栏目在标题下显示一条概括核心两点的主旨句，详细指标、教育成绩和简写的研究技能集中在完整简历中。
 - 完整的教育经历、27条公开论文记录、15项科研项目、23项奖励、研究技能及经历与服务。
 - 论文按作者角色或发表状态筛选，并可检索中英文题名、作者和期刊。
 - Word简历下载；打印或保存当前语言的完整简历为PDF。网页和下载副本的邮箱统一为`gutc@mail.bnu.edu.cn`。
@@ -32,13 +32,13 @@
 
 官方名称核对参考：[第九届研究生学术能力竞赛及二等奖名单](https://geo.bnu.edu.cn/xwzx/5c952ac9b7264176ba3bf575afb67eea.html)、[地理科学学部第五届微党课大赛](https://geo.bnu.edu.cn/xwzx/79291516e7184292a8e555700ae85de8.html)、[2025年学术年会通知中的个人简介](https://geo.bnu.edu.cn/tzgg/5480204dbde34811ad1b1cc280ff4a01.html)。微党课公告用于核对赛事名称，获奖等级沿用用户简历；未查到个人公开获奖记录的条目也沿用简历，不推测等级或年份。
 
-页面共用`assets/app.js`及`assets/style.css`。修改共同页面结构后，运行`python tools/build_pages.py`重新生成HTML文件。原来的栏目书签（如`?lang=zh#projects`）会转到对应独立页面，旧的`skills.html`会转到完整简历中的技能部分。
+页面共用`assets/app.js`及`assets/style.css`。修改共同页面结构后，运行`python tools/build_pages.py`重新生成HTML文件。原来的栏目书签（如`?lang=zh#projects`）会转到对应独立页面；旧的`education.html`及`?lang=zh#education`会转到完整简历中的教育经历，`skills.html`会转到技能部分，均保留所选语言。
 
 ## 本地预览
 
 在项目文件夹运行`python -m http.server 8765 --bind 127.0.0.1`，然后访问 http://127.0.0.1:8765/ 。网站不需要安装前端依赖或进行框架构建。
 
-内容检查：`node --test tests/content.test.cjs`。浏览器检查：在本地预览运行时，使用安装了Playwright的Node环境运行`node tests/browser_smoke.cjs`；可通过`PLAYWRIGHT_MODULE_PATH`指定模块位置，通过`BROWSER_CHANNEL=msedge`使用Microsoft Edge。检查覆盖七个页面、中英文、论文检索、简历下载、打印、旧链接转跳及六种屏幕宽度。
+内容检查：`node --test tests/content.test.cjs`。浏览器检查：在本地预览运行时，使用安装了Playwright的Node环境运行`node tests/browser_smoke.cjs`；可通过`PLAYWRIGHT_MODULE_PATH`指定模块位置，通过`BROWSER_CHANNEL=msedge`使用Microsoft Edge。检查覆盖六个页面、中英文、论文检索、简历下载、打印、旧链接转跳及六种屏幕宽度。
 
 ## GitHub Pages设置
 
