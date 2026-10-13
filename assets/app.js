@@ -199,7 +199,7 @@
     document.title = localized(content.profile.name) + ' ' + text(currentPage);
     document.querySelectorAll('[data-i18n]').forEach((element) => { element.textContent = text(element.dataset.i18n); });
     document.querySelectorAll('[data-page-summary]').forEach((element) => { element.textContent = localized(content.pageSummaries[element.dataset.pageSummary]); });
-    document.querySelectorAll('[data-profile-name]').forEach((element) => { element.textContent = localized(content.profile.name); });
+    document.querySelectorAll('[data-profile-name]').forEach((element) => { element.textContent = content.profile.name[element.dataset.profileName]; });
     document.querySelectorAll('[data-language]').forEach((button) => { button.setAttribute('aria-pressed', String(button.dataset.language === language)); });
     document.querySelectorAll('[data-page-link]').forEach((link) => { link.href = routes[link.dataset.pageLink] + '?lang=' + language + '&v=' + assetVersion; });
     document.querySelectorAll('[data-email]').forEach((link) => { link.href = 'mailto:' + content.profile.email; link.querySelector('span').textContent = content.profile.email; });

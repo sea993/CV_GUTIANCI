@@ -151,7 +151,7 @@ for key, (filename, title) in PAGES.items():
   <a class="skip-link" href="#main" data-i18n="skip">跳到正文</a>
   <header class="site-header">
     <div class="header-inner">
-      <a class="wordmark" href="index.html" data-page-link="about" data-profile-name>谷天赐</a>
+      <a class="wordmark" href="index.html" data-page-link="about"><span lang="zh-CN" data-profile-name="zh">谷天赐</span><span class="wordmark-en" lang="en" data-profile-name="en">Tianci Gu</span></a>
       <div class="header-controls">
         <div class="language-switch" role="group" aria-label="语言选择 Language selection">
           <button type="button" data-language="zh" aria-pressed="true">中文</button>
