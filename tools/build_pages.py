@@ -3,6 +3,8 @@ from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+# GitHub Pages caches shared resources. Change their URLs when an asset changes.
+ASSET_VERSION = str(max(path.stat().st_mtime_ns for path in (ROOT / 'assets').rglob('*') if path.is_file()))
 PAGES = {
     'about': ('index.html', '个人简介'),
     'education': ('education.html', '教育经历'),
@@ -88,7 +90,7 @@ for key, (filename, title) in PAGES.items():
     ]
     body = HOME if key == 'about' else ''.join([CV_ABOUT, *cv_sections]) if key == 'cv' else SECTIONS[key]
     if key == 'cv':
-        body = '<div class="print-actions"><a href="assets/tianci-gu-cv.docx" download data-i18n="downloadCv">下载Word简历</a><button type="button" id="print-cv" data-i18n="print">打印或保存PDF</button></div>' + body
+        body = f'<div class="print-actions"><a href="assets/tianci-gu-cv.docx?v={ASSET_VERSION}" download data-i18n="downloadCv">下载Word简历</a><button type="button" id="print-cv" data-i18n="print">打印或保存PDF</button></div>' + body
     canonical = 'https://sea993.github.io/CV_GUTIANCI/' + ('' if key == 'about' else filename)
     html = f'''<!doctype html>
 <html lang="zh-CN">
@@ -102,12 +104,12 @@ for key, (filename, title) in PAGES.items():
   <meta property="og:type" content="website">
   <link rel="canonical" href="{canonical}">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v={ASSET_VERSION}">
   <title>谷天赐 {escape(title)}</title>
-  <script src="assets/content.js" defer></script>
-  <script src="assets/app.js" defer></script>
+  <script src="assets/content.js?v={ASSET_VERSION}" defer></script>
+  <script src="assets/app.js?v={ASSET_VERSION}" defer></script>
 </head>
-<body data-page="{key}">
+<body data-page="{key}" data-asset-version="{ASSET_VERSION}">
   <a class="skip-link" href="#main" data-i18n="skip">跳到正文</a>
   <header class="site-header">
     <div class="header-inner">
@@ -122,7 +124,7 @@ for key, (filename, title) in PAGES.items():
     </div>
     <nav class="site-nav" id="site-nav" aria-label="主要导航">{nav}</nav>
   </header>
-  <main id="main" class="page-shell">{body}<noscript><p>请开启JavaScript浏览网站内容，或<a href="assets/tianci-gu-cv.docx">下载Word简历</a>。 Enable JavaScript to browse this site, or download the CV.</p></noscript></main>
+  <main id="main" class="page-shell">{body}<noscript><p>请开启JavaScript浏览网站内容，或<a href="assets/tianci-gu-cv.docx?v={ASSET_VERSION}">下载Word简历</a>。 Enable JavaScript to browse this site, or download the CV.</p></noscript></main>
 </body>
 </html>
 '''

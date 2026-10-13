@@ -3,6 +3,7 @@
   'use strict';
   const content = window.CV_CONTENT;
   const currentPage = document.body.dataset.page || 'about';
+  const assetVersion = document.body.dataset.assetVersion;
   const routes = {about:'index.html',education:'education.html',publications:'publications.html',projects:'projects.html',awards:'awards.html',skills:'skills.html',service:'service.html',cv:'cv.html'};
   const strings = {
     zh: {skip:'跳到正文',menu:'菜单',about:'个人简介',education:'教育经历',publications:'学术成果',projects:'科研项目',awards:'奖励荣誉',skills:'研究技能',service:'经历与服务',cv:'完整简历',downloadCv:'下载Word简历',print:'打印或保存PDF',personal:'个人信息',search:'检索论文',searchPlaceholder:'检索题名、作者或期刊',empty:'没有符合条件的论文。请尝试其他关键词或分类。',footerAffiliation:'北京师范大学地理科学学部',birth:'出生年月',hometown:'籍贯',membership:'政治面貌',phone:'手机号',rank:'成绩排名',gpa:'平均绩点',advisors:'导师',contribution:'谷天赐的贡献',patents:'专利',published:'已发表',accepted:'已录用',review:'在审',all:'全部',first:'第一及共同第一作者',corresponding:'通讯及共同通讯作者',second:'导师一作、谷天赐二作',collaborative:'其他合作论文',updated:'2026年10月更新',academicMetrics:'学术指标',metric:'指标',total:'总计',since2021:'2021年至今',researchDirection:'研究方向',researchInterests:'研究兴趣',recentNews:'近期动态'},
@@ -16,12 +17,12 @@
   }
   try { localStorage.setItem('cv-language', language); } catch (_) { /* Storage is optional. */ }
   if (currentPage === 'skills') {
-    window.location.replace('cv.html?lang=' + language + '#skills');
+    window.location.replace('cv.html?lang=' + language + '&v=' + assetVersion + '#skills');
     return;
   }
   const legacySection = window.location.hash.slice(1);
   if (currentPage === 'about' && Object.hasOwn(routes, legacySection) && legacySection !== 'about') {
-    window.location.replace(routes[legacySection] + '?lang=' + language);
+    window.location.replace(routes[legacySection] + '?lang=' + language + '&v=' + assetVersion);
     return;
   }
   let filter = 'all';
@@ -170,7 +171,7 @@
     document.querySelectorAll('[data-i18n]').forEach((element) => { element.textContent = text(element.dataset.i18n); });
     document.querySelectorAll('[data-profile-name]').forEach((element) => { element.textContent = localized(content.profile.name); });
     document.querySelectorAll('[data-language]').forEach((button) => { button.setAttribute('aria-pressed', String(button.dataset.language === language)); });
-    document.querySelectorAll('[data-page-link]').forEach((link) => { link.href = routes[link.dataset.pageLink] + '?lang=' + language; });
+    document.querySelectorAll('[data-page-link]').forEach((link) => { link.href = routes[link.dataset.pageLink] + '?lang=' + language + '&v=' + assetVersion; });
     document.querySelectorAll('[data-email]').forEach((link) => { link.href = 'mailto:' + content.profile.email; link.querySelector('span').textContent = content.profile.email; });
     byId('site-nav').setAttribute('aria-label', language === 'zh' ? '主要导航' : 'Main navigation');
     renderProfile();

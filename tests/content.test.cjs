@@ -73,7 +73,7 @@ test('browser data is synchronized with the editable content file', () => {
 test('independent pages and their assets work under a GitHub project path', () => {
   for (const name of ['index','education','publications','projects','awards','skills','service','cv']) {
   const html = fs.readFileSync(path.join(root, name + '.html'), 'utf8');
-  for (const match of html.matchAll(/(?:src|href)="(assets\/[^"?#]+)"/g)) {
+  for (const match of html.matchAll(/(?:src|href)="(assets\/[^"?#]+)(?:[?#][^"]*)?"/g)) {
     assert(fs.existsSync(path.join(root, match[1])), `Missing ${match[1]}`);
     assert(new URL(match[1], 'https://sea993.github.io/CV_GUTIANCI/').pathname.startsWith('/CV_GUTIANCI/'));
   }

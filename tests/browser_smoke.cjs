@@ -42,6 +42,7 @@ const routes = {about:'index.html',education:'education.html',publications:'publ
     check(await page.locator('#home-featured img').getAttribute('alt').then(value=>value.includes('Graphical abstract')), 'The research image lacks English alternative text');
     await page.locator('#site-nav [data-page-link="projects"]').click();
     check(new URL(page.url()).pathname.endsWith('/projects.html') && new URL(page.url()).searchParams.get('lang')==='en', 'Navigation did not retain language');
+    check(new URL(page.url()).searchParams.has('v'), 'Navigation can reuse a stale cached page');
     check((await page.locator('#project-list').innerText()).includes('Projects led'), 'Projects led was changed');
     check(!(await page.locator('#project-list').innerText()).includes('Responsibilities:'), 'Verbose project responsibilities remain on the project page');
 
@@ -111,6 +112,7 @@ const routes = {about:'index.html',education:'education.html',publications:'publ
           check(await page.locator('footer,#updated-label').count() === 0, 'Footer remains');
           check(await page.locator('#main > section').count() === (key==='cv'?7:1), 'Independent page contains other sections: '+key);
           check(await page.locator('h1').count() === 1, 'Multiple primary headings: '+key);
+          check(await page.evaluate(()=>[...document.querySelectorAll('script[src]')].every(script=>new URL(script.src).searchParams.get('v')===document.body.dataset.assetVersion)), 'Shared scripts are not versioned consistently: '+key);
           check(await page.locator('#site-nav [aria-current="page"]').getAttribute('data-page-link') === key, 'Active navigation is incorrect: '+key);
           check(await page.locator('#site-nav [data-page-link="skills"]').count() === 0, 'Skills remains in navigation');
           check(!/我|本人|\b(?:I|my|myself|we|our)\b/i.test(body), 'First-person copy remains: '+key);
@@ -142,10 +144,10 @@ const routes = {about:'index.html',education:'education.html',publications:'publ
     await page.locator('#site-nav [data-page-link="education"]').click();
     check(await page.locator('.menu-button').getAttribute('aria-expanded')==='false','Mobile menu did not close');
     await page.goto(new URL('skills.html?lang=en',base).href,{waitUntil:'load'});
-    await page.waitForURL('**/cv.html?lang=en#skills');
+    await page.waitForURL(url=>url.pathname.endsWith('/cv.html')&&url.searchParams.get('lang')==='en'&&url.hash==='#skills');
     check(await page.locator('#skill-list dt').count()===5,'Legacy skills route did not redirect to CV');
     await page.goto(new URL('?lang=zh#projects',base).href,{waitUntil:'load'});
-    await page.waitForURL('**/projects.html?lang=zh');
+    await page.waitForURL(url=>url.pathname.endsWith('/projects.html')&&url.searchParams.get('lang')==='zh');
     check(await page.locator('#project-list li').count()===15,'Legacy project route did not redirect');
     check(errors.length===0,'JavaScript errors: '+errors.join('; '));
     check(failedRequests.length===0,'Failed requests: '+failedRequests.join('; '));

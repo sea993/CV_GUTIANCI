@@ -16,7 +16,7 @@
 ## 更新内容
 
 1. 编辑`assets/content.json`里的`zh`（中文）和`en`（英文）内容。
-2. 运行`python tools/sync_content.py`，同步浏览器使用的内容。
+2. 运行`python tools/sync_content.py`，再运行`python tools/build_pages.py`，同步浏览器内容和共享资源版本。页面导航、脚本及下载地址带有版本参数，避免浏览器沿用撤下条目前的旧缓存。
 3. 更新照片时替换`assets/portrait.jpeg`；更新下载文件时替换`assets/tianci-gu-cv.docx`。
 4. 提交并推送到`main`，GitHub Pages自动更新。
 
