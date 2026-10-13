@@ -622,7 +622,11 @@ window.CV_CONTENT = {
       "sourceIndices": [
         40
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1007/s10661-025-13720-4",
+      "sources": [
+        "https://api.crossref.org/works/10.1007/s10661-025-13720-4"
+      ]
     },
     {
       "id": "paper-15",
@@ -840,7 +844,12 @@ window.CV_CONTENT = {
         52
       ],
       "originalLanguage": "zh",
-      "selected": true
+      "selected": true,
+      "doiNote": {
+        "zh": "DOI待补充",
+        "en": "DOI pending"
+      },
+      "searchUrl": "https://scholar.google.com/scholar?q=%E5%9F%8E%E5%B8%82%E5%8C%96%E5%BD%B1%E5%93%8D%E7%94%9F%E7%89%A9%E5%A4%9A%E6%A0%B7%E6%80%A7%E7%9A%84%E8%B7%AF%E5%BE%84%E7%A0%94%E7%A9%B6%E7%BB%BC%E8%BF%B0%E2%80%94%E2%80%94%E7%9B%B4%E6%8E%A5%E3%80%81%E8%BF%91%E7%A8%8B%E9%97%B4%E6%8E%A5%E4%B8%8E%E8%BF%9C%E7%A8%8B%E9%97%B4%E6%8E%A5%E5%BD%B1%E5%93%8D"
     },
     {
       "id": "paper-21",
@@ -1037,7 +1046,11 @@ window.CV_CONTENT = {
       "sourceIndices": [
         59
       ],
-      "originalLanguage": "zh"
+      "originalLanguage": "zh",
+      "doi": "https://doi.org/10.6043/j.issn.0438-0479.202410007",
+      "sources": [
+        "https://doi.org/api/handles/10.6043/j.issn.0438-0479.202410007"
+      ]
     },
     {
       "id": "paper-27",
@@ -1201,7 +1214,11 @@ window.CV_CONTENT = {
       "sourceIndices": [
         64
       ],
-      "originalLanguage": "en"
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1016/j.ecolind.2024.112422",
+      "sources": [
+        "https://api.crossref.org/works/10.1016/j.ecolind.2024.112422"
+      ]
     },
     {
       "id": "paper-32",
@@ -1231,8 +1248,10 @@ window.CV_CONTENT = {
       },
       "originalLanguage": "en",
       "sources": [
-        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
-      ]
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1016/j.eiar.2023.107182"
+      ],
+      "doi": "https://doi.org/10.1016/j.eiar.2023.107182"
     },
     {
       "id": "paper-33",
@@ -1394,8 +1413,10 @@ window.CV_CONTENT = {
       },
       "originalLanguage": "en",
       "sources": [
-        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
-      ]
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1016/j.jclepro.2023.139772"
+      ],
+      "doi": "https://doi.org/10.1016/j.jclepro.2023.139772"
     },
     {
       "id": "paper-38",
@@ -1425,8 +1446,10 @@ window.CV_CONTENT = {
       },
       "originalLanguage": "en",
       "sources": [
-        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
-      ]
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1007/s10661-023-11563-5"
+      ],
+      "doi": "https://doi.org/10.1007/s10661-023-11563-5"
     },
     {
       "id": "paper-39",
@@ -1489,8 +1512,10 @@ window.CV_CONTENT = {
       },
       "originalLanguage": "en",
       "sources": [
-        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
-      ]
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1007/s11356-023-27230-8"
+      ],
+      "doi": "https://doi.org/10.1007/s11356-023-27230-8"
     },
     {
       "id": "paper-41",
@@ -1520,8 +1545,10 @@ window.CV_CONTENT = {
       },
       "originalLanguage": "en",
       "sources": [
-        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
-      ]
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.3390/land13081163"
+      ],
+      "doi": "https://doi.org/10.3390/land13081163"
     },
     {
       "id": "paper-42",
@@ -1551,8 +1578,10 @@ window.CV_CONTENT = {
       },
       "originalLanguage": "en",
       "sources": [
-        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
-      ]
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.3390/land13050651"
+      ],
+      "doi": "https://doi.org/10.3390/land13050651"
     },
     {
       "id": "paper-43",
@@ -1681,8 +1710,10 @@ window.CV_CONTENT = {
       },
       "originalLanguage": "en",
       "sources": [
-        "https://scholar.google.com/citations?user=gLpuU54AAAAJ"
-      ]
+        "https://scholar.google.com/citations?user=gLpuU54AAAAJ",
+        "https://api.crossref.org/works/10.1080/13504509.2026.2715132"
+      ],
+      "doi": "https://doi.org/10.1080/13504509.2026.2715132"
     },
     {
       "id": "paper-47",
@@ -1779,10 +1810,14 @@ window.CV_CONTENT = {
         "en": "Co-author"
       },
       "originalLanguage": "zh",
-      "doi": "https://ztkb.cbpt.cnki.net/portal/journal/portal/client/paper/d4c5afb353534711bd8c93967b0de2c2",
       "sources": [
         "https://ztkb.cbpt.cnki.net/portal/journal/portal/client/paper/d4c5afb353534711bd8c93967b0de2c2"
-      ]
+      ],
+      "articleUrl": "https://ztkb.cbpt.cnki.net/portal/journal/portal/client/paper/d4c5afb353534711bd8c93967b0de2c2",
+      "doiNote": {
+        "zh": "DOI待补充",
+        "en": "DOI pending"
+      }
     },
     {
       "id": "paper-50",
@@ -1810,7 +1845,12 @@ window.CV_CONTENT = {
         "zh": "合作作者",
         "en": "Co-author"
       },
-      "originalLanguage": "zh"
+      "originalLanguage": "zh",
+      "doiNote": {
+        "zh": "DOI待补充",
+        "en": "DOI pending"
+      },
+      "searchUrl": "https://scholar.google.com/scholar?q=%E9%95%BF%E6%B1%9F%E7%BB%8F%E6%B5%8E%E5%B8%A6%E4%B8%89%E5%A4%A7%E5%9F%8E%E5%B8%82%E7%BE%A4%E5%9B%BD%E5%9C%9F%E7%A9%BA%E9%97%B4%E5%88%A9%E7%94%A8%E6%95%88%E7%8E%87%E8%80%A6%E5%90%88%E5%8D%8F%E8%B0%83%E7%A0%94%E7%A9%B6"
     },
     {
       "id": "paper-51",

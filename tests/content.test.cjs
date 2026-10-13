@@ -52,6 +52,22 @@ test('the supplied complete list is deduplicated and the selected set is exact',
   }
 });
 
+test('DOI links are distinct from source pages and unresolved records remain explicit', () => {
+  const linked = content.publications.filter((paper) => paper.doi);
+  assert.equal(linked.length, 45);
+  for (const paper of linked) {
+    assert.match(paper.doi, /^https:\/\/doi\.org\/10\.\d{4,9}\/\S+$/);
+    assert(!paper.doiNote);
+  }
+  assert.deepEqual(content.publications.filter((paper) => !paper.doi).map((paper) => paper.id), ['paper-20','paper-49','paper-50']);
+  for (const paper of content.publications.filter((paper) => !paper.doi)) {
+    assert.equal(paper.doiNote.zh, 'DOI待补充');
+    assert(paper.articleUrl || paper.searchUrl);
+    assert(!new URL(paper.articleUrl || paper.searchUrl).hostname.includes('doi.org'));
+  }
+  assert.equal(content.publications.find((paper) => paper.id === 'paper-26').doi, 'https://doi.org/10.6043/j.issn.0438-0479.202410007');
+});
+
 test('the latest academic and project values have been preserved', () => {
   assert.equal(content.education[2].gpa, '3.68');
   assert.equal(content.education[0].rank, '3/48');

@@ -26,6 +26,8 @@
 
 新增题名、作者和年份以作者提供的清单为基础，已查到的DOI、页码与出版信息通过Crossref及期刊网站核对，未核实的卷期或链接留空。中文新增论文的英文题名用于辅助阅读。会议摘要单独标记类型，可从“会议摘要”筛选查看，不计入期刊论文的作者角色筛选。网页完整简历及打印版本已同步全部48条；Word下载仍为此前提供的公开版文档。
 
+45条成果已核实DOI，网页直接展示可点击的DOI编号，并在新标签打开。已录用的城市化与生物多样性综述及两篇长江经济带耦合协调论文尚未查到DOI，明确标注“DOI待补充”。期刊原文页面保存为`articleUrl`，题名检索地址保存为`searchUrl`，均不冒充DOI；后续由作者提供或在公开来源核实DOI后即可替换。
+
 出版信息核对参考：[资源开发与市场的城镇化耦合协调论文](https://ztkb.cbpt.cnki.net/portal/journal/portal/client/paper/d4c5afb353534711bd8c93967b0de2c2)、[地理研究的全球生态系统健康论文](https://www.dlyj.ac.cn/CN/lexeme/showArticleByLexeme.do?articleID=73744)、[EGU25-6392](https://meetingorganizer.copernicus.org/EGU25/EGU25-6392.html)、[EGU25-5566](https://meetingorganizer.copernicus.org/EGU25/EGU25-5566.html)。其余已核实条目的原文链接保存于公开数据。
 
 修改时应同步更新相关中英文条目。论文列表优先展示原文题名；英文界面为中文论文附上阅读辅助翻译。检索同时匹配中英文题名。期刊分区、影响因子及个人贡献描述不在页面中展示。

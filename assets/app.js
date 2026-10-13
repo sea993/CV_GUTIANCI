@@ -42,8 +42,10 @@
   strings.en.selected = 'Selected publications';
   strings.zh.conference = '会议摘要';
   strings.en.conference = 'Conference abstracts';
-  strings.zh.viewAbstract = '查看摘要';
-  strings.en.viewAbstract = 'Read abstract';
+  strings.zh.journalPage = '期刊页面';
+  strings.en.journalPage = 'Journal page';
+  strings.zh.findPaper = '检索论文';
+  strings.en.findPaper = 'Find article';
   const icon = (name, className) => '<svg class="' + className + '" aria-hidden="true"><use href="assets/icons.svg#' + name + '"></use></svg>';
   const setText = (id, value) => { if (byId(id)) byId(id).textContent = value; };
   const setHTML = (id, value) => { if (byId(id)) byId(id).innerHTML = value; };
@@ -104,6 +106,13 @@
     setHTML('publication-filters', options.map((option) => '<button type="button" class="filter-button" data-filter="' + option + '" aria-pressed="' + (filter === option) + '">' + escape(text(option)) + '</button>').join(''));
   }
 
+  function publicationLink(paper) {
+    if (paper.doi) return '<a class="doi-link" href="' + escape(paper.doi) + '" target="_blank" rel="noopener">DOI: ' + escape(paper.doi.replace('https://doi.org/', '')) + '</a>';
+    const note = paper.doiNote ? '<span class="doi-pending">' + escape(localized(paper.doiNote)) + '</span>' : '';
+    const fallback = paper.articleUrl || paper.searchUrl;
+    return note + (fallback ? '<a class="' + (paper.articleUrl ? 'journal-link' : 'paper-search-link') + '" href="' + escape(fallback) + '" target="_blank" rel="noopener">' + text(paper.articleUrl ? 'journalPage' : 'findPaper') + '</a>' : '');
+  }
+
   function renderPublications() {
     if (!byId('publication-list')) return;
     const keyword = query.trim().toLocaleLowerCase();
@@ -126,7 +135,7 @@
         '<' + heading + ' class="publication-title" lang="' + (paper.originalLanguage === 'zh' ? 'zh-CN' : 'en') + '">' + escape(title) + '</' + heading + '>' + translation +
         '<p class="authors">' + authors + '</p>' +
         '<p class="venue"><em>' + escape(localized(paper.venue)) + '</em>' + (citation ? ', ' + citation : '') + '</p>' +
-        (role || status || paper.doi ? '<p class="publication-notes">' + (role ? '<span>' + escape(role) + '</span>' : '') + status + (paper.doi ? '<a href="' + escape(paper.doi) + '" target="_blank" rel="noopener">' + text(paper.kind === 'conference' ? 'viewAbstract' : 'fullArticle') + '</a>' : '') + '</p>' : '') + '</div></article>';
+        '<p class="publication-notes">' + (role ? '<span>' + escape(role) + '</span>' : '') + status + publicationLink(paper) + '</p></div></article>';
     }).join(''));
   }
 
