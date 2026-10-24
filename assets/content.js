@@ -2428,6 +2428,25 @@ window.CV_CONTENT = {
   },
   "awards": [
     {
+      "sourceIndices": [],
+      "sourceType": "author-confirmed",
+      "sourceDate": "2026-10-24",
+      "text": {
+        "zh": "2026年入选中国科协青年科技人才培育工程博士生专项计划（由中国自然资源学会培育）",
+        "en": "2026 — Selected for the Doctoral Special Program under the CAST Young Sci-Tech Talent Cultivation Project, with mentoring by the China Society of Natural Resources."
+      },
+      "group": {
+        "zh": "博士期间",
+        "en": "Doctoral studies"
+      },
+      "displayTitle": {
+        "zh": "入选中国科协青年科技人才培育工程博士生专项计划（由中国自然资源学会培育）",
+        "en": "Selected for the CAST Young Sci-Tech Talent Cultivation Project, Doctoral Special Program (mentoring society: China Society of Natural Resources)"
+      },
+      "dates": "2026",
+      "sourceUrl": "https://www.csnr.org.cn/detail.html?contentId=1027&id=65"
+    },
+    {
       "text": {
         "zh": "2026年国家留学基金委（CSC）国家公派留学资助（留学资助） 国家级",
         "en": "2026 — China Scholarship Council (CSC) government-funded overseas study support. National level; funding support."
@@ -2463,6 +2482,42 @@ window.CV_CONTENT = {
       },
       "dates": "2025",
       "sourceUrl": "https://geo.bnu.edu.cn/tzgg/5480204dbde34811ad1b1cc280ff4a01.html"
+    },
+    {
+      "sourceIndices": [],
+      "sourceType": "author-confirmed",
+      "sourceDate": "2026-10-24",
+      "text": {
+        "zh": "2026年北京师范大学博士研究生学业一等奖学金（校级）",
+        "en": "2026 — First-class doctoral academic scholarship, Beijing Normal University. University level."
+      },
+      "group": {
+        "zh": "博士期间",
+        "en": "Doctoral studies"
+      },
+      "displayTitle": {
+        "zh": "北京师范大学博士研究生学业一等奖学金",
+        "en": "First-class doctoral academic scholarship, Beijing Normal University"
+      },
+      "dates": "2026"
+    },
+    {
+      "sourceIndices": [],
+      "sourceType": "author-confirmed",
+      "sourceDate": "2026-10-24",
+      "text": {
+        "zh": "2026年北京师范大学三好学生（校级）",
+        "en": "2026 — Merit Student, Beijing Normal University. University level."
+      },
+      "group": {
+        "zh": "博士期间",
+        "en": "Doctoral studies"
+      },
+      "displayTitle": {
+        "zh": "北京师范大学三好学生",
+        "en": "Merit Student, Beijing Normal University"
+      },
+      "dates": "2026"
     },
     {
       "text": {
@@ -3463,8 +3518,8 @@ window.CV_CONTENT = {
       "en": "He has led three university-funded research projects and one commissioned project, and participated in 11 additional projects: four supported by NSFC, one research task under the National Key R&D Program of China, three provincial or ministerial projects, and three commissioned by local governments."
     },
     "awards": {
-      "zh": "曾获国家公派留学资助及多项国家级竞赛奖励，并获学业、学术交流和学生工作方面的校院级荣誉。",
-      "en": "He has received government-funded overseas study support and multiple national competition awards, alongside university and faculty honors for academic performance, scholarly exchange and student service."
+      "zh": "入选中国科协青年科技人才培育工程博士生专项计划，并获国家公派留学资助、多项国家级竞赛奖励及校院级荣誉。",
+      "en": "He was selected for the Doctoral Special Program under the CAST Young Sci-Tech Talent Cultivation Project and has received government-funded overseas study support, national competition awards and university honors."
     },
     "service": {
       "zh": "多次承担学生工作并参与学术服务，有两项政策建议被九三学社中央采用并获湖北省委批示。",

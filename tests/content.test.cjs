@@ -9,7 +9,7 @@ test('the complete resume collections are present', () => {
   assert.equal(content.education.length, 3);
   assert.equal(content.publications.length, 48);
   assert.equal(content.projects.length, 15);
-  assert.equal(content.awards.length, 23);
+  assert.equal(content.awards.length, 26);
   assert.equal(content.skills.length, 5);
   assert.equal(content.services.length, 34);
 });
@@ -122,10 +122,26 @@ test('concise presentation retains the source facts and correct author roles', (
   assert(content.publications.every((paper) => !paper.role.zh.includes('唯一')));
   assert.equal(content.publications[2].role.zh, '共同第一作者');
   assert(content.projects.every((item) => item.displayTitle.zh && item.program.en && item.dates && item.text.zh));
-  for (const index of [1,2,4,5,6,7,8]) assert(content.awards[index].displayTitle.zh.startsWith('北京师范大学'));
-  assert(content.awards[5].displayTitle.zh.includes('第九届研究生学术能力竞赛二等奖'));
+  const doctoralUniversityAwards = content.awards.filter(a=>a.group.zh==='博士期间'&&/校 ?级|学部级/.test(a.text.zh));
+  assert.equal(doctoralUniversityAwards.length,9);
+  assert(doctoralUniversityAwards.every(a=>a.displayTitle.zh.startsWith('北京师范大学')));
+  assert(content.awards.some(a=>a.displayTitle.zh.includes('第九届研究生学术能力竞赛二等奖')));
   assert(content.skills.every((item) => item.shortText.zh && item.shortText.en));
   assert(!content.services.find((item) => item.kind === 'policy').text.zh.includes('政策建议成果：'));
+});
+
+test('the three confirmed 2026 honors retain the 2025 scholarship and mentoring society', () => {
+  const doctoral=content.awards.filter(a=>a.group.zh==='博士期间');
+  assert.equal(doctoral.length,12);
+  const scholarships=doctoral.filter(a=>a.displayTitle.zh==='北京师范大学博士研究生学业一等奖学金');
+  assert.deepEqual(scholarships.map(a=>a.dates).sort(),['2025','2026']);
+  assert.equal(doctoral.filter(a=>a.dates==='2026'&&a.displayTitle.zh==='北京师范大学三好学生').length,1);
+  const selected=doctoral.filter(a=>a.dates==='2026'&&a.displayTitle.zh.includes('中国科协青年科技人才培育工程博士生专项计划'));
+  assert.equal(selected.length,1);
+  assert(selected[0].displayTitle.zh.includes('由中国自然资源学会培育'));
+  assert(selected[0].displayTitle.en.includes('China Society of Natural Resources'));
+  assert.equal(selected[0].sourceType,'author-confirmed');
+  assert.equal(content.projects.length,15);
 });
 
 test('browser data is synchronized with the editable content file', () => {

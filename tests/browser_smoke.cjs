@@ -240,7 +240,7 @@ const routes = {about:'index.html',publications:'publications.html',projects:'pr
             check(await page.locator('.contribution,.paper-meta').count()===0,'Publication metadata blocks remain');
           }
           if (key==='projects') check(await page.locator('#project-list li').count()===15,'Projects missing');
-          if (key==='awards') check(await page.locator('#award-list li').count()===23,'Awards missing');
+          if (key==='awards') check(await page.locator('#award-list li').count()===26,'Awards missing');
           if (key==='service') {
             check(await page.locator('.service-entry').count()===12,'Service entries missing');
             check((await page.locator('.policy-list').innerText()).includes('·') && !body.includes('政策建议成果：'),'Policy entry has incorrect formatting');
