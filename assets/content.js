@@ -50,8 +50,8 @@ window.CV_CONTENT = {
         "en": "Tianci Gu is a PhD student in Natural Resources at the Faculty of Geographical Science, Beijing Normal University. Born in 1999, he is from Juye, Shandong, and is a member of the Communist Party of China. His research focuses on the local and distant ecological effects of urbanization and biodiversity conservation."
       },
       {
-        "zh": "谷歌学术总引用1169次，h指数20。已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文8篇。另以第二作者参与5篇论文，均由导师担任第一作者，其中4篇已发表、1篇已录用。据个人简历材料，4篇成果入选ESI高被引论文。成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
-        "en": "His Google Scholar profile records 1,169 citations and an h-index of 20. He is first or co-first author of four published papers and corresponding or co-corresponding author of eight. He is also second author of five papers with his supervisor as first author: four published articles and one accepted article. His CV lists four ESI Highly Cited Papers. His work has appeared in npj Urban Sustainability, Earth’s Future and other journals."
+        "zh": "谷歌学术总引用1169次，h指数20。已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文7篇。另以第二作者参与5篇论文，均由导师担任第一作者，其中4篇已发表、1篇已录用。据个人简历材料，4篇成果入选ESI高被引论文。成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
+        "en": "His Google Scholar profile records 1,169 citations and an h-index of 20. He is first or co-first author of four published papers and corresponding or co-corresponding author of seven. He is also second author of five papers with his supervisor as first author: four published articles and one accepted article. His CV lists four ESI Highly Cited Papers. His work has appeared in npj Urban Sustainability, Earth’s Future and other journals."
       },
       {
         "zh": "主持校级课题3项和横向项目1项，参与科研项目11项，涵盖国家重点研发计划、国家自然科学基金、省部级及地方政府委托项目。曾获国家级及校院级奖励。两项政策建议被九三学社中央采用，并获湖北省委批示。",
@@ -94,8 +94,8 @@ window.CV_CONTENT = {
     }
   ],
   "summary": {
-    "zh": "已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文8篇，另以第二作者参与5篇论文，均由导师担任第一作者；ESI高被引论文4篇。成果发表于npj Urban Sustainability、Earth's Future、Environmental Impact Assessment Review等期刊。",
-    "en": "He has published four first- or co-first-authored papers and eight corresponding- or co-corresponding-authored papers. He is also second author on five papers in which his supervisor is first author. Four papers are ESI highly cited papers. His work has appeared in npj Urban Sustainability, Earth’s Future and Environmental Impact Assessment Review."
+    "zh": "已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文7篇，另以第二作者参与5篇论文，均由导师担任第一作者；ESI高被引论文4篇。成果发表于npj Urban Sustainability、Earth's Future、Environmental Impact Assessment Review等期刊。",
+    "en": "He has published four first- or co-first-authored papers and seven corresponding- or co-corresponding-authored papers. He is also second author on five papers in which his supervisor is first author. Four papers are ESI highly cited papers. His work has appeared in npj Urban Sustainability, Earth’s Future and Environmental Impact Assessment Review."
   },
   "metricsNote": {
     "zh": "Google Scholar，2026年10月12日更新。",
@@ -490,8 +490,8 @@ window.CV_CONTENT = {
         "en": "Effectiveness of nature reserves in China: Human footprint and ecosystem services perspective"
       },
       "authors": {
-        "zh": "Yang, X., Gu, T., & Wang, S",
-        "en": "Yang, X., Gu, T., & Wang, S"
+        "zh": "Yang, X., Gu, T.*, & Wang, S.*",
+        "en": "Yang, X., Gu, T.*, & Wang, S.*"
       },
       "venue": {
         "zh": "Applied Geography",
@@ -666,42 +666,6 @@ window.CV_CONTENT = {
       ],
       "topics": [
         "land-use"
-      ]
-    },
-    {
-      "id": "paper-13",
-      "category": "corresponding",
-      "status": "published",
-      "title": {
-        "zh": "城市历史文化街区景观特征评估与增强地方依恋的景观设计——以西安三学街历史文化街区为例",
-        "en": "Landscape character assessment of urban historical and cultural blocks and landscape design for place attachment enhancement-a case study of Sanxuejie Historical and Cultural Block in Xi'an, China"
-      },
-      "authors": {
-        "zh": "Fan, J., Li, K., & Gu, T.*",
-        "en": "Fan, J., Li, K., & Gu, T.*"
-      },
-      "venue": {
-        "zh": "Journal of Asian Architecture and Building Engineering",
-        "en": "Journal of Asian Architecture and Building Engineering"
-      },
-      "year": "2026",
-      "reference": "25(4), 3761-3779",
-      "metadata": {
-        "zh": "通讯/SCI/中科院三区/IF 1.8",
-        "en": "Corresponding author/SCI/CAS Q3/IF 1.8"
-      },
-      "role": {
-        "zh": "通讯作者",
-        "en": "Corresponding author"
-      },
-      "contribution": null,
-      "sourceIndices": [
-        39
-      ],
-      "originalLanguage": "en",
-      "doi": "https://doi.org/10.1080/13467581.2025.2510607",
-      "topics": [
-        "urban-form"
       ]
     },
     {
@@ -1784,6 +1748,42 @@ window.CV_CONTENT = {
       "topics": [
         "biodiversity",
         "land-use"
+      ]
+    },
+    {
+      "id": "paper-13",
+      "category": "collaborative",
+      "status": "published",
+      "title": {
+        "zh": "城市历史文化街区景观特征评估与增强地方依恋的景观设计——以西安三学街历史文化街区为例",
+        "en": "Landscape character assessment of urban historical and cultural blocks and landscape design for place attachment enhancement-a case study of Sanxuejie Historical and Cultural Block in Xi'an, China"
+      },
+      "authors": {
+        "zh": "Fan, J., Li, K., & Gu, T.",
+        "en": "Fan, J., Li, K., & Gu, T."
+      },
+      "venue": {
+        "zh": "Journal of Asian Architecture and Building Engineering",
+        "en": "Journal of Asian Architecture and Building Engineering"
+      },
+      "year": "2026",
+      "reference": "25(4), 3761-3779",
+      "metadata": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "role": {
+        "zh": "合作作者",
+        "en": "Co-author"
+      },
+      "contribution": null,
+      "sourceIndices": [
+        39
+      ],
+      "originalLanguage": "en",
+      "doi": "https://doi.org/10.1080/13467581.2025.2510607",
+      "topics": [
+        "urban-form"
       ]
     },
     {
@@ -3391,8 +3391,8 @@ window.CV_CONTENT = {
   ],
   "biography": [
     {
-      "zh": "谷歌学术总引用1169次，h指数20。已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文8篇。另以第二作者参与5篇论文，均由导师担任第一作者，其中4篇已发表、1篇已录用。据个人简历材料，4篇成果入选ESI高被引论文。成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
-      "en": "His Google Scholar profile records 1,169 citations and an h-index of 20. He is first or co-first author of four published papers and corresponding or co-corresponding author of eight. He is also second author of five papers with his supervisor as first author: four published articles and one accepted article. His CV lists four ESI Highly Cited Papers. His work has appeared in npj Urban Sustainability, Earth’s Future and other journals."
+      "zh": "谷歌学术总引用1169次，h指数20。已发表第一或共同第一作者论文4篇、通讯或共同通讯作者论文7篇。另以第二作者参与5篇论文，均由导师担任第一作者，其中4篇已发表、1篇已录用。据个人简历材料，4篇成果入选ESI高被引论文。成果发表于npj Urban Sustainability、Earth’s Future等期刊。",
+      "en": "His Google Scholar profile records 1,169 citations and an h-index of 20. He is first or co-first author of four published papers and corresponding or co-corresponding author of seven. He is also second author of five papers with his supervisor as first author: four published articles and one accepted article. His CV lists four ESI Highly Cited Papers. His work has appeared in npj Urban Sustainability, Earth’s Future and other journals."
     },
     {
       "zh": "主持校级课题3项和横向项目1项，参与科研项目11项，涵盖国家重点研发计划、国家自然科学基金、省部级及地方政府委托项目。曾获国家级及校院级奖励。两项政策建议被九三学社中央采用，并获湖北省委批示。",

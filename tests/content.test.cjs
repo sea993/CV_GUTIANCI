@@ -83,6 +83,22 @@ test('publication order prioritizes author roles and the specified corresponding
   assert(content.publications.slice(-2).every((paper) => paper.kind === 'conference'));
 });
 
+test('the author-confirmed corresponding roles and both co-corresponding asterisks are correct', () => {
+  const landscape = content.publications.find(p=>p.doi==='https://doi.org/10.1080/13467581.2025.2510607');
+  const reserves = content.publications.find(p=>p.doi==='https://doi.org/10.1016/j.apgeog.2024.103359');
+  assert.equal(landscape.category,'collaborative');
+  assert.equal(landscape.role.zh,'合作作者');
+  for(const language of ['zh','en']) {
+    assert.equal(landscape.authors[language],'Fan, J., Li, K., & Gu, T.');
+    assert.equal(reserves.authors[language],'Yang, X., Gu, T.*, & Wang, S.*');
+  }
+  assert.equal(reserves.category,'corresponding');
+  assert.equal(reserves.role.zh,'共同通讯作者');
+  assert(content.publications.indexOf(landscape)<content.publications.findIndex(p=>p.id==='paper-29'));
+  assert(!JSON.stringify(content).includes('通讯或共同通讯作者论文8篇'));
+  assert(!JSON.stringify(content).includes('corresponding or co-corresponding author of eight'));
+});
+
 test('the latest academic and project values have been preserved', () => {
   assert.equal(content.education[2].gpa, '3.68');
   assert.equal(content.education[0].rank, '3/48');
@@ -120,7 +136,7 @@ test('browser data is synchronized with the editable content file', () => {
 test('overview counts separate publication status and project sources', () => {
   const published = content.publications.filter(p=>p.status==='published'&&p.kind!=='conference');
   assert.equal(published.length,45);
-  assert.deepEqual(['first','corresponding','second','collaborative'].map(role=>published.filter(p=>p.category===role).length),[4,8,4,29]);
+  assert.deepEqual(['first','corresponding','second','collaborative'].map(role=>published.filter(p=>p.category===role).length),[4,7,4,30]);
   assert.deepEqual(['nsfc','key-rd','provincial','university','commissioned'].map(source=>content.projects.filter(p=>p.source===source).length),[4,1,3,3,4]);
   assert.equal(content.projects.filter(p=>p.role==='led').length,4);
   assert.equal(new Set(content.projects.map(p=>p.id)).size,15);
